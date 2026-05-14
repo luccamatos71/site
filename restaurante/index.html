@@ -345,9 +345,34 @@
     .lp-anchor-grid {
       margin-top: 2.5rem;
       display: grid;
-      grid-template-columns: 1fr 1px 1fr;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
       gap: 2.5rem;
       align-items: center;
+    }
+
+    .lp-anchor-side.highlight {
+      position: relative;
+      border-color: var(--border-gold);
+      box-shadow: 0 0 28px rgba(200, 160, 85, 0.1);
+    }
+
+    .lp-anchor-badge {
+      display: inline-block;
+      margin-bottom: 0.85rem;
+      padding: 0.25rem 0.7rem;
+      background: rgba(200, 160, 85, 0.1);
+      border: 1px solid var(--border-gold);
+      border-radius: 999px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .lp-anchor-value.neutral {
+      color: var(--text-secondary);
     }
 
     .lp-anchor-divider {
@@ -814,10 +839,19 @@
 
       .lp-anchor-side {
         padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border-subtle);
       }
 
-      .lp-anchor-side:first-child {
-        border-bottom: 1px solid var(--border-subtle);
+      .lp-anchor-side:last-child {
+        border-bottom: none;
+      }
+
+      .lp-anchor-side.highlight {
+        border: 1px solid var(--border-gold);
+        border-radius: var(--radius-card);
+        padding: 1.5rem;
+        margin: 0.5rem 0;
+        box-shadow: 0 0 20px rgba(200,160,85,0.08);
       }
 
       .lp-steps {
@@ -843,6 +877,14 @@
       .lp-cta-actions .btn {
         width: 100%;
         justify-content: center;
+      }
+
+      .lp-hero {
+        padding-top: clamp(3rem, 8vw, 5rem);
+      }
+
+      .lp-hero h1 {
+        font-size: clamp(2.2rem, 9vw, 2.8rem);
       }
     }
   </style>
@@ -1079,6 +1121,14 @@
 
         <div class="lp-anchor-grid">
           <div class="lp-anchor-side card">
+            <p class="lp-anchor-label">Continuar como está</p>
+            <p class="lp-anchor-value neutral">∞</p>
+            <p class="lp-anchor-sub">Pedidos perdidos. Reputação em risco.<br>Caos todo dia. Sem previsão de melhora.</p>
+          </div>
+
+          <div class="lp-anchor-divider"></div>
+
+          <div class="lp-anchor-side card">
             <p class="lp-anchor-label">iFood — por mês</p>
             <p class="lp-anchor-value bad">R$&thinsp;810</p>
             <p class="lp-anchor-sub">de comissão pra quem faz R$3k em delivery.<br>Todo mês. Para sempre.</p>
@@ -1086,10 +1136,11 @@
 
           <div class="lp-anchor-divider"></div>
 
-          <div class="lp-anchor-side card">
+          <div class="lp-anchor-side card highlight">
+            <p class="lp-anchor-badge">Melhor escolha</p>
             <p class="lp-anchor-label">Implantação Expressa — uma vez</p>
             <p class="lp-anchor-value good">R$&thinsp;697</p>
-            <p class="lp-anchor-sub"><strong>Zero mensalidade. Zero taxa. Zero contrato.</strong><br>Pago uma vez. Seu para sempre.</p>
+            <p class="lp-anchor-sub"><strong>Zero mensalidade. Sem iFood. Sem caos.</strong><br>Pago uma vez. Seu para sempre.</p>
           </div>
         </div>
 
@@ -1123,7 +1174,7 @@
           <article class="lp-step card">
             <div class="lp-step-number">03</div>
             <h3>Seu WhatsApp começa a funcionar</h3>
-            <p>Pedidos organizados, sem caos, sem confusão. Seu cliente pede direto e você atende sem perder nada.</p>
+            <p>Pedidos chegam organizados automaticamente. Nenhum se perde. Nenhum fica sem resposta. Você atende mais com menos esforço.</p>
             <span class="lp-step-tag">em até 7 dias úteis</span>
           </article>
         </div>
@@ -1158,6 +1209,18 @@
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
                 <p><strong>Zero.</strong> Sem mensalidade, sem taxa de manutenção, sem renovação anual, sem contrato de fidelidade. Você paga R$697 uma única vez e o sistema é seu. Ponto final.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="lp-faq-item">
+            <div class="lp-faq-question">
+              <h3>Como é feito o pagamento?</h3>
+              <span class="lp-faq-toggle">+</span>
+            </div>
+            <div class="lp-faq-answer">
+              <div class="lp-faq-answer-inner">
+                <p>PIX, cartão de crédito ou débito. Após o pagamento, a Lumyn entra em contato pelo WhatsApp para iniciar a implantação — geralmente no mesmo dia.</p>
               </div>
             </div>
           </article>
