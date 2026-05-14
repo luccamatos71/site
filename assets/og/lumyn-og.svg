@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#070708"/>
+      <stop offset="1" stop-color="#111113"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="68" y="68" width="1064" height="494" rx="24" stroke="rgba(200,160,85,0.35)"/>
+  <text x="96" y="205" fill="#C8A055" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="8">ASSESSORIA DE CRESCIMENTO</text>
+  <text x="96" y="315" fill="#EDEDF0" font-family="Georgia, serif" font-size="82">Para negócios que querem</text>
+  <text x="96" y="406" fill="#EDEDF0" font-family="Georgia, serif" font-size="82">crescer com controle.</text>
+  <text x="96" y="500" fill="#9A9AAA" font-family="Manrope, Arial, sans-serif" font-size="34">Estratégia • Operação • Automação • CRM • IA aplicada</text>
+  <text x="96" y="556" fill="#C8A055" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="6">LUMYN</text>
+</svg>

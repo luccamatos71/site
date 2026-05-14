@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/links.html",
+      "destination": "/links",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.lumynassessoria.com"
+        }
+      ],
+      "destination": "https://lumynassessoria.com/:path*",
+      "permanent": true
+    }
+  ]
+}

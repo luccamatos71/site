@@ -1,0 +1,87 @@
+:root {
+  --bg-canvas: #070708;
+  --gold: #c8a055;
+  --text-primary: #ededf0;
+  --text-secondary: #9a9aaa;
+  --text-muted: #606070;
+  --border-gold: rgba(200, 160, 85, 0.3);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  font-family: "Manrope", sans-serif;
+  background:
+    radial-gradient(ellipse 700px 480px at 8% 0%, rgba(200, 160, 85, 0.08), transparent 68%),
+    radial-gradient(ellipse 500px 300px at 95% 100%, rgba(200, 160, 85, 0.05), transparent 68%),
+    var(--bg-canvas);
+  color: var(--text-primary);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.links-wrap {
+  width: min(100%, 420px);
+  text-align: center;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.tagline {
+  margin: 0.75rem 0 1.8rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+#links-buttons {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.link-btn {
+  display: block;
+  width: 100%;
+  padding: 0.95rem 1.5rem;
+  border: 1px solid var(--border-gold);
+  border-radius: 9999px;
+  color: var(--text-primary);
+  text-decoration: none;
+  text-align: center;
+  font: 600 0.95rem "Manrope", sans-serif;
+  transition: all 0.25s ease;
+}
+
+.link-btn:hover {
+  background: rgba(200, 160, 85, 0.1);
+  color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.link-btn.primary {
+  background: rgba(200, 160, 85, 0.12);
+  border-color: rgba(200, 160, 85, 0.6);
+  color: var(--gold);
+}
+
+.footer {
+  margin-top: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}

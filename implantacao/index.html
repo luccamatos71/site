@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cardápio Digital + WhatsApp Organizado — Lumyn</title>
+  <meta name="description" content="Cardápio digital com link próprio e WhatsApp organizado para receber pedidos. Implantado em até 7 dias. R$697 uma vez, sem mensalidade.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#070708">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cardápio Digital + WhatsApp Organizado — Lumyn">
+  <meta property="og:description" content="R$697 uma vez. Sem mensalidade. Implantado em até 7 dias úteis.">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    /* ── Landing-specific overrides ── */
+
+    .lp-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid transparent;
+      transition: backdrop-filter 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .lp-header.scrolled {
+      backdrop-filter: blur(16px);
+      background: rgba(7, 7, 8, 0.9);
+      border-color: var(--border-subtle);
+    }
+
+    .lp-header-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    /* ── Hero ── */
+
+    .lp-hero {
+      position: relative;
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
+      background:
+        radial-gradient(ellipse 900px 500px at 0% 0%, rgba(200, 160, 85, 0.11), transparent 65%),
+        radial-gradient(ellipse 600px 400px at 100% 100%, rgba(200, 160, 85, 0.07), transparent 65%),
+        #070708;
+      isolation: isolate;
+    }
+
+    .lp-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.6)'/%3E%3C/svg%3E");
+      background-size: 24px 24px;
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    .lp-hero-inner {
+      max-width: 760px;
+    }
+
+    .lp-hero h1 {
+      margin-top: 0.75rem;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+    }
+
+    .lp-hero-sub {
+      margin-top: 1.25rem;
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: var(--text-secondary);
+      max-width: 55ch;
+    }
+
+    .lp-price-badge {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-top: 2rem;
+      padding: 0.75rem 1.25rem;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-card);
+      background: rgba(200, 160, 85, 0.07);
+    }
+
+    .lp-price-badge strong {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.6rem;
+      color: var(--gold-bright);
+      font-weight: 500;
+    }
+
+    .lp-price-badge span {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .lp-hero-cta {
+      margin-top: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+
+    .lp-hero-cta .btn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
+
+    .lp-zero-fee {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .lp-zero-fee::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── Dores ── */
+
+    .lp-pain-grid {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+
+    .lp-pain-item {
+      background: var(--bg-surface);
+      padding: 2rem 1.75rem;
+      transition: background-color 0.25s ease;
+    }
+
+    .lp-pain-item:hover {
+      background: var(--bg-elevated);
+    }
+
+    .lp-pain-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .lp-pain-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .lp-pain-item p {
+      margin-top: 0.4rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── O que você recebe ── */
+
+    .lp-deliverables {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .lp-deliverable-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      background: var(--bg-surface);
+      transition: border-color 0.25s ease;
+    }
+
+    .lp-deliverable-item:hover {
+      border-color: var(--border-gold);
+    }
+
+    .lp-deliverable-check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(200, 160, 85, 0.15);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--gold);
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .lp-deliverable-text h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .lp-deliverable-text p {
+      margin-top: 0.25rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Destaque zero mensalidade ── */
+
+    .lp-zero-monthly {
+      margin-top: 2rem;
+      padding: 1.75rem 2rem;
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-card);
+      background: rgba(200, 160, 85, 0.06);
+      text-align: center;
+    }
+
+    .lp-zero-monthly h3 {
+      font-family: "Playfair Display", serif;
+      font-weight: 400;
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      color: var(--text-primary);
+    }
+
+    .lp-zero-monthly h3 em {
+      font-style: italic;
+      color: var(--gold-bright);
+    }
+
+    .lp-zero-monthly p {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Âncora de preço ── */
+
+    .lp-anchor-section {
+      background: var(--bg-surface);
+    }
+
+    .lp-anchor-grid {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .lp-anchor-divider {
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, var(--border-gold), transparent);
+    }
+
+    .lp-anchor-side {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .lp-anchor-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .lp-anchor-value {
+      font-family: "JetBrains Mono", monospace;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .lp-anchor-value.bad {
+      color: #d14;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
+    .lp-anchor-value.good {
+      color: var(--gold-bright);
+    }
+
+    .lp-anchor-sub {
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Como funciona ── */
+
+    .lp-steps {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .lp-step {
+      position: relative;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      background: var(--bg-surface);
+    }
+
+    .lp-step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border-gold);
+      background: rgba(200, 160, 85, 0.08);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .lp-step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .lp-step p {
+      margin-top: 0.4rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── FAQ ── */
+
+    .lp-faq-section {
+      background: var(--bg-surface);
+    }
+
+    .lp-faq-list {
+      margin-top: 2rem;
+      display: grid;
+      gap: 1px;
+      background: var(--border-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+
+    .lp-faq-item {
+      background: var(--bg-elevated);
+      padding: 1.6rem 1.75rem;
+    }
+
+    .lp-faq-item h3 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .lp-faq-item p {
+      margin-top: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .lp-faq-item p strong {
+      color: var(--gold-bright);
+    }
+
+    /* ── CTA Final ── */
+
+    .lp-cta-final {
+      text-align: center;
+      padding: clamp(5rem, 9vw, 8rem) 0;
+      background: var(--bg-elevated);
+      border-top: 1px solid transparent;
+      position: relative;
+    }
+
+    .lp-cta-final::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .lp-cta-final h2 {
+      max-width: 18ch;
+      margin-inline: auto;
+    }
+
+    .lp-cta-final .lp-cta-sub {
+      margin-top: 1rem;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+    }
+
+    .lp-cta-final .lp-cta-sub strong {
+      color: var(--gold-bright);
+    }
+
+    .lp-cta-actions {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .lp-cta-actions .btn {
+      padding: 1.1rem 2.5rem;
+      font-size: 1rem;
+    }
+
+    .lp-cta-guarantee {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .lp-guarantee-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .lp-guarantee-item::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── Footer mínimo ── */
+
+    .lp-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.5rem 0;
+      background: var(--bg-canvas);
+    }
+
+    .lp-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .lp-footer p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .lp-footer a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .lp-footer a:hover {
+      color: var(--text-secondary);
+    }
+
+    /* ── Responsivo ── */
+
+    @media (max-width: 860px) {
+      .lp-pain-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-deliverables {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-anchor-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .lp-anchor-divider {
+        display: none;
+      }
+
+      .lp-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-cta-guarantee {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .lp-footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .lp-hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .lp-zero-monthly {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .lp-cta-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header mínimo -->
+  <header class="lp-header" id="lp-header">
+    <div class="container lp-header-inner">
+      <a class="brand" href="https://lumynassessoria.com" aria-label="Lumyn">LUMYN</a>
+      <a
+        class="btn btn-primary btn-header"
+        data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
+        data-track="click_whatsapp"
+        data-track-location="header_lp">
+        Falar com a Lumyn
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="lp-hero">
+      <div class="container">
+        <div class="lp-hero-inner">
+          <p class="eyebrow">IMPLANTAÇÃO EXPRESSA</p>
+          <h1>Seu restaurante perde pedido todo dia porque o WhatsApp é um <span>caos.</span></h1>
+          <p class="lp-hero-sub">
+            Em até 7 dias úteis, a Lumyn organiza tudo — cardápio digital com link próprio e WhatsApp configurado certinho para receber pedidos. Sem você precisar aprender nada.
+          </p>
+
+          <div class="lp-price-badge">
+            <strong>R$&thinsp;697</strong>
+            <span>— pagamento único. Sem mensalidade. Sem manutenção.</span>
+          </div>
+
+          <div class="lp-hero-cta">
+            <a
+              class="btn btn-primary"
+              data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
+              data-track="click_whatsapp"
+              data-track-location="hero_lp">
+              Quero organizar meu restaurante →
+            </a>
+            <p class="lp-zero-fee">Sem taxa mensal &nbsp;·&nbsp; Sem contrato &nbsp;·&nbsp; Sem mensalidade jamais</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dores -->
+    <section class="section" id="problema">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">O PROBLEMA REAL</p>
+          <h2>Você reconhece algum desses?</h2>
+        </div>
+
+        <div class="lp-pain-grid">
+          <article class="lp-pain-item card">
+            <div class="lp-pain-icon">📱</div>
+            <h3>WhatsApp bombardeado</h3>
+            <p>20 mensagens ao mesmo tempo. "Tem cardápio?", "Aceita pix?", "Quanto custa?" — e o cliente fica sem resposta porque é impossível dar conta de tudo.</p>
+          </article>
+
+          <article class="lp-pain-item card">
+            <div class="lp-pain-icon">📦</div>
+            <h3>Pedido perdido ou errado</h3>
+            <p>Sem fluxo definido, o pedido some no meio da conversa. O cliente fica insatisfeito. Você perde a venda e ainda mancha a reputação do restaurante.</p>
+          </article>
+
+          <article class="lp-pain-item card">
+            <div class="lp-pain-icon">💸</div>
+            <h3>iFood levando 27% de cada pedido</h3>
+            <p>Quem faz R$3.000/mês em delivery paga R$810 por mês de comissão. Seu cliente já usa WhatsApp — o problema é que o seu não está preparado para receber direto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- O que você recebe -->
+    <section class="section" style="background: var(--bg-surface);" id="entrega">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">O QUE VOCÊ RECEBE</p>
+          <h2>Tudo configurado. Feito pela Lumyn.</h2>
+        </div>
+
+        <div class="lp-deliverables">
+          <article class="lp-deliverable-item card">
+            <div class="lp-deliverable-check">✓</div>
+            <div class="lp-deliverable-text">
+              <h4>Cardápio digital com link próprio</h4>
+              <p>Sem app. Funciona direto no WhatsApp. O cliente acessa, vê os produtos e preços, e já manda o pedido.</p>
+            </div>
+          </article>
+
+          <article class="lp-deliverable-item card">
+            <div class="lp-deliverable-check">✓</div>
+            <div class="lp-deliverable-text">
+              <h4>Mensagem automática de boas-vindas</h4>
+              <p>Quando o cliente mandar mensagem, já recebe uma resposta com o cardápio e as instruções de pedido — sem você precisar fazer nada.</p>
+            </div>
+          </article>
+
+          <article class="lp-deliverable-item card">
+            <div class="lp-deliverable-check">✓</div>
+            <div class="lp-deliverable-text">
+              <h4>Fluxo de atendimento definido</h4>
+              <p>Como responder, o que fixar, onde colocar o cardápio. Tudo organizado para que nenhum pedido se perca mais.</p>
+            </div>
+          </article>
+
+          <article class="lp-deliverable-item card">
+            <div class="lp-deliverable-check">✓</div>
+            <div class="lp-deliverable-text">
+              <h4>Orientação completa para usar e atualizar</h4>
+              <p>Você aprende a atualizar preços e produtos quando precisar. Simples, sem depender de ninguém.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="lp-zero-monthly">
+          <h3>R$&thinsp;697 <em>uma vez.</em><br>Nada mais. Nunca mais.</h3>
+          <p>Sem mensalidade. Sem taxa de manutenção. Sem contrato de fidelidade. Você paga uma vez e o sistema é seu para sempre.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Âncora de preço -->
+    <section class="section lp-anchor-section" id="preco">
+      <div class="container">
+        <div class="section-head" style="text-align: center; display: block;">
+          <p class="eyebrow" style="text-align: center;">COMPARE</p>
+          <h2>Quanto custa continuar como está?</h2>
+        </div>
+
+        <div class="lp-anchor-grid">
+          <div class="lp-anchor-side card">
+            <p class="lp-anchor-label">iFood — por mês</p>
+            <p class="lp-anchor-value bad">R$&thinsp;810</p>
+            <p class="lp-anchor-sub">de comissão pra quem faz R$3k em delivery.<br>Todo mês. Para sempre.</p>
+          </div>
+
+          <div class="lp-anchor-divider"></div>
+
+          <div class="lp-anchor-side card">
+            <p class="lp-anchor-label">Implantação Expressa — uma vez</p>
+            <p class="lp-anchor-value good">R$&thinsp;697</p>
+            <p class="lp-anchor-sub">Cardápio + WhatsApp organizado.<br><strong style="color: var(--gold-bright);">Zero mensalidade. Zero taxa. Zero contrato.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como funciona -->
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">COMO FUNCIONA</p>
+          <h2>3 passos. Feito em até 7 dias úteis.</h2>
+        </div>
+
+        <div class="lp-steps">
+          <article class="lp-step card">
+            <div class="lp-step-number">01</div>
+            <h3>Você fala com a Lumyn</h3>
+            <p>Pelo WhatsApp mesmo. A gente entende o seu restaurante, o cardápio e como você recebe pedidos hoje.</p>
+          </article>
+
+          <article class="lp-step card">
+            <div class="lp-step-number">02</div>
+            <h3>A gente configura tudo</h3>
+            <p>Cardápio digital, mensagem automática, fluxo de atendimento. Feito pela Lumyn — você não precisa mexer em nada.</p>
+          </article>
+
+          <article class="lp-step card">
+            <div class="lp-step-number">03</div>
+            <h3>Seu WhatsApp começa a funcionar</h3>
+            <p>Em até 7 dias úteis, seu restaurante está com tudo organizado para receber pedidos sem caos e sem confusão.</p>
+          </article>
+        </div>
+
+        <div style="margin-top: 2.5rem; text-align: center;">
+          <a
+            class="btn btn-primary btn-large"
+            data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
+            data-track="click_whatsapp"
+            data-track-location="steps_lp">
+            Quero começar agora →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section lp-faq-section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">PERGUNTAS FREQUENTES</p>
+          <h2>Tira as dúvidas antes de falar com a gente.</h2>
+        </div>
+
+        <div class="lp-faq-list">
+          <article class="lp-faq-item">
+            <h3>Preciso saber mexer com tecnologia?</h3>
+            <p>Não. A Lumyn configura tudo. Você só precisa ter um WhatsApp Business (se ainda não tiver, a gente orienta a criar). Não precisa aprender nada técnico.</p>
+          </article>
+
+          <article class="lp-faq-item">
+            <h3>Funciona no meu WhatsApp normal, sem app separado?</h3>
+            <p>Sim. O cardápio digital tem um link próprio que funciona no WhatsApp normalmente. O cliente acessa pelo link, vê o cardápio e manda o pedido — tudo dentro do WhatsApp mesmo.</p>
+          </article>
+
+          <article class="lp-faq-item">
+            <h3>Realmente não pago nada todo mês?</h3>
+            <p><strong>Zero.</strong> Sem mensalidade, sem taxa de manutenção, sem renovação anual, sem contrato de fidelidade. Você paga R$697 uma única vez e o sistema é seu. Ponto final.</p>
+          </article>
+
+          <article class="lp-faq-item">
+            <h3>E se eu precisar atualizar o cardápio depois?</h3>
+            <p>A gente te orienta como fazer isso sozinho. É simples — você não vai precisar chamar ninguém nem pagar nada extra para trocar preços ou adicionar itens.</p>
+          </article>
+
+          <article class="lp-faq-item">
+            <h3>Em quanto tempo fica pronto?</h3>
+            <p>Em até 7 dias úteis após a confirmação do pagamento. A Lumyn cuida de tudo nesse período e te entrega tudo funcionando.</p>
+          </article>
+
+          <article class="lp-faq-item">
+            <h3>Isso substitui o iFood?</h3>
+            <p>Não substitui obrigatoriamente — mas dá a opção de receber pedidos diretos pelo WhatsApp sem pagar comissão. Muitos clientes acabam preferindo o direto porque a margem é muito melhor.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="lp-cta-final" id="contato">
+      <div class="container">
+        <h2>Pronto para organizar de uma vez?</h2>
+        <p class="lp-cta-sub">
+          <strong>R$&thinsp;697 uma vez.</strong> Feito pela Lumyn. Entregue em até 7 dias úteis.
+        </p>
+
+        <div class="lp-cta-actions">
+          <a
+            class="btn btn-primary"
+            data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
+            data-track="click_whatsapp"
+            data-track-location="cta_final_lp">
+            Quero começar agora →
+          </a>
+
+          <div class="lp-cta-guarantee">
+            <span class="lp-guarantee-item">Sem mensalidade</span>
+            <span class="lp-guarantee-item">Sem contrato</span>
+            <span class="lp-guarantee-item">Sem manutenção</span>
+            <span class="lp-guarantee-item">Entregue em até 7 dias</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer mínimo -->
+  <footer class="lp-footer">
+    <div class="container lp-footer-inner">
+      <p>© <span id="year"></span> Lumyn. Todos os direitos reservados.</p>
+      <a href="https://lumynassessoria.com">lumynassessoria.com</a>
+    </div>
+  </footer>
+
+  <script src="../config.js"></script>
+  <script src="../site.js"></script>
+  <script>
+    // Header scroll
+    const header = document.getElementById("lp-header");
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 50);
+    }, { passive: true });
+
+    // Footer year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll(".card, .section-head, .lp-hero-inner, .lp-zero-monthly, .lp-anchor-grid, .lp-faq-item, .lp-cta-final h2, .lp-cta-final .lp-cta-sub, .lp-cta-actions");
+    revealEls.forEach(el => el.classList.add("reveal"));
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
