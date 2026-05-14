@@ -154,6 +154,31 @@
     document.head.appendChild(script);
   }
 
+  function loadMetaPixel() {
+    const pixelId = tracking.metaPixelId;
+    if (!pixelId || pixelId === "000000000000000" || !tracking.enabled) return;
+    if (window.fbq) return;
+
+    /* eslint-disable */
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
+    n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    /* eslint-enable */
+
+    window.fbq('init', pixelId);
+    window.fbq('track', 'PageView');
+  }
+
+  function trackMetaEvent(eventName, params) {
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', eventName, params || {});
+    }
+  }
+
   window.dataLayer = window.dataLayer || [];
   window.trackEvent = function trackEvent(name, params = {}) {
     if (!name) return;
@@ -183,6 +208,11 @@
       link.setAttribute("href", buildWhatsappUrl(message));
       link.setAttribute("target", "_blank");
       link.setAttribute("rel", "noopener noreferrer");
+      link.addEventListener("click", () => {
+        const location = link.getAttribute("data-track-location") || "";
+        const isLanding = location.includes("_lp");
+        trackMetaEvent(isLanding ? "Lead" : "Contact", { content_name: location });
+      });
     });
   }
 
@@ -345,10 +375,16 @@
     applySeoMeta();
     injectSchemas();
     loadTagManager();
+    loadMetaPixel();
     bindWhatsappLinks();
     updateBrandText();
     renderLinksButtons();
     bindTrackedElements();
+
+    const path = window.location.pathname;
+    if (path.includes("/restaurante") || path.includes("/implantacao")) {
+      trackMetaEvent("ViewContent", { content_name: "landing_restaurante", content_category: "oferta", value: 697, currency: "BRL" });
+    }
 
     if (getCurrentPageKey() === "links") {
       window.trackEvent("view_links_page", { location: "links_page" });

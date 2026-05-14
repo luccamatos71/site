@@ -11,10 +11,10 @@ window.LUMYN_SITE = {
     instagramUrl: "https://instagram.com/SEUPERFIL",
   },
   tracking: {
-    enabled: false, // Ative true quando inserir IDs reais
+    enabled: true,
     gtmId: "GTM-XXXXXXX",
     ga4Id: "G-XXXXXXXXXX",
-    metaPixelId: "000000000000000",
+    metaPixelId: "26642513715441759",
   },
   linksPage: {
     buttons: [
