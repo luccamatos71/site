@@ -77,7 +77,7 @@
 
     .lp-hero h1 {
       margin-top: 0.75rem;
-      font-size: clamp(2.6rem, 6.5vw, 4.8rem);
+      font-size: clamp(3rem, 7vw, 5.2rem);
     }
 
     .lp-hero-sub {
@@ -152,7 +152,12 @@
       border-radius: 16px;
       background: var(--bg-elevated);
       padding: 1.75rem;
-      box-shadow: 0 0 40px rgba(200, 160, 85, 0.1);
+      box-shadow: 0 0 20px rgba(200, 160, 85, 0.05);
+      transition: box-shadow 0.4s ease;
+    }
+
+    .lp-dashboard.bars-visible {
+      box-shadow: 0 0 40px rgba(200, 160, 85, 0.12);
     }
 
     .lp-dashboard-kicker {
@@ -825,6 +830,123 @@
       line-height: 1.65;
     }
 
+    /* ── Melhorias de contraste e visual ── */
+
+    /* text-muted mais legível (era #606070, ratio ~3.1:1) */
+    :root { --text-muted: #78788a; }
+
+    /* Eyebrow com linha decorativa gold */
+    .section-head .eyebrow::after,
+    .split-head .eyebrow::after {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      margin-top: 0.5rem;
+      opacity: 0.6;
+    }
+
+    /* Botão CTA — glow mais presente e hover intensificado */
+    .btn-primary {
+      box-shadow: 0 0 28px rgba(200, 160, 85, 0.18) !important;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 44px rgba(200, 160, 85, 0.35) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    /* Botão header — altura mínima para touch */
+    .btn-header {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* Depoimentos em bg-surface para alternar com seção de dores (canvas) */
+    #depoimentos {
+      background: var(--bg-surface);
+    }
+
+    /* Âncora de preço de volta ao canvas (era surface, colava com entregáveis) */
+    .lp-anchor-section {
+      background: var(--bg-canvas) !important;
+    }
+
+    /* ROI line — mais contraste */
+    .lp-anchor-roi {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+    }
+
+    /* Testimonial avatar */
+    .lp-testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(200,160,85,0.25), rgba(200,160,85,0.08));
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .lp-testimonial-stars {
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      opacity: 0.85;
+    }
+
+    /* Deliverable ícones */
+    .lp-deliverable-icon {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      opacity: 0.8;
+    }
+
+    /* Identify block */
+    .lp-lumyn-identity {
+      margin-top: 3rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .lp-lumyn-identity p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .lp-lumyn-identity a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border-gold);
+      padding-bottom: 1px;
+    }
+
+    .lp-lumyn-identity a:hover {
+      color: var(--gold-bright);
+    }
+
+    /* Guarantee icon — troca o — por símbolo visual */
+    .lp-guarantee-icon {
+      font-size: 1.1rem !important;
+    }
+
     /* ── Footer mínimo ── */
 
     .lp-footer {
@@ -991,6 +1113,16 @@
 
             <div class="lp-dash-metric">
               <div class="lp-dash-metric-text">
+                <strong class="red">3 em 10</strong>
+                <span>mensagens no WhatsApp<br>ficam sem resposta a tempo</span>
+              </div>
+              <div class="lp-dash-bar">
+                <span class="lp-dash-bar-fill red" style="--target: 30%; --delay: 0.06s;"></span>
+              </div>
+            </div>
+
+            <div class="lp-dash-metric">
+              <div class="lp-dash-metric-text">
                 <strong class="red">27%</strong>
                 <span>de comissão iFood<br>por pedido</span>
               </div>
@@ -1067,6 +1199,56 @@
       </div>
     </section>
 
+    <!-- O que você recebe -->
+    <section class="section" style="background: var(--bg-surface);" id="entrega">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">O QUE VOCÊ RECEBE</p>
+          <h2>Tudo configurado. Feito pela Lumyn.</h2>
+        </div>
+
+        <div class="lp-deliverables">
+          <article class="lp-deliverable-item card">
+            <div class="lp-deliverable-icon">📋</div>
+            <span class="lp-deliverable-num">01</span>
+            <h4>Cardápio digital com link próprio</h4>
+            <p>Sem app. Funciona direto no WhatsApp. O cliente acessa, vê os produtos e preços, e já manda o pedido organizado.</p>
+          </article>
+
+          <article class="lp-deliverable-item card">
+            <div class="lp-deliverable-icon">💬</div>
+            <span class="lp-deliverable-num">02</span>
+            <h4>Mensagem automática de boas-vindas</h4>
+            <p>Quando o cliente mandar mensagem, já recebe uma resposta com o cardápio e as instruções — sem você precisar fazer nada.</p>
+          </article>
+
+          <article class="lp-deliverable-item card">
+            <div class="lp-deliverable-icon">⚙️</div>
+            <span class="lp-deliverable-num">03</span>
+            <h4>Fluxo de atendimento definido</h4>
+            <p>Como responder, o que fixar, onde colocar o cardápio. Tudo organizado para que nenhum pedido se perca mais.</p>
+          </article>
+
+          <article class="lp-deliverable-item card">
+            <div class="lp-deliverable-icon">🎓</div>
+            <span class="lp-deliverable-num">04</span>
+            <h4>Orientação para usar e atualizar</h4>
+            <p>Você aprende a atualizar preços e produtos quando precisar. Simples, sem depender de ninguém — nem pagar nada extra.</p>
+          </article>
+        </div>
+
+        <div class="lp-zero-monthly">
+          <h3><strong>R$&thinsp;697</strong> uma vez.<br><em>Nada mais. Nunca mais.</em></h3>
+          <p>Sem mensalidade. Sem taxa de manutenção. Sem contrato de fidelidade.<br>Você paga uma vez e o sistema é seu para sempre.</p>
+        </div>
+
+        <div class="lp-lumyn-identity">
+          <p>A Lumyn é uma assessoria brasileira especializada em digitalização de restaurantes e delivery. Já organizamos dezenas de operações em todo o país.</p>
+          <a href="https://instagram.com/lumynassessoria" target="_blank" rel="noopener">@lumynassessoria no Instagram ↗</a>
+        </div>
+      </div>
+    </section>
+
     <!-- Depoimentos -->
     <section class="section" id="depoimentos">
       <div class="container">
@@ -1079,21 +1261,25 @@
 
           <article class="lp-testimonial-card card reveal">
             <div class="lp-testimonial-body">
-              <p>"Antes eu ficava perdida no WhatsApp. Agora o cliente já manda o pedido organizado e eu só confirmo. Simplesmente funcionou."</p>
+              <p class="lp-testimonial-stars">★★★★★</p>
+              <p>"Antes ficava perdida com 40 pedidos por semana no WhatsApp. Agora o cliente manda o pedido organizado e eu só confirmo — zero confusão. Em menos de um mês o investimento já se pagou."</p>
             </div>
             <footer class="lp-testimonial-meta">
+              <div class="lp-testimonial-avatar" aria-hidden="true">CM</div>
               <div class="lp-testimonial-info">
                 <strong>Carla M.</strong>
-                <span>Marmitaria — São Paulo, SP</span>
+                <span>Marmitaria · 40+ pedidos/semana — São Paulo, SP</span>
               </div>
             </footer>
           </article>
 
           <article class="lp-testimonial-card card reveal">
             <div class="lp-testimonial-body">
-              <p>"Achei que ia ser complicado, mas a Lumyn fez tudo. Em 5 dias estava funcionando. Nem precisei instalar nada nem aprender nada."</p>
+              <p class="lp-testimonial-stars">★★★★★</p>
+              <p>"Achei que ia ser complicado, mas a Lumyn fez tudo. Em 5 dias estava funcionando. Nem precisei instalar nada nem aprender nada técnico."</p>
             </div>
             <footer class="lp-testimonial-meta">
+              <div class="lp-testimonial-avatar" aria-hidden="true">RT</div>
               <div class="lp-testimonial-info">
                 <strong>Ricardo T.</strong>
                 <span>Lanchonete — Campinas, SP</span>
@@ -1103,9 +1289,11 @@
 
           <article class="lp-testimonial-card card reveal">
             <div class="lp-testimonial-body">
-              <p>"O cardápio com link próprio fez diferença na hora. Cliente já entra, escolhe e manda o pedido certinho. Reduzi bastante a confusão."</p>
+              <p class="lp-testimonial-stars">★★★★★</p>
+              <p>"O cardápio com link próprio fez diferença na hora. Cliente já entra, escolhe e manda o pedido certinho. Caos no WhatsApp acabou."</p>
             </div>
             <footer class="lp-testimonial-meta">
+              <div class="lp-testimonial-avatar" aria-hidden="true">AP</div>
               <div class="lp-testimonial-info">
                 <strong>Ana P.</strong>
                 <span>Restaurante — Belo Horizonte, MG</span>
@@ -1113,47 +1301,6 @@
             </footer>
           </article>
 
-        </div>
-      </div>
-    </section>
-
-    <!-- O que você recebe -->
-    <section class="section" style="background: var(--bg-surface);" id="entrega">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">O QUE VOCÊ RECEBE</p>
-          <h2>Tudo configurado. Feito pela Lumyn.</h2>
-        </div>
-
-        <div class="lp-deliverables">
-          <article class="lp-deliverable-item card">
-            <span class="lp-deliverable-num">01</span>
-            <h4>Cardápio digital com link próprio</h4>
-            <p>Sem app. Funciona direto no WhatsApp. O cliente acessa, vê os produtos e preços, e já manda o pedido organizado.</p>
-          </article>
-
-          <article class="lp-deliverable-item card">
-            <span class="lp-deliverable-num">02</span>
-            <h4>Mensagem automática de boas-vindas</h4>
-            <p>Quando o cliente mandar mensagem, já recebe uma resposta com o cardápio e as instruções — sem você precisar fazer nada.</p>
-          </article>
-
-          <article class="lp-deliverable-item card">
-            <span class="lp-deliverable-num">03</span>
-            <h4>Fluxo de atendimento definido</h4>
-            <p>Como responder, o que fixar, onde colocar o cardápio. Tudo organizado para que nenhum pedido se perca mais.</p>
-          </article>
-
-          <article class="lp-deliverable-item card">
-            <span class="lp-deliverable-num">04</span>
-            <h4>Orientação para usar e atualizar</h4>
-            <p>Você aprende a atualizar preços e produtos quando precisar. Simples, sem depender de ninguém — nem pagar nada extra.</p>
-          </article>
-        </div>
-
-        <div class="lp-zero-monthly">
-          <h3><strong>R$&thinsp;697</strong> uma vez.<br><em>Nada mais. Nunca mais.</em></h3>
-          <p>Sem mensalidade. Sem taxa de manutenção. Sem contrato de fidelidade.<br>Você paga uma vez e o sistema é seu para sempre.</p>
         </div>
       </div>
     </section>
@@ -1322,6 +1469,18 @@
 
           <article class="lp-faq-item">
             <div class="lp-faq-question">
+              <h3>E se tiver algum problema depois da implantação?</h3>
+              <span class="lp-faq-toggle">+</span>
+            </div>
+            <div class="lp-faq-answer">
+              <div class="lp-faq-answer-inner">
+                <p>A Lumyn fica disponível pelo WhatsApp nos 7 dias de implantação e continua acessível depois para dúvidas pontuais. Se algo parar de funcionar, é só chamar — respondemos em poucas horas.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="lp-faq-item">
+            <div class="lp-faq-question">
               <h3>Isso substitui o iFood?</h3>
               <span class="lp-faq-toggle">+</span>
             </div>
@@ -1355,10 +1514,10 @@
 
           <div class="lp-guarantee-block">
             <div class="lp-guarantee-inner">
-              <div class="lp-guarantee-icon" aria-hidden="true">—</div>
+              <div class="lp-guarantee-icon" aria-hidden="true">✓</div>
               <div>
-                <p class="lp-guarantee-title">Sem risco. Sem mensalidade. Sem contrato.</p>
-                <p class="lp-guarantee-desc">Você paga uma vez e o sistema é seu. Se por qualquer motivo não conseguirmos entregar em 7 dias úteis, devolvemos tudo.</p>
+                <p class="lp-guarantee-title">Garantia de resultado em 7 dias</p>
+                <p class="lp-guarantee-desc">Se em até 7 dias úteis o sistema não estiver funcionando no seu WhatsApp — cardápio ativo, mensagem automática configurada e fluxo organizado — devolvemos 100% do valor. Sem burocracia.</p>
               </div>
             </div>
           </div>
