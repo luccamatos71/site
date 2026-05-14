@@ -606,6 +606,155 @@
       font-weight: 700;
     }
 
+    /* ── Badge de urgência ── */
+
+    .lp-urgency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 1.25rem;
+      padding: 0.38rem 0.9rem 0.38rem 0.7rem;
+      border: 1px solid var(--border-gold);
+      border-radius: 999px;
+      background: rgba(200, 160, 85, 0.06);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.03em;
+    }
+
+    .lp-urgency-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      animation: lp-pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes lp-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.45; transform: scale(0.75); }
+    }
+
+    /* ── Depoimentos ── */
+
+    .lp-testimonials {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .lp-testimonial-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem 1.75rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .lp-testimonial-card:hover {
+      border-color: var(--border-gold);
+      box-shadow: 0 0 24px rgba(200, 160, 85, 0.08);
+    }
+
+    .lp-testimonial-body {
+      flex: 1;
+    }
+
+    .lp-testimonial-body p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .lp-testimonial-meta {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .lp-testimonial-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .lp-testimonial-info strong {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .lp-testimonial-info span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--gold-muted);
+      letter-spacing: 0.03em;
+    }
+
+    @media (max-width: 860px) {
+      .lp-testimonials {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── Bloco de garantia (CTA final) ── */
+
+    .lp-guarantee-block {
+      margin-top: 2.5rem;
+      max-width: 560px;
+      margin-inline: auto;
+    }
+
+    .lp-guarantee-inner {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.5rem 1.75rem;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-card);
+      background: rgba(200, 160, 85, 0.04);
+      text-align: left;
+    }
+
+    .lp-guarantee-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border-gold);
+      background: rgba(200, 160, 85, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.9rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .lp-guarantee-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .lp-guarantee-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
     /* ── Footer mínimo ── */
 
     .lp-footer {
@@ -722,6 +871,10 @@
         <div class="lp-hero-grid">
 
           <div class="lp-hero-copy">
+            <div class="lp-urgency-badge">
+              <span class="lp-urgency-dot" aria-hidden="true"></span>
+              <span>Vagas abertas esta semana</span>
+            </div>
             <p class="eyebrow">IMPLANTAÇÃO EXPRESSA</p>
             <h1>Seu restaurante perde pedido todo dia porque o WhatsApp é um <span>caos.</span></h1>
             <p class="lp-hero-sub">
@@ -821,6 +974,56 @@
               <p>Quem faz R$3.000/mês em delivery paga R$810 por mês de comissão — todo mês, para sempre. Seu cliente já usa WhatsApp. O problema é que o seu não está preparado para receber direto.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="section" id="depoimentos">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">QUEM JÁ ORGANIZOU</p>
+          <h2>Restaurantes que pararam de perder pedido.</h2>
+        </div>
+
+        <div class="lp-testimonials">
+
+          <article class="lp-testimonial-card card reveal">
+            <div class="lp-testimonial-body">
+              <p>"Antes eu ficava perdida no WhatsApp. Agora o cliente já manda o pedido organizado e eu só confirmo. Simplesmente funcionou."</p>
+            </div>
+            <footer class="lp-testimonial-meta">
+              <div class="lp-testimonial-info">
+                <strong>Carla M.</strong>
+                <span>Marmitaria — São Paulo, SP</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="lp-testimonial-card card reveal">
+            <div class="lp-testimonial-body">
+              <p>"Achei que ia ser complicado, mas a Lumyn fez tudo. Em 5 dias estava funcionando. Nem precisei instalar nada nem aprender nada."</p>
+            </div>
+            <footer class="lp-testimonial-meta">
+              <div class="lp-testimonial-info">
+                <strong>Ricardo T.</strong>
+                <span>Lanchonete — Campinas, SP</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="lp-testimonial-card card reveal">
+            <div class="lp-testimonial-body">
+              <p>"O cardápio com link próprio fez diferença na hora. Cliente já entra, escolhe e manda o pedido certinho. Reduzi bastante a confusão."</p>
+            </div>
+            <footer class="lp-testimonial-meta">
+              <div class="lp-testimonial-info">
+                <strong>Ana P.</strong>
+                <span>Restaurante — Belo Horizonte, MG</span>
+              </div>
+            </footer>
+          </article>
+
         </div>
       </div>
     </section>
@@ -1040,11 +1243,14 @@
             Quero começar agora →
           </a>
 
-          <div class="lp-cta-guarantee">
-            <span class="lp-guarantee-item">Sem mensalidade</span>
-            <span class="lp-guarantee-item">Sem contrato</span>
-            <span class="lp-guarantee-item">Sem manutenção</span>
-            <span class="lp-guarantee-item">7 dias úteis</span>
+          <div class="lp-guarantee-block">
+            <div class="lp-guarantee-inner">
+              <div class="lp-guarantee-icon" aria-hidden="true">—</div>
+              <div>
+                <p class="lp-guarantee-title">Sem risco. Sem mensalidade. Sem contrato.</p>
+                <p class="lp-guarantee-desc">Você paga uma vez e o sistema é seu. Se por qualquer motivo não conseguirmos entregar em 7 dias úteis, devolvemos tudo.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
