@@ -1,19 +1,20 @@
 ﻿:root {
-  --lp-bg-0: #08090a;
-  --lp-bg-1: #0d0f12;
-  --lp-bg-2: #121418;
-  --lp-surface: #0f1011;
-  --lp-surface-strong: #15171b;
+  --lp-bg-0: #070708;
+  --lp-bg-1: #0e0e10;
+  --lp-bg-2: #161618;
+  --lp-surface: #0e0e10;
+  --lp-surface-strong: #161618;
   --lp-surface-soft: rgba(255, 255, 255, 0.025);
   --lp-border: rgba(255, 255, 255, 0.08);
   --lp-border-strong: rgba(255, 255, 255, 0.14);
-  --lp-text-0: #f7f8f8;
-  --lp-text-1: #d0d6e0;
-  --lp-text-2: #8a8f98;
-  --lp-text-3: #62666d;
-  --lp-accent: #6f7df6;
-  --lp-accent-strong: #5667f1;
-  --lp-accent-soft: rgba(111, 125, 246, 0.14);
+  --lp-text-0: #ededf0;
+  --lp-text-1: #c8c8d0;
+  --lp-text-2: #9a9aaa;
+  --lp-text-3: #606070;
+  --lp-accent: #c8a055;
+  --lp-accent-strong: #b98b39;
+  --lp-accent-bright: #e2c47a;
+  --lp-accent-soft: rgba(200, 160, 85, 0.14);
   --lp-danger: #eb5757;
   --lp-success: #e4f222;
   --lp-radius-sm: 6px;
@@ -41,9 +42,9 @@ body.lp-restaurant {
   font-feature-settings: "cv01", "ss03";
   color: var(--lp-text-0);
   background:
-    radial-gradient(900px 520px at 80% -10%, rgba(111, 125, 246, 0.16), transparent 60%),
-    radial-gradient(760px 420px at 10% 8%, rgba(94, 106, 210, 0.09), transparent 58%),
-    linear-gradient(180deg, #090a0c 0%, #08090a 34%, #090a0c 100%);
+    radial-gradient(900px 520px at 80% -10%, rgba(200, 160, 85, 0.14), transparent 60%),
+    radial-gradient(760px 420px at 10% 8%, rgba(200, 160, 85, 0.07), transparent 58%),
+    linear-gradient(180deg, #09090b 0%, #070708 34%, #09090b 100%);
   line-height: 1.5;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
@@ -89,7 +90,7 @@ summary:focus-visible {
 }
 
 .lp-header.scrolled {
-  background: rgba(8, 9, 10, 0.74);
+  background: rgba(7, 7, 8, 0.76);
   border-color: var(--lp-border);
   backdrop-filter: blur(18px);
 }
@@ -128,15 +129,15 @@ summary:focus-visible {
 }
 
 .lp-btn-primary {
-  color: #ffffff;
-  background: linear-gradient(180deg, #7b89ff 0%, var(--lp-accent-strong) 100%);
-  border-color: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 12px 28px rgba(86, 103, 241, 0.22);
+  color: #0a0a08;
+  background: linear-gradient(180deg, var(--lp-accent-bright) 0%, var(--lp-accent) 100%);
+  border-color: rgba(226, 196, 122, 0.3);
+  box-shadow: 0 12px 28px rgba(200, 160, 85, 0.16);
 }
 
 .lp-btn-primary:hover {
-  background: linear-gradient(180deg, #8894ff 0%, #6272f5 100%);
-  box-shadow: 0 16px 34px rgba(86, 103, 241, 0.28);
+  background: linear-gradient(180deg, #ecd291 0%, var(--lp-accent-bright) 100%);
+  box-shadow: 0 16px 34px rgba(200, 160, 85, 0.22);
 }
 
 .lp-btn-header {
@@ -325,7 +326,7 @@ h3 {
 }
 
 .lp-proof-row strong.accent {
-  color: #cfd5ff;
+  color: var(--lp-accent-bright);
 }
 
 .lp-proof-row span {
@@ -356,7 +357,7 @@ h3 {
 }
 
 .lp-proof-fill.accent {
-  background: linear-gradient(90deg, rgba(111, 125, 246, 0.44), #b7c0ff);
+  background: linear-gradient(90deg, rgba(200, 160, 85, 0.42), var(--lp-accent-bright));
 }
 
 .lp-proof-card.bars-visible .lp-proof-fill {
@@ -460,9 +461,9 @@ h3 {
 }
 
 .lp-price-card.featured {
-  border-color: rgba(111, 125, 246, 0.34);
+  border-color: rgba(200, 160, 85, 0.34);
   background:
-    linear-gradient(180deg, rgba(111, 125, 246, 0.16), rgba(111, 125, 246, 0.06)),
+    linear-gradient(180deg, rgba(200, 160, 85, 0.16), rgba(200, 160, 85, 0.06)),
     var(--lp-surface-strong);
 }
 
@@ -471,7 +472,7 @@ h3 {
   display: inline-flex;
   border-radius: 4px;
   background: var(--lp-accent-soft);
-  color: #cfd5ff;
+  color: var(--lp-accent-bright);
   padding: 0.22rem 0.42rem;
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.62rem;
@@ -502,7 +503,7 @@ h3 {
 }
 
 .lp-price-value.accent {
-  color: #dce1ff;
+  color: var(--lp-accent-bright);
 }
 
 .lp-price-copy strong {
@@ -690,7 +691,7 @@ h3 {
 
 .lp-guarantee-box {
   max-width: 460px;
-  border-left: 1px solid rgba(111, 125, 246, 0.36);
+  border-left: 1px solid rgba(200, 160, 85, 0.36);
   padding-left: 0.9rem;
 }
 
@@ -797,7 +798,7 @@ h3 {
   }
 
   .lp-container {
-    width: min(100% - 1.2rem, var(--lp-container));
+    width: min(100% - 2rem, var(--lp-container));
   }
 
   .lp-header-inner {
@@ -811,8 +812,10 @@ h3 {
   }
 
   h1 {
-    max-width: 12ch;
-    font-size: clamp(1.95rem, 9vw, 2.45rem);
+    max-width: 13ch;
+    font-size: clamp(1.9rem, 8.2vw, 2.3rem);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
   }
 
   h2 {
@@ -820,7 +823,11 @@ h3 {
   }
 
   .lp-hero {
-    padding-top: 2.6rem;
+    padding-top: 2.8rem;
+  }
+
+  .lp-hero-sub {
+    max-width: 32ch;
   }
 
   .lp-proof-card,
