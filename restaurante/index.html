@@ -5,52 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cardápio Digital + WhatsApp Organizado — Lumyn</title>
   <meta name="description" content="Cardápio digital com link próprio e WhatsApp organizado para receber pedidos. Implantado em até 7 dias. R$697 uma vez, sem mensalidade.">
-
-  <!-- Fallback robots: site.js sobrescreve em runtime; este é seguro para bots não-JS -->
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#070708">
 
-  <!-- Canonical fallback (site.js também injeta em runtime) -->
-  <link rel="canonical" href="https://lumynassessoria.com/restaurante">
-
-  <!-- Open Graph (fallback completo — site.js também injeta) -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Lumyn">
   <meta property="og:title" content="Cardápio Digital + WhatsApp Organizado — Lumyn">
   <meta property="og:description" content="R$697 uma vez. Sem mensalidade. Implantado em até 7 dias úteis.">
-  <meta property="og:url" content="https://lumynassessoria.com/restaurante">
-  <meta property="og:image" content="https://lumynassessoria.com/assets/og/lumyn-og.png">
-  <meta property="og:image:alt" content="Lumyn — Implantação Expressa para restaurantes">
   <meta property="og:locale" content="pt_BR">
 
-  <!-- Twitter Cards (fallback) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cardápio Digital + WhatsApp Organizado — Lumyn">
-  <meta name="twitter:description" content="R$697 uma vez. Sem mensalidade. Implantado em até 7 dias úteis.">
-  <meta name="twitter:image" content="https://lumynassessoria.com/assets/og/lumyn-og.png">
-
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-
-  <!-- Microsoft Clarity -->
   <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wqw9ibx7ou");</script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
 
   <style>
-    /* ─────────────────────────────────────────────────────
-       VARIÁVEIS LOCAIS DA LP (complementam ../styles.css)
-       Migra hex hardcoded para variáveis (princípio universal #1)
-       ───────────────────────────────────────────────────── */
-    :root {
-      --lp-canvas-base: #070708;
-      --lp-metric-red: #e05252;
-      --lp-metric-red-dark: #c03333;
-      --text-muted: #78788a; /* fix de contraste — era #606070 ratio 3.1:1 */
-    }
-
     /* ── Header mínimo ── */
 
     .lp-header {
@@ -83,7 +53,7 @@
       background:
         radial-gradient(ellipse 900px 500px at 0% 0%, rgba(200, 160, 85, 0.11), transparent 65%),
         radial-gradient(ellipse 600px 400px at 100% 100%, rgba(200, 160, 85, 0.07), transparent 65%),
-        var(--lp-canvas-base);
+        #070708;
       isolation: isolate;
     }
 
@@ -219,7 +189,7 @@
     }
 
     .lp-dash-metric-text strong.red {
-      color: var(--lp-metric-red);
+      color: #e05252;
     }
 
     .lp-dash-metric-text strong.gold {
@@ -253,7 +223,7 @@
     }
 
     .lp-dash-bar-fill.red {
-      background: linear-gradient(90deg, var(--lp-metric-red-dark), var(--lp-metric-red));
+      background: linear-gradient(90deg, #c03333, #e05252);
     }
 
     .lp-dash-bar-fill.gold {
@@ -307,7 +277,7 @@
       font-size: 0.85rem;
       color: var(--gold-muted);
       transition: color 0.25s ease;
-      padding-top: 4px; /* era 3px — agora múltiplo de 4 */
+      padding-top: 3px;
     }
 
     .lp-pain-editorial-content {
@@ -332,11 +302,6 @@
       font-size: 0.95rem;
       color: var(--text-secondary);
       line-height: 1.6;
-    }
-
-    /* ── Section modifier: usa surface em vez de canvas ── */
-    .section--surface {
-      background: var(--bg-surface);
     }
 
     /* ── Deliverables ── */
@@ -421,10 +386,10 @@
       color: var(--text-secondary);
     }
 
-    /* ── Âncora de preço — canvas para destacar do surface anterior ── */
+    /* ── Âncora de preço ── */
 
     .lp-anchor-section {
-      background: var(--bg-canvas);
+      background: var(--bg-surface);
     }
 
     .lp-anchor-grid {
@@ -488,7 +453,7 @@
     }
 
     .lp-anchor-value.bad {
-      color: var(--lp-metric-red);
+      color: #e05252;
     }
 
     .lp-anchor-value.good {
@@ -512,7 +477,7 @@
       border-top: 1px solid var(--border-subtle);
       text-align: center;
       font-family: "JetBrains Mono", monospace;
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       color: var(--text-secondary);
     }
 
@@ -586,12 +551,6 @@
       color: var(--gold-muted);
     }
 
-    /* CTA depois dos steps (era style inline) */
-    .lp-steps-cta {
-      margin-top: 2.5rem;
-      text-align: center;
-    }
-
     /* ── FAQ Accordion ── */
 
     .lp-faq-section {
@@ -656,7 +615,7 @@
     }
 
     .lp-faq-item.open .lp-faq-answer {
-      max-height: 600px; /* aumentado para acomodar respostas mais longas das objeções novas */
+      max-height: 300px;
     }
 
     /* ── CTA Final ── */
@@ -853,7 +812,7 @@
       align-items: center;
       justify-content: center;
       font-family: "JetBrains Mono", monospace;
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       color: var(--gold);
       line-height: 1;
     }
@@ -871,7 +830,10 @@
       line-height: 1.65;
     }
 
-    /* ── Melhorias de contraste e CTA — sem !important (refatorado) ── */
+    /* ── Melhorias de contraste e visual ── */
+
+    /* text-muted mais legível (era #606070, ratio ~3.1:1) */
+    :root { --text-muted: #78788a; }
 
     /* Eyebrow com linha decorativa gold */
     .section-head .eyebrow::after,
@@ -885,20 +847,13 @@
       opacity: 0.6;
     }
 
-    /* Botão CTA — glow mais presente e hover intensificado (seletores mais específicos para sobrescrever styles.css sem !important) */
-    .lp-hero .btn-primary,
-    .lp-steps-cta .btn-primary,
-    .lp-cta-actions .btn-primary,
-    .lp-header .btn-primary {
-      box-shadow: 0 0 28px rgba(200, 160, 85, 0.18);
+    /* Botão CTA — glow mais presente e hover intensificado */
+    .btn-primary {
+      box-shadow: 0 0 28px rgba(200, 160, 85, 0.18) !important;
     }
-
-    .lp-hero .btn-primary:hover,
-    .lp-steps-cta .btn-primary:hover,
-    .lp-cta-actions .btn-primary:hover,
-    .lp-header .btn-primary:hover {
-      box-shadow: 0 0 44px rgba(200, 160, 85, 0.35);
-      transform: translateY(-2px);
+    .btn-primary:hover {
+      box-shadow: 0 0 44px rgba(200, 160, 85, 0.35) !important;
+      transform: translateY(-2px) !important;
     }
 
     /* Botão header — altura mínima para touch */
@@ -908,9 +863,14 @@
       align-items: center;
     }
 
-    /* Depoimentos em bg-surface para alternar */
+    /* Depoimentos em bg-surface para alternar com seção de dores (canvas) */
     #depoimentos {
       background: var(--bg-surface);
+    }
+
+    /* Âncora de preço de volta ao canvas (era surface, colava com entregáveis) */
+    .lp-anchor-section {
+      background: var(--bg-canvas) !important;
     }
 
     /* ROI line — mais contraste */
@@ -982,16 +942,9 @@
       color: var(--gold-bright);
     }
 
-    /* ── Acessibilidade — focus-visible em todos os elementos interativos ── */
-    .btn:focus-visible,
-    .lp-faq-question:focus-visible,
-    .lp-faq-item:focus-visible,
-    .lp-lumyn-identity a:focus-visible,
-    .lp-footer a:focus-visible,
-    .brand:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-      border-radius: 4px;
+    /* Guarantee icon — troca o — por símbolo visual */
+    .lp-guarantee-icon {
+      font-size: 1.1rem !important;
     }
 
     /* ── Footer mínimo ── */
@@ -1111,7 +1064,7 @@
       <a class="brand" href="https://lumynassessoria.com" aria-label="Lumyn">LUMYN</a>
       <a
         class="btn btn-primary btn-header"
-        data-whatsapp="Olá, Lumyn! Vim pela LP [header] - Quero saber sobre a Implantação Expressa para meu restaurante."
+        data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
         data-track="click_whatsapp"
         data-track-location="header_lp">
         Falar com a Lumyn
@@ -1128,15 +1081,15 @@
 
           <div class="lp-hero-copy">
             <p class="eyebrow">IMPLANTAÇÃO EXPRESSA</p>
-            <h1>Em 7 dias, seu restaurante para de perder pedido. A Lumyn organiza o <span>WhatsApp</span>.</h1>
+            <h1>Seu restaurante perde pedido todo dia porque o WhatsApp é um <span>caos.</span></h1>
             <p class="lp-hero-sub">
-              Cardápio digital com link próprio e WhatsApp configurado para receber pedidos sem caos. Sem você precisar aprender, instalar ou assinar nada.
+              Em até 7 dias úteis, a Lumyn organiza tudo — cardápio digital com link próprio e WhatsApp configurado para receber pedidos. Sem você precisar aprender nada.
             </p>
 
             <div class="lp-hero-cta">
               <a
                 class="btn btn-primary"
-                data-whatsapp="Olá, Lumyn! Vim pela LP [hero] - Quero organizar o WhatsApp e o cardápio do meu restaurante."
+                data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
                 data-track="click_whatsapp"
                 data-track-location="hero_lp">
                 Quero organizar meu restaurante →
@@ -1247,7 +1200,7 @@
     </section>
 
     <!-- O que você recebe -->
-    <section class="section section--surface" id="entrega">
+    <section class="section" style="background: var(--bg-surface);" id="entrega">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">O QUE VOCÊ RECEBE</p>
@@ -1416,10 +1369,10 @@
           </article>
         </div>
 
-        <div class="lp-steps-cta">
+        <div style="margin-top: 2.5rem; text-align: center;">
           <a
             class="btn btn-primary btn-large"
-            data-whatsapp="Olá, Lumyn! Vim pela LP [meio] - Quero saber mais sobre a Implantação Expressa para meu restaurante."
+            data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
             data-track="click_whatsapp"
             data-track-location="steps_lp">
             Quero começar agora →
@@ -1439,10 +1392,10 @@
         <div class="lp-faq-list">
 
           <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
+            <div class="lp-faq-question">
               <h3>Realmente não pago nada todo mês?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
+              <span class="lp-faq-toggle">+</span>
+            </div>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
                 <p><strong>Zero.</strong> Sem mensalidade, sem taxa de manutenção, sem renovação anual, sem contrato de fidelidade. Você paga R$697 uma única vez e o sistema é seu. Ponto final.</p>
@@ -1451,22 +1404,10 @@
           </article>
 
           <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
-              <h3>E se eu não gostar do resultado? Como funciona a garantia?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="lp-faq-answer">
-              <div class="lp-faq-answer-inner">
-                <p>Em até <strong>7 dias úteis</strong>, se o sistema não estiver funcionando no seu WhatsApp (cardápio ativo, mensagem automática configurada e fluxo organizado) — <strong>devolvemos 100% do valor</strong>. Sem burocracia, sem perguntas. Você decide na prática, com o sistema rodando.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
+            <div class="lp-faq-question">
               <h3>Como é feito o pagamento?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
+              <span class="lp-faq-toggle">+</span>
+            </div>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
                 <p>PIX, cartão de crédito ou débito. Após o pagamento, a Lumyn entra em contato pelo WhatsApp para iniciar a implantação — geralmente no mesmo dia.</p>
@@ -1475,10 +1416,10 @@
           </article>
 
           <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
+            <div class="lp-faq-question">
               <h3>Preciso saber mexer com tecnologia?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
+              <span class="lp-faq-toggle">+</span>
+            </div>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
                 <p>Não. A Lumyn configura tudo. Você só precisa ter um WhatsApp Business — se ainda não tiver, a gente orienta a criar. Não precisa aprender nada técnico.</p>
@@ -1487,34 +1428,10 @@
           </article>
 
           <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
-              <h3>Não posso só pedir pro meu filho/sobrinho fazer no Wix grátis?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="lp-faq-answer">
-              <div class="lp-faq-answer-inner">
-                <p>Montar um link de cardápio é a parte fácil. O que faz a diferença é <strong>o fluxo de atendimento</strong>: mensagem automática que responde na hora, cardápio fixado no WhatsApp Business, configuração do que mandar pra quem pergunta preço, prazo, frete. Isso é método — não é "construir um site". Enquanto o seu sobrinho leva 2 fins de semana descobrindo o que precisa, você perde pedido. A Lumyn entrega em 7 dias úteis, com método, e te deixa pronto pra atender.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
-              <h3>Funciona pro meu tipo de restaurante (pizzaria, marmitaria, japonês, hamburgueria)?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="lp-faq-answer">
-              <div class="lp-faq-answer-inner">
-                <p>Sim. A gente adapta no briefing: <strong>pizzaria</strong> tem cardápio com sabores + tamanhos + bordas, <strong>hamburgueria</strong> com combos e adicionais, <strong>marmitaria</strong> com planos semanais e refeições do dia, <strong>japonês</strong> com combinados e à la carte. O fluxo de atendimento muda conforme o seu modelo — é desenhado caso a caso, não é template engessado.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
+            <div class="lp-faq-question">
               <h3>Funciona no meu WhatsApp normal, sem app separado?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
+              <span class="lp-faq-toggle">+</span>
+            </div>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
                 <p>Sim. O cardápio digital tem um link próprio que funciona no WhatsApp normalmente. O cliente acessa pelo link, vê o cardápio e manda o pedido — tudo dentro do WhatsApp mesmo.</p>
@@ -1523,10 +1440,10 @@
           </article>
 
           <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
+            <div class="lp-faq-question">
               <h3>E se eu precisar atualizar o cardápio depois?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
+              <span class="lp-faq-toggle">+</span>
+            </div>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
                 <p>A gente te orienta como fazer sozinho. É simples — você não vai precisar chamar ninguém nem pagar nada extra para trocar preços ou adicionar itens.</p>
@@ -1535,10 +1452,10 @@
           </article>
 
           <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
+            <div class="lp-faq-question">
               <h3>Em quanto tempo fica pronto?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
+              <span class="lp-faq-toggle">+</span>
+            </div>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
                 <p>Em até 7 dias úteis após a confirmação do pagamento. A Lumyn cuida de tudo nesse período e te entrega tudo funcionando.</p>
@@ -1547,10 +1464,10 @@
           </article>
 
           <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
+            <div class="lp-faq-question">
               <h3>E se tiver algum problema depois da implantação?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
+              <span class="lp-faq-toggle">+</span>
+            </div>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
                 <p>A Lumyn fica disponível pelo WhatsApp nos 7 dias de implantação e continua acessível depois para dúvidas pontuais. Se algo parar de funcionar, é só chamar — respondemos em poucas horas.</p>
@@ -1559,22 +1476,10 @@
           </article>
 
           <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
-              <h3>Posso falar com algum cliente que já fez a implantação?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
-            <div class="lp-faq-answer">
-              <div class="lp-faq-answer-inner">
-                <p>Sim. Manda mensagem no WhatsApp da Lumyn e a gente passa contato de cliente da sua região ou do seu segmento — desde que o cliente autorize. A maioria autoriza porque o resultado é mostrável: cardápio rodando, atendimento organizado, pedido sem perda.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="lp-faq-item">
-            <button class="lp-faq-question" type="button" aria-expanded="false">
+            <div class="lp-faq-question">
               <h3>Isso substitui o iFood?</h3>
-              <span class="lp-faq-toggle" aria-hidden="true">+</span>
-            </button>
+              <span class="lp-faq-toggle">+</span>
+            </div>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
                 <p>Não substitui obrigatoriamente — mas dá a opção de receber pedidos diretos pelo WhatsApp sem pagar comissão. Muitos clientes acabam preferindo o direto porque a margem é muito melhor.</p>
@@ -1597,7 +1502,7 @@
         <div class="lp-cta-actions">
           <a
             class="btn btn-primary"
-            data-whatsapp="Olá, Lumyn! Vim pela LP [fim] - Quero começar a Implantação Expressa do meu restaurante."
+            data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
             data-track="click_whatsapp"
             data-track-location="cta_final_lp">
             Quero começar agora →
@@ -1629,23 +1534,17 @@
   <script src="../config.js"></script>
   <script src="../site.js"></script>
   <script>
-    // ───────────────────────────────────────────────
     // Header scroll
-    // ───────────────────────────────────────────────
     const header = document.getElementById("lp-header");
     window.addEventListener("scroll", () => {
       header.classList.toggle("scrolled", window.scrollY > 50);
     }, { passive: true });
 
-    // ───────────────────────────────────────────────
-    // Footer year dinâmico
-    // ───────────────────────────────────────────────
+    // Footer year
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-    // ───────────────────────────────────────────────
     // Dashboard bars animation
-    // ───────────────────────────────────────────────
     const dashboard = document.getElementById("lp-dashboard");
     if (dashboard) {
       new IntersectionObserver((entries, obs) => {
@@ -1657,109 +1556,38 @@
       }, { threshold: 0.4 }).observe(dashboard);
     }
 
-    // ───────────────────────────────────────────────
-    // FAQ accordion (com aria-expanded para acessibilidade)
-    // ───────────────────────────────────────────────
+    // FAQ accordion
     document.querySelectorAll(".lp-faq-item").forEach(item => {
-      const trigger = item.querySelector(".lp-faq-question");
-      if (!trigger) return;
-      trigger.addEventListener("click", () => {
+      item.querySelector(".lp-faq-question").addEventListener("click", () => {
         const isOpen = item.classList.contains("open");
-        // Fecha todos antes de abrir
-        document.querySelectorAll(".lp-faq-item.open").forEach(o => {
-          o.classList.remove("open");
-          o.querySelector(".lp-faq-question")?.setAttribute("aria-expanded", "false");
-        });
-        if (!isOpen) {
-          item.classList.add("open");
-          trigger.setAttribute("aria-expanded", "true");
-        }
+        document.querySelectorAll(".lp-faq-item.open").forEach(o => o.classList.remove("open"));
+        if (!isOpen) item.classList.add("open");
       });
     });
 
-    // ───────────────────────────────────────────────
     // Reveal on scroll
-    // ───────────────────────────────────────────────
     const revealEls = document.querySelectorAll(
       ".card, .section-head, .lp-hero-copy, .lp-dashboard, .lp-pain-editorial, .lp-zero-monthly, .lp-anchor-grid, .lp-anchor-roi, .lp-cta-final h2, .lp-cta-sub, .lp-cta-actions"
     );
-    revealEls.forEach(el => {
-      el.classList.add("reveal");
-      new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          obs.unobserve(entry.target);
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }).observe(el);
-    });
+    revealEls.forEach(el => el.classList.add("reveal"));
 
-    // ───────────────────────────────────────────────
-    // UTM persistence (v2) — captura, persiste na URL e propaga para wa.me
-    //
-    // Decisão: implementado inline na LP (não no site.js global) por enquanto.
-    // Quando estabilizar, subir para site.js para todo o site herdar.
-    // ───────────────────────────────────────────────
-    (function () {
-      const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
-      const STORAGE_KEY = 'lumyn_utm';
-
-      // 1. Captura UTMs da URL atual ou do sessionStorage
-      const incoming = new URLSearchParams(window.location.search);
-      const fromUrl = {};
-      UTM_KEYS.forEach(k => { const v = incoming.get(k); if (v) fromUrl[k] = v; });
-
-      let stored = {};
-      try {
-        const raw = sessionStorage.getItem(STORAGE_KEY);
-        if (raw) stored = JSON.parse(raw) || {};
-      } catch (_) {}
-
-      // URL atual sobrescreve storage; storage é fallback
-      const utms = Object.keys(fromUrl).length ? fromUrl : stored;
-
-      // 2. Persiste no sessionStorage se vieram da URL
-      if (Object.keys(fromUrl).length) {
-        try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(fromUrl)); } catch (_) {}
-      }
-
-      // 3. Garante que UTMs permanecem na URL durante navegação (anchors internos)
-      if (Object.keys(utms).length) {
-        const params = new URLSearchParams(window.location.search);
-        UTM_KEYS.forEach(k => { if (utms[k]) params.set(k, utms[k]); });
-        const newSearch = params.toString();
-        const newUrl = window.location.pathname + (newSearch ? '?' + newSearch : '') + window.location.hash;
-        if (newUrl !== window.location.pathname + window.location.search + window.location.hash) {
-          window.history.replaceState({}, '', newUrl);
-        }
-      }
-
-      // 4. Propaga UTMs para todos os links wa.me (anexa à mensagem antes do clique)
-      //    Roda depois do site.js construir o href (estamos no script inline DEPOIS do site.js).
-      function appendUtmsToWa() {
-        if (!Object.keys(utms).length) return;
-        const utmStr = UTM_KEYS
-          .filter(k => utms[k])
-          .map(k => `${k}=${utms[k]}`)
-          .join('&');
-        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-          const href = link.getAttribute('href');
-          if (!href || href.includes('utm_')) return; // já tem UTM, não duplica
-          const hasText = href.includes('?text=');
-          if (hasText) {
-            const [base, query] = href.split('?text=');
-            const decoded = decodeURIComponent(query || '');
-            const newText = decoded + ' | ' + utmStr;
-            link.setAttribute('href', `${base}?text=${encodeURIComponent(newText)}`);
-          } else {
-            link.setAttribute('href', `${href}?text=${encodeURIComponent('Vim pela LP | ' + utmStr)}`);
-          }
-        });
-      }
-
-      // Esperar 1 tick para garantir que site.js já vinculou os links
-      requestAnimationFrame(() => requestAnimationFrame(appendUtmsToWa));
-    })();
+    new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }).observe
+      ? revealEls.forEach(el => {
+          new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              obs.unobserve(entry.target);
+            });
+          }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }).observe(el);
+        })
+      : null;
   </script>
 
 </body>
