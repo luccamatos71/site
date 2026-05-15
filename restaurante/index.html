@@ -3,1284 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardápio Digital + WhatsApp Organizado — Lumyn</title>
-  <meta name="description" content="Cardápio digital com link próprio e WhatsApp organizado para receber pedidos. Implantado em até 7 dias. R$697 uma vez, sem mensalidade.">
+  <title>Cardapio Digital + WhatsApp Organizado - Lumyn</title>
+  <meta name="description" content="Cardapio digital com link proprio e WhatsApp organizado para receber pedidos. Implantado em ate 7 dias. R$697 uma vez, sem mensalidade.">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="theme-color" content="#070708">
+  <meta name="theme-color" content="#060a12">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Cardápio Digital + WhatsApp Organizado — Lumyn">
-  <meta property="og:description" content="R$697 uma vez. Sem mensalidade. Implantado em até 7 dias úteis.">
+  <meta property="og:title" content="Cardapio Digital + WhatsApp Organizado - Lumyn">
+  <meta property="og:description" content="R$697 uma vez. Sem mensalidade. Implantado em ate 7 dias uteis.">
   <meta property="og:locale" content="pt_BR">
 
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wqw9ibx7ou");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
-
-  <style>
-    /* ── Header mínimo ── */
-
-    .lp-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid transparent;
-      transition: backdrop-filter 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .lp-header.scrolled {
-      backdrop-filter: blur(16px);
-      background: rgba(7, 7, 8, 0.9);
-      border-color: var(--border-subtle);
-    }
-
-    .lp-header-inner {
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    /* ── Hero ── */
-
-    .lp-hero {
-      position: relative;
-      padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
-      background:
-        radial-gradient(ellipse 900px 500px at 0% 0%, rgba(200, 160, 85, 0.11), transparent 65%),
-        radial-gradient(ellipse 600px 400px at 100% 100%, rgba(200, 160, 85, 0.07), transparent 65%),
-        #070708;
-      isolation: isolate;
-    }
-
-    .lp-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.6)'/%3E%3C/svg%3E");
-      background-size: 24px 24px;
-      opacity: 0.35;
-      z-index: -1;
-    }
-
-    .lp-hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: clamp(2rem, 4vw, 4rem);
-    }
-
-    .lp-hero h1 {
-      margin-top: 0.75rem;
-      font-size: clamp(3rem, 7vw, 5.2rem);
-    }
-
-    .lp-hero-sub {
-      margin-top: 1.25rem;
-      font-size: clamp(1rem, 2.2vw, 1.15rem);
-      color: var(--text-secondary);
-      max-width: 52ch;
-    }
-
-    .lp-hero-cta {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.85rem;
-    }
-
-    .lp-hero-cta .btn {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-    }
-
-    .lp-zero-tag {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.35rem 0.5rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .lp-zero-tag span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      white-space: nowrap;
-    }
-
-    .lp-zero-tag span::before {
-      content: "✓";
-      color: var(--gold);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .lp-zero-tag .sep {
-      color: var(--text-muted);
-      opacity: 0.5;
-      user-select: none;
-    }
-
-    .lp-zero-tag .sep::before {
-      content: none;
-    }
-
-    @media (max-width: 480px) {
-      .lp-zero-tag {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.3rem;
-      }
-
-      .lp-zero-tag .sep {
-        display: none;
-      }
-    }
-
-    /* Dashboard panel hero */
-
-    .lp-dashboard {
-      border: 1px solid var(--border-gold);
-      border-radius: 16px;
-      background: var(--bg-elevated);
-      padding: 1.75rem;
-      box-shadow: 0 0 20px rgba(200, 160, 85, 0.05);
-      transition: box-shadow 0.4s ease;
-    }
-
-    .lp-dashboard.bars-visible {
-      box-shadow: 0 0 40px rgba(200, 160, 85, 0.12);
-    }
-
-    .lp-dashboard-kicker {
-      margin-bottom: 1.5rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .lp-dash-metric + .lp-dash-metric {
-      margin-top: 1.2rem;
-    }
-
-    .lp-dash-metric-text {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.75rem;
-      min-width: 0;
-    }
-
-    .lp-dash-metric-text strong {
-      font-family: "JetBrains Mono", monospace;
-      font-size: clamp(1.4rem, 3vw, 1.8rem);
-      line-height: 1;
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-
-    .lp-dash-metric-text strong.red {
-      color: #e05252;
-    }
-
-    .lp-dash-metric-text strong.gold {
-      color: var(--gold-bright);
-    }
-
-    .lp-dash-metric-text span {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      text-align: right;
-      line-height: 1.4;
-      flex-shrink: 1;
-      min-width: 0;
-      word-break: break-word;
-    }
-
-    .lp-dash-bar {
-      margin-top: 0.5rem;
-      width: 100%;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.07);
-      overflow: hidden;
-    }
-
-    .lp-dash-bar-fill {
-      display: block;
-      width: 0;
-      height: 100%;
-      border-radius: inherit;
-    }
-
-    .lp-dash-bar-fill.red {
-      background: linear-gradient(90deg, #c03333, #e05252);
-    }
-
-    .lp-dash-bar-fill.gold {
-      background: linear-gradient(90deg, var(--gold), var(--gold-bright));
-    }
-
-    .lp-dashboard.bars-visible .lp-dash-bar-fill {
-      animation: grow 0.9s ease forwards;
-      animation-delay: var(--delay, 0s);
-    }
-
-    .lp-dash-footnote {
-      margin-top: 1.4rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border-subtle);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .lp-dashboard .lp-urgency-badge {
-      display: inline-flex;
-      margin-bottom: 0.9rem;
-      padding: 0.28rem 0.75rem 0.28rem 0.6rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-      border-radius: 999px;
-      border: 1px solid var(--border-gold);
-      background: rgba(200, 160, 85, 0.06);
-      color: var(--gold);
-      gap: 0.45rem;
-    }
-
-    /* ── Dores (editorial list) ── */
-
-    .lp-pain-list {
-      margin-top: 2.5rem;
-    }
-
-    .lp-pain-editorial {
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 2rem 0;
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 1rem;
-      transition: transform 0.25s ease;
-    }
-
-    .lp-pain-number {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.85rem;
-      color: var(--gold-muted);
-      transition: color 0.25s ease;
-      padding-top: 3px;
-    }
-
-    .lp-pain-editorial-content {
-      transition: transform 0.25s ease;
-    }
-
-    .lp-pain-editorial:hover .lp-pain-number {
-      color: var(--gold);
-    }
-
-    .lp-pain-editorial:hover .lp-pain-editorial-content {
-      transform: translateX(4px);
-    }
-
-    .lp-pain-editorial-content h3 {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      font-weight: 700;
-    }
-
-    .lp-pain-editorial-content p {
-      margin-top: 0.45rem;
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* ── Deliverables ── */
-
-    .lp-deliverables {
-      margin-top: 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .lp-deliverable-item {
-      display: block;
-      padding: 2rem 1.75rem;
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-card);
-      background: var(--bg-elevated);
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .lp-deliverable-item:hover {
-      border-color: var(--border-gold);
-      box-shadow: 0 0 24px rgba(200, 160, 85, 0.08);
-    }
-
-    .lp-deliverable-num {
-      display: block;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--gold-muted);
-      line-height: 1;
-      margin-bottom: 1rem;
-      transition: color 0.25s ease;
-    }
-
-    .lp-deliverable-item:hover .lp-deliverable-num {
-      color: var(--gold);
-    }
-
-    .lp-deliverable-item h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .lp-deliverable-item p {
-      margin-top: 0.3rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* ── Zero mensalidade (momento editorial) ── */
-
-    .lp-zero-monthly {
-      margin-top: 3rem;
-      padding: 3rem 0;
-      text-align: center;
-      border-top: 1px solid;
-      border-bottom: 1px solid;
-      border-image: linear-gradient(90deg, transparent, var(--gold), transparent) 1;
-      background: transparent;
-    }
-
-    .lp-zero-monthly h3 {
-      font-family: "Playfair Display", serif;
-      font-weight: 400;
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--text-primary);
-      line-height: 1.15;
-    }
-
-    .lp-zero-monthly h3 strong {
-      color: var(--gold-bright);
-      font-weight: 400;
-    }
-
-    .lp-zero-monthly p {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-    }
-
-    /* ── Âncora de preço ── */
-
-    .lp-anchor-section {
-      background: var(--bg-surface);
-    }
-
-    .lp-anchor-grid {
-      margin-top: 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1px 1fr 1px 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .lp-anchor-side.highlight {
-      position: relative;
-      border-color: var(--border-gold);
-      box-shadow: 0 0 28px rgba(200, 160, 85, 0.1);
-    }
-
-    .lp-anchor-badge {
-      display: inline-block;
-      margin-bottom: 0.85rem;
-      padding: 0.25rem 0.7rem;
-      background: rgba(200, 160, 85, 0.1);
-      border: 1px solid var(--border-gold);
-      border-radius: 999px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      text-transform: uppercase;
-    }
-
-    .lp-anchor-value.neutral {
-      color: var(--text-secondary);
-    }
-
-    .lp-anchor-divider {
-      width: 1px;
-      align-self: stretch;
-      background: linear-gradient(180deg, transparent, var(--border-gold), transparent);
-    }
-
-    .lp-anchor-side {
-      text-align: center;
-      padding: 2rem 1.5rem;
-    }
-
-    .lp-anchor-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    .lp-anchor-value {
-      font-family: "JetBrains Mono", monospace;
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 500;
-      line-height: 1;
-    }
-
-    .lp-anchor-value.bad {
-      color: #e05252;
-    }
-
-    .lp-anchor-value.good {
-      color: var(--gold-bright);
-    }
-
-    .lp-anchor-sub {
-      margin-top: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-
-    .lp-anchor-sub strong {
-      color: var(--gold-bright);
-    }
-
-    .lp-anchor-roi {
-      margin-top: 2.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-    }
-
-    /* ── Como funciona (steps com connectors) ── */
-
-    .lp-steps {
-      margin-top: 2.5rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .lp-step {
-      position: relative;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-card);
-      background: var(--bg-surface);
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .lp-step:hover {
-      border-color: var(--border-gold);
-      box-shadow: 0 0 20px rgba(200, 160, 85, 0.07);
-    }
-
-    .lp-step:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      top: 52px;
-      left: calc(100% + 0.35rem);
-      width: 0.8rem;
-      height: 1px;
-      background: var(--border-gold);
-      pointer-events: none;
-    }
-
-    .lp-step-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      border: 1px solid var(--border-gold);
-      background: rgba(200, 160, 85, 0.08);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 1.1rem;
-      color: var(--gold);
-      font-weight: 500;
-      margin-bottom: 1.1rem;
-    }
-
-    .lp-step h3 {
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .lp-step p {
-      margin-top: 0.4rem;
-      font-size: 0.875rem;
-      color: var(--text-secondary);
-    }
-
-    .lp-step-tag {
-      display: inline-block;
-      margin-top: 0.85rem;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      color: var(--gold-muted);
-    }
-
-    /* ── FAQ Accordion ── */
-
-    .lp-faq-section {
-      background: var(--bg-surface);
-    }
-
-    .lp-faq-list {
-      margin-top: 2rem;
-      border-top: 1px solid var(--border-subtle);
-      background: transparent;
-    }
-
-    .lp-faq-item {
-      background: transparent;
-      border-bottom: 1px solid var(--border-subtle);
-      cursor: pointer;
-    }
-
-    .lp-faq-question {
-      padding: 1.4rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .lp-faq-question h3 {
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .lp-faq-toggle {
-      flex-shrink: 0;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 1.2rem;
-      color: var(--gold);
-      line-height: 1;
-      transition: transform 0.25s ease;
-      user-select: none;
-    }
-
-    .lp-faq-item.open .lp-faq-toggle {
-      transform: rotate(45deg);
-    }
-
-    .lp-faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
-    .lp-faq-answer-inner {
-      padding: 0 0 1.4rem;
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-
-    .lp-faq-answer-inner strong {
-      color: var(--gold-bright);
-    }
-
-    .lp-faq-item.open .lp-faq-answer {
-      max-height: 300px;
-    }
-
-    /* ── CTA Final ── */
-
-    .lp-cta-final {
-      text-align: center;
-      padding: clamp(5rem, 9vw, 8rem) 0;
-      background: var(--bg-elevated);
-      position: relative;
-    }
-
-    .lp-cta-final::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .lp-cta-sub {
-      margin-top: 1rem;
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-    }
-
-    .lp-cta-actions {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .lp-cta-actions .btn {
-      padding: 1.1rem 2.5rem;
-      font-size: 1rem;
-    }
-
-    .lp-cta-guarantee {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-
-    .lp-guarantee-item {
-      padding: 0.35rem 0.85rem;
-      border: 1px solid var(--border-subtle);
-      border-radius: 999px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .lp-guarantee-item::before {
-      content: "✓";
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    /* ── Badge de urgência ── */
-
-    .lp-urgency-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      margin-bottom: 1.25rem;
-      padding: 0.38rem 0.9rem 0.38rem 0.7rem;
-      border: 1px solid var(--border-gold);
-      border-radius: 999px;
-      background: rgba(200, 160, 85, 0.06);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 0.03em;
-    }
-
-    .lp-urgency-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      animation: lp-pulse 2.2s ease-in-out infinite;
-    }
-
-    @keyframes lp-pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.45; transform: scale(0.75); }
-    }
-
-    /* ── Depoimentos ── */
-
-    .lp-testimonials {
-      margin-top: 2.5rem;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .lp-testimonial-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 2rem 1.75rem;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-card);
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .lp-testimonial-card:hover {
-      border-color: var(--border-gold);
-      box-shadow: 0 0 24px rgba(200, 160, 85, 0.08);
-    }
-
-    .lp-testimonial-body {
-      flex: 1;
-    }
-
-    .lp-testimonial-body p {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      font-style: italic;
-    }
-
-    .lp-testimonial-meta {
-      margin-top: 1.5rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .lp-testimonial-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .lp-testimonial-info strong {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .lp-testimonial-info span {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      color: var(--gold-muted);
-      letter-spacing: 0.03em;
-    }
-
-    @media (max-width: 860px) {
-      .lp-testimonials {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ── Bloco de garantia (CTA final) ── */
-
-    .lp-guarantee-block {
-      margin-top: 2.5rem;
-      max-width: 560px;
-      margin-inline: auto;
-    }
-
-    .lp-guarantee-inner {
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-      padding: 1.5rem 1.75rem;
-      border: 1px solid var(--border-gold);
-      border-radius: var(--radius-card);
-      background: rgba(200, 160, 85, 0.04);
-      text-align: left;
-    }
-
-    .lp-guarantee-icon {
-      flex-shrink: 0;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid var(--border-gold);
-      background: rgba(200, 160, 85, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.9rem;
-      color: var(--gold);
-      line-height: 1;
-    }
-
-    .lp-guarantee-title {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 0.35rem;
-    }
-
-    .lp-guarantee-desc {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-
-    /* ── Melhorias de contraste e visual ── */
-
-    /* text-muted mais legível (era #606070, ratio ~3.1:1) */
-    :root { --text-muted: #78788a; }
-
-    /* Eyebrow com linha decorativa gold */
-    .section-head .eyebrow::after,
-    .split-head .eyebrow::after {
-      content: "";
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-      margin-top: 0.5rem;
-      opacity: 0.6;
-    }
-
-    /* Botão CTA — glow mais presente e hover intensificado */
-    .btn-primary {
-      box-shadow: 0 0 28px rgba(200, 160, 85, 0.18) !important;
-    }
-    .btn-primary:hover {
-      box-shadow: 0 0 44px rgba(200, 160, 85, 0.35) !important;
-      transform: translateY(-2px) !important;
-    }
-
-    /* Botão header — altura mínima para touch */
-    .btn-header {
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    /* Depoimentos em bg-surface para alternar com seção de dores (canvas) */
-    #depoimentos {
-      background: var(--bg-surface);
-    }
-
-    /* Âncora de preço de volta ao canvas (era surface, colava com entregáveis) */
-    .lp-anchor-section {
-      background: var(--bg-canvas) !important;
-    }
-
-    /* ROI line — mais contraste */
-    .lp-anchor-roi {
-      color: var(--text-secondary);
-      font-size: 0.88rem;
-    }
-
-    /* Testimonial avatar */
-    .lp-testimonial-avatar {
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(200,160,85,0.25), rgba(200,160,85,0.08));
-      border: 1px solid var(--border-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .lp-testimonial-stars {
-      font-size: 0.7rem;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-      opacity: 0.85;
-    }
-
-    /* Deliverable ícones */
-    .lp-deliverable-icon {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      opacity: 0.8;
-    }
-
-    /* Identify block */
-    .lp-lumyn-identity {
-      margin-top: 3rem;
-      padding: 1.5rem 0;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .lp-lumyn-identity p {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .lp-lumyn-identity a {
-      color: var(--gold);
-      text-decoration: none;
-      font-size: 0.82rem;
-      white-space: nowrap;
-      border-bottom: 1px solid var(--border-gold);
-      padding-bottom: 1px;
-    }
-
-    .lp-lumyn-identity a:hover {
-      color: var(--gold-bright);
-    }
-
-    /* Guarantee icon — troca o — por símbolo visual */
-    .lp-guarantee-icon {
-      font-size: 1.1rem !important;
-    }
-
-    /* ── Footer mínimo ── */
-
-    .lp-footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 1.5rem 0;
-      background: var(--bg-canvas);
-    }
-
-    .lp-footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .lp-footer p,
-    .lp-footer a {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    .lp-footer a:hover {
-      color: var(--text-secondary);
-    }
-
-    /* ── Responsivo ── */
-
-    @media (max-width: 980px) {
-      .lp-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .lp-dashboard {
-        max-width: 480px;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .lp-pain-editorial {
-        grid-template-columns: 48px 1fr;
-      }
-
-      .lp-deliverables {
-        grid-template-columns: 1fr;
-      }
-
-      .lp-anchor-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-
-      .lp-anchor-divider {
-        display: none;
-      }
-
-      .lp-anchor-side {
-        padding: 1.5rem 0;
-        border-bottom: 1px solid var(--border-subtle);
-      }
-
-      .lp-anchor-side:last-child {
-        border-bottom: none;
-      }
-
-      .lp-anchor-side.highlight {
-        border: 1px solid var(--border-gold);
-        border-radius: var(--radius-card);
-        padding: 1.5rem;
-        margin: 0.5rem 0;
-        box-shadow: 0 0 20px rgba(200,160,85,0.08);
-      }
-
-      .lp-steps {
-        grid-template-columns: 1fr;
-      }
-
-      .lp-step:not(:last-child)::after {
-        display: none;
-      }
-
-      .lp-cta-guarantee {
-        gap: 0.4rem;
-      }
-
-      .lp-footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .lp-hero-cta .btn,
-      .lp-cta-actions .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .lp-hero {
-        padding-top: clamp(3rem, 8vw, 5rem);
-      }
-
-      .lp-hero h1 {
-        font-size: clamp(2.2rem, 9vw, 2.8rem);
-      }
-    }
-
-    /* V2 dark operacional (override escopado) */
-
-    .lp-v2 {
-      --bg-canvas: #05070b;
-      --bg-surface: #0a0f16;
-      --bg-elevated: #101724;
-      --text-primary: #f3f6ff;
-      --text-secondary: #a9b4c8;
-      --text-muted: #7b879d;
-      --gold: #b0bed9;
-      --gold-bright: #d9e3f8;
-      --gold-muted: rgba(176, 190, 217, 0.56);
-      --border-subtle: rgba(146, 167, 201, 0.16);
-      --border-medium: rgba(174, 197, 232, 0.26);
-      --border-gold: rgba(176, 190, 217, 0.35);
-      background:
-        radial-gradient(1200px 600px at 10% -8%, rgba(70, 92, 131, 0.17), transparent 62%),
-        radial-gradient(860px 480px at 88% 0%, rgba(49, 66, 96, 0.14), transparent 64%),
-        var(--bg-canvas);
-      color: var(--text-primary);
-    }
-
-    .lp-v2 .section,
-    .lp-v2 .lp-cta-final {
-      padding: clamp(4.1rem, 8vw, 6.8rem) 0;
-    }
-
-    .lp-v2 .lp-hero {
-      background:
-        radial-gradient(ellipse 920px 520px at 0% 0%, rgba(78, 102, 142, 0.18), transparent 64%),
-        radial-gradient(ellipse 640px 420px at 100% 100%, rgba(50, 73, 116, 0.16), transparent 68%),
-        #05070b;
-    }
-
-    .lp-v2 .lp-hero::before {
-      opacity: 0.12;
-    }
-
-    .lp-v2 h1,
-    .lp-v2 h2,
-    .lp-v2 .lp-zero-monthly h3 {
-      font-family: "Manrope", sans-serif;
-      font-style: normal;
-      font-weight: 750;
-      letter-spacing: -0.025em;
-      line-height: 1.08;
-    }
-
-    .lp-v2 .lp-zero-monthly h3 em {
-      font-style: normal;
-      font-weight: 600;
-      color: var(--text-secondary);
-    }
-
-    .lp-v2 .section-head .eyebrow::after,
-    .lp-v2 .split-head .eyebrow::after {
-      background: var(--border-medium);
-      opacity: 0.75;
-    }
-
-    .lp-v2 .eyebrow {
-      color: #8e9bb1;
-    }
-
-    .lp-v2 .lp-hero-sub,
-    .lp-v2 .section-lead,
-    .lp-v2 .lp-anchor-sub,
-    .lp-v2 .lp-cta-sub,
-    .lp-v2 .lp-testimonial-body p,
-    .lp-v2 .lp-guarantee-desc {
-      color: var(--text-secondary);
-    }
-
-    .lp-v2 .lp-hero-grid {
-      grid-template-columns: 1.14fr 0.86fr;
-      gap: clamp(2.1rem, 4vw, 4.6rem);
-    }
-
-    .lp-v2 .btn {
-      font-weight: 700;
-    }
-
-    .lp-v2 .btn-primary {
-      background: #f3f6ff !important;
-      border-color: #f3f6ff !important;
-      color: #0a1019 !important;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22) !important;
-    }
-
-    .lp-v2 .btn-primary:hover {
-      background: #ffffff !important;
-      border-color: #ffffff !important;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
-    }
-
-    .lp-v2 .btn-header {
-      min-height: 42px;
-      padding: 0.58rem 1.12rem;
-      font-size: 0.81rem;
-    }
-
-    .lp-v2 .card,
-    .lp-v2 .lp-deliverable-item,
-    .lp-v2 .lp-step,
-    .lp-v2 .lp-testimonial-card,
-    .lp-v2 .lp-guarantee-inner,
-    .lp-v2 .lp-dashboard,
-    .lp-v2 .lp-anchor-side {
-      background: linear-gradient(180deg, rgba(20, 27, 40, 0.82), rgba(14, 19, 30, 0.9));
-      border-color: var(--border-subtle);
-      box-shadow: none;
-    }
-
-    .lp-v2 .lp-dashboard {
-      border-color: var(--border-medium);
-    }
-
-    .lp-v2 .lp-dashboard.bars-visible {
-      box-shadow: 0 18px 52px rgba(2, 7, 15, 0.42);
-    }
-
-    .lp-v2 .lp-deliverable-item:hover,
-    .lp-v2 .lp-step:hover,
-    .lp-v2 .lp-testimonial-card:hover,
-    .lp-v2 .lp-anchor-side.highlight,
-    .lp-v2 .lp-guarantee-inner:hover {
-      border-color: var(--border-medium);
-      box-shadow: 0 14px 34px rgba(2, 6, 14, 0.38);
-    }
-
-    .lp-v2 .lp-deliverable-num,
-    .lp-v2 .lp-step-number,
-    .lp-v2 .lp-anchor-value.good,
-    .lp-v2 .lp-dashboard-kicker,
-    .lp-v2 .lp-faq-toggle {
-      color: var(--gold-bright);
-    }
-
-    .lp-v2 .lp-step-number,
-    .lp-v2 .lp-anchor-badge {
-      border-color: var(--border-medium);
-      background: rgba(176, 190, 217, 0.08);
-    }
-
-    .lp-v2 .lp-anchor-section {
-      background: linear-gradient(180deg, #060a11 0%, #080b12 100%) !important;
-    }
-
-    .lp-v2 .lp-anchor-side.highlight {
-      border-color: rgba(241, 246, 255, 0.42);
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.06),
-        0 16px 38px rgba(4, 10, 20, 0.44);
-    }
-
-    .lp-v2 .lp-anchor-value.neutral {
-      color: #cad3e3;
-    }
-
-    .lp-v2 .lp-zero-monthly {
-      border-image: linear-gradient(90deg, transparent, rgba(176, 190, 217, 0.62), transparent) 1;
-      background: linear-gradient(180deg, rgba(176, 190, 217, 0.03), rgba(176, 190, 217, 0.01));
-    }
-
-    .lp-v2 .lp-zero-monthly h3 strong {
-      color: #f3f6ff;
-      font-weight: 760;
-    }
-
-    .lp-v2 .lp-dashboard .lp-urgency-badge,
-    .lp-v2 .lp-urgency-badge {
-      background: rgba(217, 84, 84, 0.1);
-      border-color: rgba(226, 112, 112, 0.42);
-      color: #ffb3b3;
-    }
-
-    .lp-v2 .lp-urgency-dot {
-      background: #ff8080;
-    }
-
-    .lp-v2 .lp-faq-item:hover {
-      background: rgba(255, 255, 255, 0.01);
-    }
-
-    .lp-v2 .lp-footer {
-      background: #05070b;
-    }
-
-    @media (max-width: 980px) {
-      .lp-v2 .lp-hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .lp-v2 .lp-dashboard {
-        max-width: 540px;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .lp-v2 .section,
-      .lp-v2 .lp-cta-final {
-        padding: 4rem 0;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .lp-v2 .lp-hero h1 {
-        font-size: clamp(2.05rem, 10vw, 2.6rem);
-        line-height: 1.06;
-      }
-
-      .lp-v2 .lp-dashboard,
-      .lp-v2 .lp-guarantee-inner {
-        padding: 1.2rem;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
-<body class="lp-v2">
-
-  <!-- Header mínimo -->
+<body class="lp-restaurant">
   <header class="lp-header" id="lp-header">
-    <div class="container lp-header-inner">
-      <a class="brand" href="https://lumynassessoria.com" aria-label="Lumyn">LUMYN</a>
+    <div class="lp-container lp-header-inner">
+      <a class="lp-brand" href="https://lumynassessoria.com" aria-label="Lumyn">LUMYN</a>
       <a
-        class="btn btn-primary btn-header"
+        class="lp-btn lp-btn-primary lp-btn-header"
         href="https://wa.me/5571993752189?text=Ol%C3%A1%2C%20Lumyn%21%20Vi%20o%20an%C3%BAncio%20da%20Implanta%C3%A7%C3%A3o%20Expressa%20e%20quero%20organizar%20o%20WhatsApp%20e%20o%20card%C3%A1pio%20do%20meu%20restaurante."
         target="_blank"
         rel="noopener noreferrer"
@@ -1293,468 +38,374 @@
   </header>
 
   <main>
-
-    <!-- Hero -->
-    <section class="lp-hero">
-      <div class="container">
-        <div class="lp-hero-grid">
-
-          <div class="lp-hero-copy">
-            <p class="eyebrow">IMPLANTAÇÃO EXPRESSA</p>
-            <h1>Seu restaurante perde pedido todo dia porque o WhatsApp é um <span>caos.</span></h1>
-            <p class="lp-hero-sub">
-              Em até 7 dias úteis, a Lumyn organiza tudo — cardápio digital com link próprio e WhatsApp configurado para receber pedidos. Sem você precisar aprender nada.
-            </p>
-
-            <div class="lp-hero-cta">
-              <a
-                class="btn btn-primary"
-                href="https://wa.me/5571993752189?text=Ol%C3%A1%2C%20Lumyn%21%20Vi%20o%20an%C3%BAncio%20da%20Implanta%C3%A7%C3%A3o%20Expressa%20e%20quero%20organizar%20o%20WhatsApp%20e%20o%20card%C3%A1pio%20do%20meu%20restaurante."
-                target="_blank"
-                rel="noopener noreferrer"
-                data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
-                data-track="click_whatsapp"
-                data-track-location="hero_lp">
-                Quero organizar meu restaurante →
-              </a>
-              <div class="lp-zero-tag">
-                <span>R$697 uma vez</span>
-                <span class="sep" aria-hidden="true">·</span>
-                <span>Sem mensalidade</span>
-                <span class="sep" aria-hidden="true">·</span>
-                <span>Sem contrato</span>
-              </div>
-            </div>
-          </div>
-
-          <aside class="lp-dashboard" aria-label="Dados da operação" id="lp-dashboard">
-            <div class="lp-urgency-badge">
-              <span class="lp-urgency-dot" aria-hidden="true"></span>
-              <span>6 vagas restantes — maio/26</span>
-            </div>
-            <p class="lp-dashboard-kicker">CUSTO DA DESORGANIZAÇÃO</p>
-
-            <div class="lp-dash-metric">
-              <div class="lp-dash-metric-text">
-                <strong class="red">3 em 10</strong>
-                <span>mensagens no WhatsApp<br>ficam sem resposta a tempo</span>
-              </div>
-              <div class="lp-dash-bar">
-                <span class="lp-dash-bar-fill red" style="--target: 30%; --delay: 0.06s;"></span>
-              </div>
-            </div>
-
-            <div class="lp-dash-metric">
-              <div class="lp-dash-metric-text">
-                <strong class="red">27%</strong>
-                <span>de comissão iFood<br>por pedido</span>
-              </div>
-              <div class="lp-dash-bar">
-                <span class="lp-dash-bar-fill red" style="--target: 27%; --delay: 0.06s;"></span>
-              </div>
-            </div>
-
-            <div class="lp-dash-metric">
-              <div class="lp-dash-metric-text">
-                <strong class="red">R$810</strong>
-                <span>perdido por mês<br>(quem faz R$3k/mês)</span>
-              </div>
-              <div class="lp-dash-bar">
-                <span class="lp-dash-bar-fill red" style="--target: 82%; --delay: 0.2s;"></span>
-              </div>
-            </div>
-
-            <div class="lp-dash-metric">
-              <div class="lp-dash-metric-text">
-                <strong class="gold">7 dias</strong>
-                <span>para organizar<br>tudo com a Lumyn</span>
-              </div>
-              <div class="lp-dash-bar">
-                <span class="lp-dash-bar-fill gold" style="--target: 100%; --delay: 0.34s;"></span>
-              </div>
-            </div>
-
-            <p class="lp-dash-footnote">R$697 uma vez. Zero mensalidade. Zero manutenção.</p>
-          </aside>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Dores -->
-    <section class="section" id="problema">
-      <div class="container">
-        <div class="section-head split-head">
-          <div>
-            <p class="eyebrow">O PROBLEMA REAL</p>
-            <h2>Você reconhece algum desses?</h2>
-          </div>
-          <p class="section-lead">
-            Não é falta de cliente. É falta de estrutura para receber e organizar os pedidos que já chegam.
+    <section class="lp-hero" id="inicio">
+      <div class="lp-container lp-hero-grid">
+        <div class="lp-hero-copy reveal-target">
+          <p class="lp-eyebrow">IMPLANTACAO EXPRESSA</p>
+          <h1>Seu WhatsApp está cheio.<br>Seus pedidos estão se perdendo.</h1>
+          <p class="lp-hero-sub">
+            Em até 7 dias úteis, a Lumyn implanta seu cardápio digital e organiza o fluxo de atendimento do seu restaurante para os pedidos chegarem certos, rápidos e sem confusão.
           </p>
+
+          <div class="lp-hero-cta">
+            <a
+              class="lp-btn lp-btn-primary"
+              href="https://wa.me/5571993752189?text=Ol%C3%A1%2C%20Lumyn%21%20Vi%20o%20an%C3%BAncio%20da%20Implanta%C3%A7%C3%A3o%20Expressa%20e%20quero%20organizar%20o%20WhatsApp%20e%20o%20card%C3%A1pio%20do%20meu%20restaurante."
+              target="_blank"
+              rel="noopener noreferrer"
+              data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
+              data-track="click_whatsapp"
+              data-track-location="hero_lp">
+              Quero organizar meu delivery
+            </a>
+            <p class="lp-hero-trust">R$697 uma vez • sem mensalidade • sem contrato</p>
+          </div>
         </div>
 
-        <div class="lp-pain-list">
-          <div class="lp-pain-editorial">
-            <span class="lp-pain-number">01</span>
-            <div class="lp-pain-editorial-content">
-              <h3>WhatsApp bombardeado</h3>
-              <p>20 mensagens ao mesmo tempo. "Tem cardápio?", "Aceita pix?", "Quanto custa?" — e o cliente fica sem resposta porque é impossível dar conta de tudo. Cada mensagem ignorada é um pedido perdido.</p>
+        <aside class="lp-proof-card reveal-target" aria-label="Dados da operação" id="lp-dashboard">
+          <div class="lp-urgency-badge">
+            <span class="lp-urgency-dot" aria-hidden="true"></span>
+            <span>6 vagas restantes em maio</span>
+          </div>
+          <p class="lp-proof-kicker">CUSTO DO ATENDIMENTO DESORGANIZADO</p>
+
+          <div class="lp-proof-item">
+            <div class="lp-proof-row">
+              <strong class="danger">3 em 10</strong>
+              <span>mensagens ficam sem resposta a tempo</span>
             </div>
+            <div class="lp-proof-bar"><span class="lp-proof-fill danger" style="--target:30%; --delay:0.06s;"></span></div>
           </div>
 
-          <div class="lp-pain-editorial">
-            <span class="lp-pain-number">02</span>
-            <div class="lp-pain-editorial-content">
-              <h3>Pedido perdido ou entregue errado</h3>
-              <p>Sem fluxo definido, o pedido some no meio da conversa. O cliente fica insatisfeito, você perde a venda e ainda mancha a reputação do restaurante — tudo por falta de organização no atendimento.</p>
+          <div class="lp-proof-item">
+            <div class="lp-proof-row">
+              <strong class="danger">27%</strong>
+              <span>comissão média por pedido no iFood</span>
             </div>
+            <div class="lp-proof-bar"><span class="lp-proof-fill danger" style="--target:27%; --delay:0.16s;"></span></div>
           </div>
 
-          <div class="lp-pain-editorial">
-            <span class="lp-pain-number">03</span>
-            <div class="lp-pain-editorial-content">
-              <h3>iFood levando 27% de cada pedido</h3>
-              <p>Quem faz R$3.000/mês em delivery paga R$810 por mês de comissão — todo mês, para sempre. Seu cliente já usa WhatsApp. O problema é que o seu não está preparado para receber direto.</p>
+          <div class="lp-proof-item">
+            <div class="lp-proof-row">
+              <strong class="danger">R$810</strong>
+              <span>por mês em taxas para quem fatura R$3k no delivery</span>
             </div>
+            <div class="lp-proof-bar"><span class="lp-proof-fill danger" style="--target:82%; --delay:0.24s;"></span></div>
           </div>
+
+          <div class="lp-proof-item">
+            <div class="lp-proof-row">
+              <strong class="accent">7 dias</strong>
+              <span>prazo máximo para implantação completa</span>
+            </div>
+            <div class="lp-proof-bar"><span class="lp-proof-fill accent" style="--target:100%; --delay:0.32s;"></span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="lp-section" id="problema">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">DIAGNOSTICO RAPIDO</p>
+          <h2>O problema não é falta de cliente. É perda de pedido.</h2>
+          <p>Quando o atendimento quebra, você perde venda, margem e reputação no mesmo dia.</p>
+        </header>
+
+        <div class="lp-problem-grid">
+          <article class="lp-problem-card reveal-target">
+            <span class="lp-problem-index">01</span>
+            <h3>Sintoma: WhatsApp lotado</h3>
+            <p>Muita conversa simultânea, sem padrão de resposta.</p>
+            <ul>
+              <li>cliente espera mais</li>
+              <li>mensagem sem retorno</li>
+              <li>pedido abandonado</li>
+            </ul>
+          </article>
+
+          <article class="lp-problem-card reveal-target">
+            <span class="lp-problem-index">02</span>
+            <h3>Impacto: erro operacional</h3>
+            <p>Pedido sai incompleto, atrasado ou errado.</p>
+            <ul>
+              <li>retrabalho da equipe</li>
+              <li>desconto para conter reclamação</li>
+              <li>baixa recorrência</li>
+            </ul>
+          </article>
+
+          <article class="lp-problem-card reveal-target">
+            <span class="lp-problem-index">03</span>
+            <h3>Consequência: margem espremida</h3>
+            <p>Você paga taxa alta e ainda deixa pedido na mesa.</p>
+            <ul>
+              <li>dependência de plataforma</li>
+              <li>custo mensal crescente</li>
+              <li>crescimento sem controle</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- O que você recebe -->
-    <section class="section" style="background: var(--bg-surface);" id="entrega">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">O QUE VOCÊ RECEBE</p>
-          <h2>Tudo configurado. Feito pela Lumyn.</h2>
+    <section class="lp-section lp-section-soft" id="entrega">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">O QUE VOCE RECEBE</p>
+          <h2>Implementação completa, pronta para vender melhor.</h2>
+          <p>Você não compra ferramenta solta. Você recebe operação funcionando.</p>
+        </header>
+
+        <div class="lp-deliverables-grid">
+          <article class="lp-deliverable-card reveal-target">
+            <span class="lp-deliverable-number">01</span>
+            <h3>Cardápio digital com link próprio</h3>
+            <p>Seu cliente escolhe e envia o pedido já organizado no WhatsApp.</p>
+          </article>
+
+          <article class="lp-deliverable-card reveal-target">
+            <span class="lp-deliverable-number">02</span>
+            <h3>Mensagem automática de entrada</h3>
+            <p>Resposta inicial padronizada para reduzir fila e acelerar atendimento.</p>
+          </article>
+
+          <article class="lp-deliverable-card reveal-target">
+            <span class="lp-deliverable-number">03</span>
+            <h3>Fluxo de atendimento definido</h3>
+            <p>Passo a passo claro para ninguém perder pedido no meio da conversa.</p>
+          </article>
+
+          <article class="lp-deliverable-card reveal-target">
+            <span class="lp-deliverable-number">04</span>
+            <h3>Treinamento para atualizar cardápio</h3>
+            <p>Você ajusta preço e item quando quiser, sem taxa extra.</p>
+          </article>
         </div>
 
-        <div class="lp-deliverables">
-          <article class="lp-deliverable-item card">
-            <span class="lp-deliverable-num">01</span>
-            <h4>Cardápio digital com link próprio</h4>
-            <p>Sem app. Funciona direto no WhatsApp. O cliente acessa, vê os produtos e preços, e já manda o pedido organizado.</p>
-          </article>
-
-          <article class="lp-deliverable-item card">
-            <span class="lp-deliverable-num">02</span>
-            <h4>Mensagem automática de boas-vindas</h4>
-            <p>Quando o cliente mandar mensagem, já recebe uma resposta com o cardápio e as instruções — sem você precisar fazer nada.</p>
-          </article>
-
-          <article class="lp-deliverable-item card">
-            <span class="lp-deliverable-num">03</span>
-            <h4>Fluxo de atendimento definido</h4>
-            <p>Como responder, o que fixar, onde colocar o cardápio. Tudo organizado para que nenhum pedido se perca mais.</p>
-          </article>
-
-          <article class="lp-deliverable-item card">
-            <span class="lp-deliverable-num">04</span>
-            <h4>Orientação para usar e atualizar</h4>
-            <p>Você aprende a atualizar preços e produtos quando precisar. Simples, sem depender de ninguém — nem pagar nada extra.</p>
-          </article>
+        <div class="lp-offer-strip reveal-target">
+          <h3>R$697 uma vez. <span>Sem mensalidade.</span></h3>
+          <p>Sem taxa de manutenção, sem fidelidade, sem custo escondido.</p>
         </div>
 
-        <div class="lp-zero-monthly">
-          <h3><strong>R$&thinsp;697</strong> uma vez.<br><em>Nada mais. Nunca mais.</em></h3>
-          <p>Sem mensalidade. Sem taxa de manutenção. Sem contrato de fidelidade.<br>Você paga uma vez e o sistema é seu para sempre.</p>
-        </div>
-
-        <div class="lp-lumyn-identity">
-          <p>A Lumyn é uma assessoria brasileira especializada em digitalização de restaurantes e delivery. Já organizamos dezenas de operações em todo o país.</p>
-          <a href="https://instagram.com/lumynassessoria" target="_blank" rel="noopener">@lumynassessoria no Instagram ↗</a>
+        <div class="lp-identity reveal-target">
+          <p>A Lumyn é uma assessoria brasileira focada em digitalização de restaurantes e delivery.</p>
+          <a href="https://instagram.com/lumynassessoria" target="_blank" rel="noopener noreferrer">@lumynassessoria</a>
         </div>
       </div>
     </section>
 
-    <!-- Depoimentos -->
-    <section class="section" id="depoimentos">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">QUEM JÁ ORGANIZOU</p>
-          <h2>Restaurantes que pararam de perder pedido.</h2>
-        </div>
+    <section class="lp-section" id="depoimentos">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">PROVA SOCIAL</p>
+          <h2>Mini-casos de quem já saiu do caos.</h2>
+        </header>
 
-        <div class="lp-testimonials">
-
-          <article class="lp-testimonial-card card reveal">
-            <div class="lp-testimonial-body">
-              <p class="lp-testimonial-stars">★★★★★</p>
-              <p>"Antes ficava perdida com 40 pedidos por semana no WhatsApp. Agora o cliente manda o pedido organizado e eu só confirmo — zero confusão. Em menos de um mês o investimento já se pagou."</p>
-            </div>
-            <footer class="lp-testimonial-meta">
-              <div class="lp-testimonial-avatar" aria-hidden="true">CM</div>
-              <div class="lp-testimonial-info">
-                <strong>Carla M.</strong>
-                <span>Marmitaria · 40+ pedidos/semana — São Paulo, SP</span>
-              </div>
+        <div class="lp-testimonials-grid">
+          <article class="lp-testimonial-card reveal-target">
+            <p class="lp-testimonial-result">+40 pedidos/semana organizados</p>
+            <p class="lp-testimonial-text">“Antes eu perdia conversa toda noite. Em menos de 30 dias, o sistema se pagou com os pedidos que antes eu deixava passar.”</p>
+            <footer>
+              <strong>Carla M.</strong>
+              <span>Marmitaria • São Paulo</span>
             </footer>
           </article>
 
-          <article class="lp-testimonial-card card reveal">
-            <div class="lp-testimonial-body">
-              <p class="lp-testimonial-stars">★★★★★</p>
-              <p>"Achei que ia ser complicado, mas a Lumyn fez tudo. Em 5 dias estava funcionando. Nem precisei instalar nada nem aprender nada técnico."</p>
-            </div>
-            <footer class="lp-testimonial-meta">
-              <div class="lp-testimonial-avatar" aria-hidden="true">RT</div>
-              <div class="lp-testimonial-info">
-                <strong>Ricardo T.</strong>
-                <span>Lanchonete — Campinas, SP</span>
-              </div>
+          <article class="lp-testimonial-card reveal-target">
+            <p class="lp-testimonial-result">Implantado em 5 dias</p>
+            <p class="lp-testimonial-text">“A Lumyn configurou tudo para mim. Eu só aprovei e comecei a usar. Hoje o cliente entra e já sabe como pedir.”</p>
+            <footer>
+              <strong>Ricardo T.</strong>
+              <span>Lanchonete • Campinas</span>
             </footer>
           </article>
 
-          <article class="lp-testimonial-card card reveal">
-            <div class="lp-testimonial-body">
-              <p class="lp-testimonial-stars">★★★★★</p>
-              <p>"O cardápio com link próprio fez diferença na hora. Cliente já entra, escolhe e manda o pedido certinho. Caos no WhatsApp acabou."</p>
-            </div>
-            <footer class="lp-testimonial-meta">
-              <div class="lp-testimonial-avatar" aria-hidden="true">AP</div>
-              <div class="lp-testimonial-info">
-                <strong>Ana P.</strong>
-                <span>Restaurante — Belo Horizonte, MG</span>
-              </div>
+          <article class="lp-testimonial-card reveal-target">
+            <p class="lp-testimonial-result">Menos erro, mais recorrência</p>
+            <p class="lp-testimonial-text">“Parou a confusão de pedido errado. O atendimento ficou rápido e a equipe trabalha com muito mais calma.”</p>
+            <footer>
+              <strong>Ana P.</strong>
+              <span>Restaurante • Belo Horizonte</span>
             </footer>
           </article>
-
         </div>
       </div>
     </section>
 
-    <!-- Âncora de preço -->
-    <section class="section lp-anchor-section" id="preco">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">COMPARE</p>
-          <h2>Quanto custa continuar como está?</h2>
+    <section class="lp-section lp-price-section" id="preco">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">ANCORA DE DECISAO</p>
+          <h2>Qual custo você prefere manter?</h2>
+        </header>
+
+        <div class="lp-price-grid">
+          <article class="lp-price-card reveal-target">
+            <p class="lp-price-label">CONTINUAR COMO ESTA</p>
+            <p class="lp-price-value neutral">∞</p>
+            <p class="lp-price-copy">Pedido perdido, retrabalho e reputação em risco todo dia.</p>
+          </article>
+
+          <article class="lp-price-card reveal-target">
+            <p class="lp-price-label">IFOOD POR MES</p>
+            <p class="lp-price-value danger">R$810</p>
+            <p class="lp-price-copy">Taxa recorrente para quem faz R$3.000/mês no delivery.</p>
+          </article>
+
+          <article class="lp-price-card featured reveal-target">
+            <p class="lp-price-badge">MELHOR CUSTO-BENEFICIO</p>
+            <p class="lp-price-label">IMPLANTACAO LUMYN</p>
+            <p class="lp-price-value accent">R$697</p>
+            <p class="lp-price-copy"><strong>Uma vez só.</strong> Sem mensalidade. Sem taxa de manutenção.</p>
+          </article>
         </div>
 
-        <div class="lp-anchor-grid">
-          <div class="lp-anchor-side card">
-            <p class="lp-anchor-label">Continuar como está</p>
-            <p class="lp-anchor-value neutral">∞</p>
-            <p class="lp-anchor-sub">Pedidos perdidos. Reputação em risco.<br>Caos todo dia. Sem previsão de melhora.</p>
-          </div>
-
-          <div class="lp-anchor-divider"></div>
-
-          <div class="lp-anchor-side card">
-            <p class="lp-anchor-label">iFood — por mês</p>
-            <p class="lp-anchor-value bad">R$&thinsp;810</p>
-            <p class="lp-anchor-sub">de comissão pra quem faz R$3k em delivery.<br>Todo mês. Para sempre.</p>
-          </div>
-
-          <div class="lp-anchor-divider"></div>
-
-          <div class="lp-anchor-side card highlight">
-            <p class="lp-anchor-badge">Melhor escolha</p>
-            <p class="lp-anchor-label">Implantação Expressa — uma vez</p>
-            <p class="lp-anchor-value good">R$&thinsp;697</p>
-            <p class="lp-anchor-sub"><strong>Zero mensalidade. Sem iFood. Sem caos.</strong><br>Pago uma vez. Seu para sempre.</p>
-          </div>
-        </div>
-
-        <p class="lp-anchor-roi">
-          R$810 × 12 meses = R$9.720/ano no iFood &nbsp;→&nbsp; R$697 uma vez pela Lumyn
-        </p>
+        <p class="lp-price-footnote reveal-target">R$810 x 12 = R$9.720 por ano em taxa. Com a Lumyn, você investe R$697 uma única vez.</p>
       </div>
     </section>
 
-    <!-- Como funciona -->
-    <section class="section" id="como-funciona">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">COMO FUNCIONA</p>
-          <h2>3 passos. Feito em até 7 dias úteis.</h2>
-        </div>
+    <section class="lp-section" id="como-funciona">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">IMPLEMENTACAO</p>
+          <h2>3 passos para organizar seu WhatsApp em até 7 dias.</h2>
+        </header>
 
-        <div class="lp-steps">
-          <article class="lp-step card">
-            <div class="lp-step-number">01</div>
-            <h3>Você fala com a Lumyn</h3>
-            <p>Pelo WhatsApp mesmo. A gente entende seu restaurante, o cardápio e como você recebe pedidos hoje.</p>
+        <div class="lp-steps-grid">
+          <article class="lp-step-card reveal-target">
+            <span class="lp-step-number">01</span>
+            <h3>Briefing da operação</h3>
+            <p>Você explica como atende hoje e onde estão os gargalos.</p>
           </article>
 
-          <article class="lp-step card">
-            <div class="lp-step-number">02</div>
-            <h3>A gente configura tudo</h3>
-            <p>Cardápio digital, mensagem automática, fluxo de atendimento. Feito pela Lumyn — você não mexe em nada.</p>
+          <article class="lp-step-card reveal-target">
+            <span class="lp-step-number">02</span>
+            <h3>Configuração completa</h3>
+            <p>A Lumyn monta cardápio, mensagem e fluxo de atendimento.</p>
           </article>
 
-          <article class="lp-step card">
-            <div class="lp-step-number">03</div>
-            <h3>Seu WhatsApp começa a funcionar</h3>
-            <p>Pedidos chegam organizados automaticamente. Nenhum se perde. Nenhum fica sem resposta. Você atende mais com menos esforço.</p>
-            <span class="lp-step-tag">em até 7 dias úteis</span>
+          <article class="lp-step-card reveal-target">
+            <span class="lp-step-number">03</span>
+            <h3>Entrada em operação</h3>
+            <p>Seu time começa a receber pedidos organizados e sem ruído.</p>
           </article>
         </div>
 
-        <div style="margin-top: 2.5rem; text-align: center;">
+        <div class="lp-steps-action reveal-target">
           <a
-            class="btn btn-primary btn-large"
+            class="lp-btn lp-btn-primary lp-btn-large"
             href="https://wa.me/5571993752189?text=Ol%C3%A1%2C%20Lumyn%21%20Vi%20o%20an%C3%BAncio%20da%20Implanta%C3%A7%C3%A3o%20Expressa%20e%20quero%20organizar%20o%20WhatsApp%20e%20o%20card%C3%A1pio%20do%20meu%20restaurante."
             target="_blank"
             rel="noopener noreferrer"
             data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
             data-track="click_whatsapp"
             data-track-location="steps_lp">
-            Quero começar agora →
+            Quero começar agora
           </a>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Accordion -->
-    <section class="section lp-faq-section" id="faq">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">PERGUNTAS FREQUENTES</p>
-          <h2>Tire as dúvidas antes de falar com a gente.</h2>
-        </div>
+    <section class="lp-section lp-faq-section" id="faq">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">FAQ</p>
+          <h2>Respostas para as objeções mais comuns.</h2>
+        </header>
 
         <div class="lp-faq-list">
-
-          <article class="lp-faq-item">
-            <div class="lp-faq-question">
-              <h3>Realmente não pago nada todo mês?</h3>
+          <article class="lp-faq-item reveal-target">
+            <button class="lp-faq-question" type="button" aria-expanded="false">
+              <span>Realmente não pago mensalidade?</span>
               <span class="lp-faq-toggle">+</span>
-            </div>
+            </button>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
-                <p><strong>Zero.</strong> Sem mensalidade, sem taxa de manutenção, sem renovação anual, sem contrato de fidelidade. Você paga R$697 uma única vez e o sistema é seu. Ponto final.</p>
+                <p>Não. Você paga R$697 uma única vez. Sem mensalidade, sem renovação e sem taxa escondida.</p>
               </div>
             </div>
           </article>
 
-          <article class="lp-faq-item">
-            <div class="lp-faq-question">
-              <h3>Como é feito o pagamento?</h3>
+          <article class="lp-faq-item reveal-target">
+            <button class="lp-faq-question" type="button" aria-expanded="false">
+              <span>Em quanto tempo fica pronto?</span>
               <span class="lp-faq-toggle">+</span>
-            </div>
+            </button>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
-                <p>PIX, cartão de crédito ou débito. Após o pagamento, a Lumyn entra em contato pelo WhatsApp para iniciar a implantação — geralmente no mesmo dia.</p>
+                <p>Até 7 dias úteis após confirmação do pagamento, com tudo funcionando no seu WhatsApp.</p>
               </div>
             </div>
           </article>
 
-          <article class="lp-faq-item">
-            <div class="lp-faq-question">
-              <h3>Preciso saber mexer com tecnologia?</h3>
+          <article class="lp-faq-item reveal-target">
+            <button class="lp-faq-question" type="button" aria-expanded="false">
+              <span>Preciso saber mexer com tecnologia?</span>
               <span class="lp-faq-toggle">+</span>
-            </div>
+            </button>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
-                <p>Não. A Lumyn configura tudo. Você só precisa ter um WhatsApp Business — se ainda não tiver, a gente orienta a criar. Não precisa aprender nada técnico.</p>
+                <p>Não. A Lumyn faz a configuração completa e te entrega o processo pronto para usar.</p>
               </div>
             </div>
           </article>
 
-          <article class="lp-faq-item">
-            <div class="lp-faq-question">
-              <h3>Funciona no meu WhatsApp normal, sem app separado?</h3>
+          <article class="lp-faq-item reveal-target">
+            <button class="lp-faq-question" type="button" aria-expanded="false">
+              <span>E se eu precisar atualizar o cardápio depois?</span>
               <span class="lp-faq-toggle">+</span>
-            </div>
+            </button>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
-                <p>Sim. O cardápio digital tem um link próprio que funciona no WhatsApp normalmente. O cliente acessa pelo link, vê o cardápio e manda o pedido — tudo dentro do WhatsApp mesmo.</p>
+                <p>Você recebe orientação prática para atualizar preço e itens sem depender de suporte pago.</p>
               </div>
             </div>
           </article>
 
-          <article class="lp-faq-item">
-            <div class="lp-faq-question">
-              <h3>E se eu precisar atualizar o cardápio depois?</h3>
+          <article class="lp-faq-item reveal-target">
+            <button class="lp-faq-question" type="button" aria-expanded="false">
+              <span>Qual a garantia?</span>
               <span class="lp-faq-toggle">+</span>
-            </div>
+            </button>
             <div class="lp-faq-answer">
               <div class="lp-faq-answer-inner">
-                <p>A gente te orienta como fazer sozinho. É simples — você não vai precisar chamar ninguém nem pagar nada extra para trocar preços ou adicionar itens.</p>
+                <p>Se em até 7 dias úteis não estiver implantado e funcionando, devolvemos 100% do valor.</p>
               </div>
             </div>
           </article>
-
-          <article class="lp-faq-item">
-            <div class="lp-faq-question">
-              <h3>Em quanto tempo fica pronto?</h3>
-              <span class="lp-faq-toggle">+</span>
-            </div>
-            <div class="lp-faq-answer">
-              <div class="lp-faq-answer-inner">
-                <p>Em até 7 dias úteis após a confirmação do pagamento. A Lumyn cuida de tudo nesse período e te entrega tudo funcionando.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="lp-faq-item">
-            <div class="lp-faq-question">
-              <h3>E se tiver algum problema depois da implantação?</h3>
-              <span class="lp-faq-toggle">+</span>
-            </div>
-            <div class="lp-faq-answer">
-              <div class="lp-faq-answer-inner">
-                <p>A Lumyn fica disponível pelo WhatsApp nos 7 dias de implantação e continua acessível depois para dúvidas pontuais. Se algo parar de funcionar, é só chamar — respondemos em poucas horas.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="lp-faq-item">
-            <div class="lp-faq-question">
-              <h3>Isso substitui o iFood?</h3>
-              <span class="lp-faq-toggle">+</span>
-            </div>
-            <div class="lp-faq-answer">
-              <div class="lp-faq-answer-inner">
-                <p>Não substitui obrigatoriamente — mas dá a opção de receber pedidos diretos pelo WhatsApp sem pagar comissão. Muitos clientes acabam preferindo o direto porque a margem é muito melhor.</p>
-              </div>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
 
-    <!-- CTA Final -->
-    <section class="lp-cta-final" id="contato">
-      <div class="container">
-        <h2>R$&thinsp;697 uma vez.<br>Sem mensalidade. Entregue em 7 dias.</h2>
-        <p class="lp-cta-sub">
-          Feito pela Lumyn. Você não precisa aprender nada, instalar nada, nem assinar nada.
-        </p>
+    <section class="lp-final-cta" id="contato">
+      <div class="lp-container">
+        <h2 class="reveal-target">R$697 uma vez. Seu atendimento organizado em 7 dias.</h2>
+        <p class="lp-final-sub reveal-target">Fale com a Lumyn agora e receba o plano da sua implantação pelo WhatsApp.</p>
 
-        <div class="lp-cta-actions">
+        <div class="lp-final-actions reveal-target">
           <a
-            class="btn btn-primary"
+            class="lp-btn lp-btn-primary lp-btn-large"
             href="https://wa.me/5571993752189?text=Ol%C3%A1%2C%20Lumyn%21%20Vi%20o%20an%C3%BAncio%20da%20Implanta%C3%A7%C3%A3o%20Expressa%20e%20quero%20organizar%20o%20WhatsApp%20e%20o%20card%C3%A1pio%20do%20meu%20restaurante."
             target="_blank"
             rel="noopener noreferrer"
             data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
             data-track="click_whatsapp"
             data-track-location="cta_final_lp">
-            Quero começar agora →
+            Quero começar agora
           </a>
 
-          <div class="lp-guarantee-block">
-            <div class="lp-guarantee-inner">
-              <div class="lp-guarantee-icon" aria-hidden="true">✓</div>
-              <div>
-                <p class="lp-guarantee-title">Garantia de resultado em 7 dias</p>
-                <p class="lp-guarantee-desc">Se em até 7 dias úteis o sistema não estiver funcionando no seu WhatsApp — cardápio ativo, mensagem automática configurada e fluxo organizado — devolvemos 100% do valor. Sem burocracia.</p>
-              </div>
-            </div>
+          <div class="lp-guarantee-box">
+            <p class="lp-guarantee-title">Garantia de implantação em 7 dias úteis</p>
+            <p class="lp-guarantee-copy">Cardápio ativo, mensagem automática e fluxo organizado. Se não acontecer, devolução integral.</p>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- Footer mínimo -->
   <footer class="lp-footer">
-    <div class="container lp-footer-inner">
+    <div class="lp-container lp-footer-inner">
       <p>© <span id="year"></span> Lumyn. Todos os direitos reservados.</p>
       <a href="https://lumynassessoria.com">lumynassessoria.com</a>
     </div>
@@ -1763,58 +414,62 @@
   <script src="../config.js"></script>
   <script src="../site.js"></script>
   <script>
-    // Header scroll
     const header = document.getElementById("lp-header");
     const toggleHeader = () => {
       if (!header) return;
-      header.classList.toggle("scrolled", window.scrollY > 50);
+      header.classList.toggle("scrolled", window.scrollY > 24);
     };
     window.addEventListener("scroll", toggleHeader, { passive: true });
     toggleHeader();
 
-    // Footer year
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-    // Dashboard bars animation
     const dashboard = document.getElementById("lp-dashboard");
     if (dashboard) {
-      new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
+      const dashboardObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           dashboard.classList.add("bars-visible");
           obs.unobserve(entry.target);
         });
-      }, { threshold: 0.4 }).observe(dashboard);
+      }, { threshold: 0.4 });
+      dashboardObserver.observe(dashboard);
     }
 
-    // FAQ accordion
-    document.querySelectorAll(".lp-faq-item").forEach(item => {
-      item.querySelector(".lp-faq-question").addEventListener("click", () => {
+    document.querySelectorAll(".lp-faq-item").forEach((item) => {
+      const button = item.querySelector(".lp-faq-question");
+      if (!button) return;
+
+      button.addEventListener("click", () => {
         const isOpen = item.classList.contains("open");
-        document.querySelectorAll(".lp-faq-item.open").forEach(o => o.classList.remove("open"));
-        if (!isOpen) item.classList.add("open");
+        document.querySelectorAll(".lp-faq-item.open").forEach((openItem) => {
+          openItem.classList.remove("open");
+          const openButton = openItem.querySelector(".lp-faq-question");
+          if (openButton) openButton.setAttribute("aria-expanded", "false");
+        });
+
+        if (!isOpen) {
+          item.classList.add("open");
+          button.setAttribute("aria-expanded", "true");
+        }
       });
     });
 
-    // Reveal on scroll
-    const revealEls = document.querySelectorAll(
-      ".card, .section-head, .lp-hero-copy, .lp-dashboard, .lp-pain-editorial, .lp-zero-monthly, .lp-anchor-grid, .lp-anchor-roi, .lp-cta-final h2, .lp-cta-sub, .lp-cta-actions"
-    );
-    if (revealEls.length > 0) {
-      revealEls.forEach(el => el.classList.add("reveal"));
+    const revealTargets = document.querySelectorAll(".reveal-target");
+    if (revealTargets.length > 0) {
+      revealTargets.forEach((el) => el.classList.add("reveal"));
 
       const revealObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           entry.target.classList.add("is-visible");
           obs.unobserve(entry.target);
         });
-      }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
 
-      revealEls.forEach(el => revealObserver.observe(el));
+      revealTargets.forEach((el) => revealObserver.observe(el));
     }
   </script>
-
 </body>
 </html>
