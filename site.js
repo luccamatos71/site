@@ -30,6 +30,14 @@
   function getCurrentPageKey() {
     const path = window.location.pathname.replace(/\/+$/, "") || "/";
     if (path === "/links" || path === "/links.html") return "links";
+    if (
+      path === "/restaurante" ||
+      path === "/restaurante/index.html" ||
+      path === "/implantacao" ||
+      path === "/implantacao/index.html"
+    ) {
+      return "restaurante";
+    }
     return "home";
   }
 
@@ -43,11 +51,19 @@
       fallback.description ||
       site.brand?.description ||
       "";
-    const path = pageConfig.path || (pageKey === "links" ? "/links" : "/");
+    let path = pageConfig.path || "/";
+    if (!pageConfig.path) {
+      if (pageKey === "links") path = "/links";
+      if (pageKey === "restaurante") path = "/restaurante";
+    }
     const canonicalUrl = `${defaultSiteUrl}${path}`;
     const imagePath = seo.defaultImagePath || "/assets/og/lumyn-og.png";
     const imageUrl = `${defaultSiteUrl}${imagePath}`;
-    return { title, description, canonicalUrl, imageUrl, pageKey };
+    const robots =
+      pageConfig.robots ||
+      fallback.robots ||
+      "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1";
+    return { title, description, canonicalUrl, imageUrl, pageKey, robots };
   }
 
   function applySeoMeta() {
@@ -64,7 +80,7 @@
     );
     ensureMeta('meta[name="robots"]', "name", "robots").setAttribute(
       "content",
-      "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+      data.robots
     );
 
     ensureMeta('meta[property="og:type"]', "property", "og:type").setAttribute(
@@ -265,11 +281,12 @@
   }
 
   function extractFaqEntries() {
-    const items = document.querySelectorAll(".faq-item");
+    const items = document.querySelectorAll(".faq-item, .lp-faq-item");
     return Array.from(items)
       .map((item) => {
         const question = item.querySelector("h3")?.textContent?.trim();
-        const answer = item.querySelector("p")?.textContent?.trim();
+        const answer =
+          item.querySelector(".faq-item p, .lp-faq-answer-inner p, p")?.textContent?.trim();
         if (!question || !answer) return null;
         return {
           "@type": "Question",

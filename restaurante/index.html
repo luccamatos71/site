@@ -1054,9 +1054,226 @@
         font-size: clamp(2.2rem, 9vw, 2.8rem);
       }
     }
+
+    /* V2 dark operacional (override escopado) */
+
+    .lp-v2 {
+      --bg-canvas: #05070b;
+      --bg-surface: #0a0f16;
+      --bg-elevated: #101724;
+      --text-primary: #f3f6ff;
+      --text-secondary: #a9b4c8;
+      --text-muted: #7b879d;
+      --gold: #b0bed9;
+      --gold-bright: #d9e3f8;
+      --gold-muted: rgba(176, 190, 217, 0.56);
+      --border-subtle: rgba(146, 167, 201, 0.16);
+      --border-medium: rgba(174, 197, 232, 0.26);
+      --border-gold: rgba(176, 190, 217, 0.35);
+      background:
+        radial-gradient(1200px 600px at 10% -8%, rgba(70, 92, 131, 0.17), transparent 62%),
+        radial-gradient(860px 480px at 88% 0%, rgba(49, 66, 96, 0.14), transparent 64%),
+        var(--bg-canvas);
+      color: var(--text-primary);
+    }
+
+    .lp-v2 .section,
+    .lp-v2 .lp-cta-final {
+      padding: clamp(4.1rem, 8vw, 6.8rem) 0;
+    }
+
+    .lp-v2 .lp-hero {
+      background:
+        radial-gradient(ellipse 920px 520px at 0% 0%, rgba(78, 102, 142, 0.18), transparent 64%),
+        radial-gradient(ellipse 640px 420px at 100% 100%, rgba(50, 73, 116, 0.16), transparent 68%),
+        #05070b;
+    }
+
+    .lp-v2 .lp-hero::before {
+      opacity: 0.12;
+    }
+
+    .lp-v2 h1,
+    .lp-v2 h2,
+    .lp-v2 .lp-zero-monthly h3 {
+      font-family: "Manrope", sans-serif;
+      font-style: normal;
+      font-weight: 750;
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+    }
+
+    .lp-v2 .lp-zero-monthly h3 em {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .lp-v2 .section-head .eyebrow::after,
+    .lp-v2 .split-head .eyebrow::after {
+      background: var(--border-medium);
+      opacity: 0.75;
+    }
+
+    .lp-v2 .eyebrow {
+      color: #8e9bb1;
+    }
+
+    .lp-v2 .lp-hero-sub,
+    .lp-v2 .section-lead,
+    .lp-v2 .lp-anchor-sub,
+    .lp-v2 .lp-cta-sub,
+    .lp-v2 .lp-testimonial-body p,
+    .lp-v2 .lp-guarantee-desc {
+      color: var(--text-secondary);
+    }
+
+    .lp-v2 .lp-hero-grid {
+      grid-template-columns: 1.14fr 0.86fr;
+      gap: clamp(2.1rem, 4vw, 4.6rem);
+    }
+
+    .lp-v2 .btn {
+      font-weight: 700;
+    }
+
+    .lp-v2 .btn-primary {
+      background: #f3f6ff !important;
+      border-color: #f3f6ff !important;
+      color: #0a1019 !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22) !important;
+    }
+
+    .lp-v2 .btn-primary:hover {
+      background: #ffffff !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .lp-v2 .btn-header {
+      min-height: 42px;
+      padding: 0.58rem 1.12rem;
+      font-size: 0.81rem;
+    }
+
+    .lp-v2 .card,
+    .lp-v2 .lp-deliverable-item,
+    .lp-v2 .lp-step,
+    .lp-v2 .lp-testimonial-card,
+    .lp-v2 .lp-guarantee-inner,
+    .lp-v2 .lp-dashboard,
+    .lp-v2 .lp-anchor-side {
+      background: linear-gradient(180deg, rgba(20, 27, 40, 0.82), rgba(14, 19, 30, 0.9));
+      border-color: var(--border-subtle);
+      box-shadow: none;
+    }
+
+    .lp-v2 .lp-dashboard {
+      border-color: var(--border-medium);
+    }
+
+    .lp-v2 .lp-dashboard.bars-visible {
+      box-shadow: 0 18px 52px rgba(2, 7, 15, 0.42);
+    }
+
+    .lp-v2 .lp-deliverable-item:hover,
+    .lp-v2 .lp-step:hover,
+    .lp-v2 .lp-testimonial-card:hover,
+    .lp-v2 .lp-anchor-side.highlight,
+    .lp-v2 .lp-guarantee-inner:hover {
+      border-color: var(--border-medium);
+      box-shadow: 0 14px 34px rgba(2, 6, 14, 0.38);
+    }
+
+    .lp-v2 .lp-deliverable-num,
+    .lp-v2 .lp-step-number,
+    .lp-v2 .lp-anchor-value.good,
+    .lp-v2 .lp-dashboard-kicker,
+    .lp-v2 .lp-faq-toggle {
+      color: var(--gold-bright);
+    }
+
+    .lp-v2 .lp-step-number,
+    .lp-v2 .lp-anchor-badge {
+      border-color: var(--border-medium);
+      background: rgba(176, 190, 217, 0.08);
+    }
+
+    .lp-v2 .lp-anchor-section {
+      background: linear-gradient(180deg, #060a11 0%, #080b12 100%) !important;
+    }
+
+    .lp-v2 .lp-anchor-side.highlight {
+      border-color: rgba(241, 246, 255, 0.42);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 16px 38px rgba(4, 10, 20, 0.44);
+    }
+
+    .lp-v2 .lp-anchor-value.neutral {
+      color: #cad3e3;
+    }
+
+    .lp-v2 .lp-zero-monthly {
+      border-image: linear-gradient(90deg, transparent, rgba(176, 190, 217, 0.62), transparent) 1;
+      background: linear-gradient(180deg, rgba(176, 190, 217, 0.03), rgba(176, 190, 217, 0.01));
+    }
+
+    .lp-v2 .lp-zero-monthly h3 strong {
+      color: #f3f6ff;
+      font-weight: 760;
+    }
+
+    .lp-v2 .lp-dashboard .lp-urgency-badge,
+    .lp-v2 .lp-urgency-badge {
+      background: rgba(217, 84, 84, 0.1);
+      border-color: rgba(226, 112, 112, 0.42);
+      color: #ffb3b3;
+    }
+
+    .lp-v2 .lp-urgency-dot {
+      background: #ff8080;
+    }
+
+    .lp-v2 .lp-faq-item:hover {
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .lp-v2 .lp-footer {
+      background: #05070b;
+    }
+
+    @media (max-width: 980px) {
+      .lp-v2 .lp-hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lp-v2 .lp-dashboard {
+        max-width: 540px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .lp-v2 .section,
+      .lp-v2 .lp-cta-final {
+        padding: 4rem 0;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .lp-v2 .lp-hero h1 {
+        font-size: clamp(2.05rem, 10vw, 2.6rem);
+        line-height: 1.06;
+      }
+
+      .lp-v2 .lp-dashboard,
+      .lp-v2 .lp-guarantee-inner {
+        padding: 1.2rem;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="lp-v2">
 
   <!-- Header mínimo -->
   <header class="lp-header" id="lp-header">
@@ -1064,6 +1281,9 @@
       <a class="brand" href="https://lumynassessoria.com" aria-label="Lumyn">LUMYN</a>
       <a
         class="btn btn-primary btn-header"
+        href="https://wa.me/5571993752189?text=Ol%C3%A1%2C%20Lumyn%21%20Vi%20o%20an%C3%BAncio%20da%20Implanta%C3%A7%C3%A3o%20Expressa%20e%20quero%20organizar%20o%20WhatsApp%20e%20o%20card%C3%A1pio%20do%20meu%20restaurante."
+        target="_blank"
+        rel="noopener noreferrer"
         data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
         data-track="click_whatsapp"
         data-track-location="header_lp">
@@ -1089,6 +1309,9 @@
             <div class="lp-hero-cta">
               <a
                 class="btn btn-primary"
+                href="https://wa.me/5571993752189?text=Ol%C3%A1%2C%20Lumyn%21%20Vi%20o%20an%C3%BAncio%20da%20Implanta%C3%A7%C3%A3o%20Expressa%20e%20quero%20organizar%20o%20WhatsApp%20e%20o%20card%C3%A1pio%20do%20meu%20restaurante."
+                target="_blank"
+                rel="noopener noreferrer"
                 data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
                 data-track="click_whatsapp"
                 data-track-location="hero_lp">
@@ -1372,6 +1595,9 @@
         <div style="margin-top: 2.5rem; text-align: center;">
           <a
             class="btn btn-primary btn-large"
+            href="https://wa.me/5571993752189?text=Ol%C3%A1%2C%20Lumyn%21%20Vi%20o%20an%C3%BAncio%20da%20Implanta%C3%A7%C3%A3o%20Expressa%20e%20quero%20organizar%20o%20WhatsApp%20e%20o%20card%C3%A1pio%20do%20meu%20restaurante."
+            target="_blank"
+            rel="noopener noreferrer"
             data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
             data-track="click_whatsapp"
             data-track-location="steps_lp">
@@ -1502,6 +1728,9 @@
         <div class="lp-cta-actions">
           <a
             class="btn btn-primary"
+            href="https://wa.me/5571993752189?text=Ol%C3%A1%2C%20Lumyn%21%20Vi%20o%20an%C3%BAncio%20da%20Implanta%C3%A7%C3%A3o%20Expressa%20e%20quero%20organizar%20o%20WhatsApp%20e%20o%20card%C3%A1pio%20do%20meu%20restaurante."
+            target="_blank"
+            rel="noopener noreferrer"
             data-whatsapp="Olá, Lumyn! Vi o anúncio da Implantação Expressa e quero organizar o WhatsApp e o cardápio do meu restaurante."
             data-track="click_whatsapp"
             data-track-location="cta_final_lp">
@@ -1536,9 +1765,12 @@
   <script>
     // Header scroll
     const header = document.getElementById("lp-header");
-    window.addEventListener("scroll", () => {
+    const toggleHeader = () => {
+      if (!header) return;
       header.classList.toggle("scrolled", window.scrollY > 50);
-    }, { passive: true });
+    };
+    window.addEventListener("scroll", toggleHeader, { passive: true });
+    toggleHeader();
 
     // Footer year
     const yearEl = document.getElementById("year");
@@ -1569,25 +1801,19 @@
     const revealEls = document.querySelectorAll(
       ".card, .section-head, .lp-hero-copy, .lp-dashboard, .lp-pain-editorial, .lp-zero-monthly, .lp-anchor-grid, .lp-anchor-roi, .lp-cta-final h2, .lp-cta-sub, .lp-cta-actions"
     );
-    revealEls.forEach(el => el.classList.add("reveal"));
+    if (revealEls.length > 0) {
+      revealEls.forEach(el => el.classList.add("reveal"));
 
-    new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        obs.unobserve(entry.target);
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }).observe
-      ? revealEls.forEach(el => {
-          new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-              if (!entry.isIntersecting) return;
-              entry.target.classList.add("is-visible");
-              obs.unobserve(entry.target);
-            });
-          }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }).observe(el);
-        })
-      : null;
+      const revealObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
+
+      revealEls.forEach(el => revealObserver.observe(el));
+    }
   </script>
 
 </body>

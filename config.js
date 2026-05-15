@@ -64,5 +64,12 @@ window.LUMYN_SITE = {
         "Acesse os principais links da Lumyn: WhatsApp, diagnóstico, soluções para restaurantes e Instagram.",
       path: "/links",
     },
+    restaurante: {
+      title: "Cardapio Digital + WhatsApp Organizado - Lumyn",
+      description:
+        "Cardapio digital com link proprio e WhatsApp organizado para receber pedidos. Implantado em ate 7 dias. R$697 uma vez, sem mensalidade.",
+      path: "/restaurante",
+      robots: "noindex,nofollow",
+    },
   },
 };
