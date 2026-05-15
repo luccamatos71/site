@@ -1336,14 +1336,30 @@ h3 {
     padding: 1.15rem 1.2rem;
   }
 
-  /* Promise track vira coluna no mobile */
+  /* Promise track vira coluna no mobile — linha amarela passa a ser vertical */
   .lp-promise-track {
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 0.65rem;
   }
   .lp-promise-track-line {
-    width: 100%;
+    flex: 0 0 auto;
+    width: 2px;
+    height: 44px;
     max-width: none;
+    background: linear-gradient(180deg, rgba(235, 87, 87, 0.35), rgba(200, 160, 85, 0.22) 45%, var(--lp-accent));
+  }
+  .lp-promise-track-line::after {
+    top: -30%;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+    animation: lp-promise-shine-vertical 3.4s ease-in-out infinite;
+  }
+
+  @keyframes lp-promise-shine-vertical {
+    0%   { top: -30%; }
+    100% { top: 100%; }
   }
 
   .lp-btn-large,
