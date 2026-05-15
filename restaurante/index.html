@@ -150,6 +150,29 @@
       </div>
     </section>
 
+    <!-- Bloco Promessa: ponte editorial entre Dor e Mecanismo -->
+    <section class="lp-promise" id="promessa">
+      <div class="lp-container">
+        <div class="lp-promise-inner">
+          <span class="lp-promise-eyebrow">A Promessa</span>
+          <h2>Em <strong>7 dias úteis</strong>, sua operação entra em ordem — sem você precisar aprender nada.</h2>
+          <p class="lp-promise-sub">Cardápio digital com link próprio, mensagens padronizadas e fluxo de atendimento desenhado para reduzir fila. A Lumyn configura nos bastidores; seu time apenas aprova.</p>
+
+          <div class="lp-promise-track" aria-hidden="true">
+            <span class="lp-promise-track-label">Improviso no WhatsApp</span>
+            <div class="lp-promise-track-line"></div>
+            <span class="lp-promise-track-label is-end">Pedidos organizados</span>
+          </div>
+
+          <div class="lp-promise-chips">
+            <span class="lp-promise-chip">Sem mensalidade</span>
+            <span class="lp-promise-chip">Sem contrato</span>
+            <span class="lp-promise-chip">Sem reaprender</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="lp-section" id="entrega">
       <div class="lp-container">
         <header class="lp-section-head reveal-target">
@@ -158,51 +181,177 @@
           <p>Você não recebe só uma ferramenta. Recebe um fluxo pronto para vender melhor todos os dias.</p>
         </header>
 
-        <div class="lp-delivery-layout reveal-target" id="como-funciona">
-          <div class="lp-deliverables-grid">
-            <article class="lp-deliverable-card">
-              <span class="lp-deliverable-number">01</span>
+        <!-- Entregáveis em zigzag: cada entrega com mini-mockup SVG específico -->
+        <div class="lp-deliverables-grid reveal-target">
+
+          <!-- Entrega 01 — Cardápio digital | texto à esquerda, mockup à direita -->
+          <article class="lp-deliverable-card">
+            <div class="lp-deliverable-body">
+              <span class="lp-deliverable-number">Entrega 01</span>
               <h3>Cardápio digital com link próprio</h3>
-              <p>O cliente escolhe e envia o pedido já estruturado no WhatsApp.</p>
-            </article>
+              <p>O cliente abre o link, vê os produtos com preço e envia o pedido já estruturado no WhatsApp. Sem app pra instalar.</p>
+            </div>
+            <div class="lp-deliverable-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+                <rect x="50" y="8" width="160" height="164" rx="8" fill="#0e0e10" stroke="rgba(200,160,85,0.34)" stroke-width="1"/>
+                <rect x="60" y="18" width="140" height="20" rx="3" fill="rgba(200,160,85,0.08)"/>
+                <text x="68" y="32" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="8" letter-spacing="0.1em">CARDÁPIO · LUMYN</text>
+                <line x1="60" y1="48" x2="200" y2="48" stroke="rgba(255,255,255,0.07)"/>
+                <text x="68" y="62" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="560">Marmita executiva</text>
+                <text x="190" y="62" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="9" text-anchor="end">R$ 22</text>
+                <line x1="60" y1="72" x2="200" y2="72" stroke="rgba(255,255,255,0.07)"/>
+                <text x="68" y="86" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="560">Frango grelhado</text>
+                <text x="190" y="86" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="9" text-anchor="end">R$ 25</text>
+                <line x1="60" y1="96" x2="200" y2="96" stroke="rgba(255,255,255,0.07)"/>
+                <text x="68" y="110" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="560">Vegano completo</text>
+                <text x="190" y="110" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="9" text-anchor="end">R$ 28</text>
+                <line x1="60" y1="120" x2="200" y2="120" stroke="rgba(255,255,255,0.07)"/>
+                <text x="68" y="134" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="560">Combo família</text>
+                <text x="190" y="134" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="9" text-anchor="end">R$ 65</text>
+                <rect x="60" y="146" width="140" height="20" rx="4" fill="#c8a055"/>
+                <text x="130" y="160" fill="#0a0a08" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" text-anchor="middle">PEDIR NO WHATSAPP →</text>
+              </svg>
+            </div>
+          </article>
 
-            <article class="lp-deliverable-card">
-              <span class="lp-deliverable-number">02</span>
+          <!-- Entrega 02 — Mensagens padronizadas | visual à esquerda, texto à direita (zigzag) -->
+          <article class="lp-deliverable-card">
+            <div class="lp-deliverable-body">
+              <span class="lp-deliverable-number">Entrega 02</span>
               <h3>Mensagens padronizadas</h3>
-              <p>Entrada, confirmação e fechamento com o texto certo para reduzir fila.</p>
-            </article>
+              <p>Boas-vindas automáticas, confirmação e fechamento com o texto certo para reduzir fila e responder antes do cliente desistir.</p>
+            </div>
+            <div class="lp-deliverable-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+                <rect x="14" y="18" width="120" height="26" rx="13" fill="rgba(255,255,255,0.06)"/>
+                <text x="26" y="35" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="9.5">Tem cardápio?</text>
+                <text x="140" y="38" fill="rgba(255,255,255,0.35)" font-family="'IBM Plex Mono', monospace" font-size="7">11:47</text>
+                <text x="130" y="62" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="7.5" text-anchor="middle" letter-spacing="0.1em">RESPOSTA AUTOMÁTICA · 3s</text>
+                <rect x="62" y="70" width="180" height="92" rx="13" fill="rgba(200,160,85,0.08)" stroke="rgba(200,160,85,0.5)" stroke-width="0.8"/>
+                <text x="74" y="88" fill="#ededf0" font-family="Inter, sans-serif" font-size="10" font-weight="600">Oi! 👋 Aqui é o restaurante.</text>
+                <text x="74" y="104" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="9">Cardápio completo aqui:</text>
+                <rect x="74" y="112" width="160" height="18" rx="4" fill="rgba(200,160,85,0.16)"/>
+                <text x="84" y="125" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="8.5">lumyn.menu/seurestaurante →</text>
+                <text x="74" y="148" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="9">Pedido organizado, sem caos.</text>
+                <text x="234" y="156" fill="rgba(255,255,255,0.35)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="end">11:47</text>
+              </svg>
+            </div>
+          </article>
 
-            <article class="lp-deliverable-card">
-              <span class="lp-deliverable-number">03</span>
+          <!-- Entrega 03 — Autonomia | texto à esquerda, fluxo à direita -->
+          <article class="lp-deliverable-card">
+            <div class="lp-deliverable-body">
+              <span class="lp-deliverable-number">Entrega 03</span>
               <h3>Autonomia para atualizar</h3>
-              <p>Seu time aprende a ajustar itens e preços sem depender de suporte pago.</p>
-            </article>
-          </div>
+              <p>Seu time aprende a ajustar itens, preços e horários quando precisar — sem depender de suporte pago nem chamar técnico.</p>
+            </div>
+            <div class="lp-deliverable-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="90" r="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <text x="40" y="88" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Você</text>
+                <text x="40" y="98" fill="rgba(255,255,255,0.45)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="middle">edita</text>
+                <line x1="70" y1="90" x2="98" y2="90" stroke="#c8a055" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <polygon points="98,90 92,86 92,94" fill="#c8a055"/>
+                <circle cx="130" cy="90" r="30" fill="rgba(200,160,85,0.1)" stroke="rgba(200,160,85,0.6)" stroke-width="1.2"/>
+                <text x="130" y="88" fill="#e2c47a" font-family="Inter, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Cardápio</text>
+                <text x="130" y="100" fill="rgba(226,196,122,0.75)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="middle">atualiza</text>
+                <line x1="162" y1="90" x2="190" y2="90" stroke="#c8a055" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <polygon points="190,90 184,86 184,94" fill="#c8a055"/>
+                <circle cx="220" cy="90" r="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <text x="220" y="88" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Cliente</text>
+                <text x="220" y="98" fill="rgba(255,255,255,0.45)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="middle">vê novo</text>
+                <text x="130" y="156" fill="rgba(255,255,255,0.4)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="middle" letter-spacing="0.1em">SEM CHAMAR TÉCNICO</text>
+              </svg>
+            </div>
+          </article>
 
-          <ol class="lp-steps-timeline" aria-label="Etapas da implantação">
-            <li>
-              <span class="lp-step-number">01</span>
-              <div>
-                <h3>Diagnóstico da operação</h3>
-                <p>Mapeamos gargalos, volume e rotina atual.</p>
-              </div>
-            </li>
-            <li>
-              <span class="lp-step-number">02</span>
-              <div>
-                <h3>Configuração completa</h3>
-                <p>Montamos cardápio, mensagens e fluxo de atendimento.</p>
-              </div>
-            </li>
-            <li>
-              <span class="lp-step-number">03</span>
-              <div>
-                <h3>Entrada em operação</h3>
-                <p>Seu time começa com processo claro e orientação inicial.</p>
-              </div>
-            </li>
-          </ol>
         </div>
+      </div>
+    </section>
+
+    <!-- Como funciona — seção separada com steps horizontais -->
+    <section class="lp-section lp-section-soft" id="como-funciona">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">COMO FUNCIONA</p>
+          <h2>Três passos. Em até 7 dias úteis.</h2>
+          <p>Você só aprova as etapas. A Lumyn cuida da configuração nos bastidores.</p>
+        </header>
+
+        <ol class="lp-steps-timeline reveal-target" aria-label="Etapas da implantação">
+
+          <li>
+            <div class="lp-step-bubble"><span>01</span></div>
+            <div>
+              <h3>Diagnóstico da operação</h3>
+              <p>Uma chamada de ~20 min pelo WhatsApp: mapeamos volume, gargalos e rotina atual do seu restaurante.</p>
+            </div>
+            <div class="lp-step-visual" aria-hidden="true">
+              <svg viewBox="0 0 150 88" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="14" width="92" height="18" rx="9" fill="rgba(255,255,255,0.06)"/>
+                <text x="18" y="26" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="8">Oi Lumyn, tenho…</text>
+                <rect x="54" y="40" width="88" height="18" rx="9" fill="rgba(200,160,85,0.12)" stroke="rgba(200,160,85,0.4)" stroke-width="0.7"/>
+                <text x="64" y="52" fill="#e2c47a" font-family="Inter, sans-serif" font-size="8">Bora! Me conta…</text>
+                <circle cx="138" cy="49" r="2.5" fill="#c8a055">
+                  <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
+                </circle>
+              </svg>
+            </div>
+          </li>
+
+          <li>
+            <div class="lp-step-bubble"><span>02</span></div>
+            <div>
+              <h3>Configuração completa</h3>
+              <p>Cardápio digital, mensagens automáticas e fluxo de atendimento. Feito pela Lumyn — você não mexe em nada.</p>
+            </div>
+            <div class="lp-step-visual" aria-hidden="true">
+              <svg viewBox="0 0 150 88" xmlns="http://www.w3.org/2000/svg">
+                <text x="10" y="14" fill="rgba(255,255,255,0.5)" font-family="'IBM Plex Mono', monospace" font-size="6" letter-spacing="0.1em">CONFIGURANDO</text>
+                <text x="10" y="30" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="6.5">Cardápio</text>
+                <rect x="52" y="24.5" width="88" height="5" rx="2" fill="rgba(255,255,255,0.06)"/>
+                <rect x="52" y="24.5" width="88" height="5" rx="2" fill="#c8a055"/>
+                <text x="10" y="48" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="6.5">Mensagens</text>
+                <rect x="52" y="42.5" width="88" height="5" rx="2" fill="rgba(255,255,255,0.06)"/>
+                <rect x="52" y="42.5" width="68" height="5" rx="2" fill="rgba(200,160,85,0.85)">
+                  <animate attributeName="width" from="0" to="68" dur="1.4s" begin="0.4s" fill="freeze"/>
+                </rect>
+                <text x="10" y="66" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="6.5">Fluxo WA</text>
+                <rect x="52" y="60.5" width="88" height="5" rx="2" fill="rgba(255,255,255,0.06)"/>
+                <rect x="52" y="60.5" width="46" height="5" rx="2" fill="rgba(200,160,85,0.7)">
+                  <animate attributeName="width" from="0" to="46" dur="1.4s" begin="0.8s" fill="freeze"/>
+                </rect>
+                <text x="10" y="82" fill="rgba(255,255,255,0.35)" font-family="'IBM Plex Mono', monospace" font-size="5.5">você ✕ não mexe em nada</text>
+              </svg>
+            </div>
+          </li>
+
+          <li>
+            <div class="lp-step-bubble"><span>03</span></div>
+            <div>
+              <h3>Entrada em operação</h3>
+              <p>Seu time começa com processo claro e orientação inicial. Pedidos chegam organizados — sem perda.</p>
+              <span class="lp-step-tag">em até 7 dias úteis</span>
+            </div>
+            <div class="lp-step-visual" aria-hidden="true">
+              <svg viewBox="0 0 150 88" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="4" fill="#e4f222">
+                  <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="16" cy="16" r="7" fill="none" stroke="#e4f222" stroke-opacity="0.3" stroke-width="0.8">
+                  <animate attributeName="r" from="4" to="10" dur="1.6s" repeatCount="indefinite"/>
+                  <animate attributeName="stroke-opacity" from="0.5" to="0" dur="1.6s" repeatCount="indefinite"/>
+                </circle>
+                <text x="28" y="19" fill="#e4f222" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="0.1em">ONLINE</text>
+                <text x="8" y="48" fill="#ededf0" font-family="'IBM Plex Mono', monospace" font-size="18" font-weight="500">0</text>
+                <text x="32" y="48" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="8">pedidos perdidos</text>
+                <line x1="8" y1="58" x2="142" y2="58" stroke="rgba(200,160,85,0.2)" stroke-width="0.8"/>
+                <text x="8" y="76" fill="rgba(255,255,255,0.55)" font-family="Inter, sans-serif" font-size="6.5">cardápio · auto · fluxo · live</text>
+              </svg>
+            </div>
+          </li>
+
+        </ol>
 
         <div class="lp-steps-action reveal-target">
           <a
@@ -228,21 +377,29 @@
         </header>
 
         <div class="lp-testimonials-grid reveal-target">
-          <article class="lp-testimonial-card">
+          <!-- Depoimento destacado (1.4fr — assimétrico) -->
+          <article class="lp-testimonial-card lp-testimonial-card--featured">
             <p class="lp-testimonial-result">+40 pedidos/semana organizados</p>
-            <p class="lp-testimonial-text">"Antes eu perdia conversa toda noite. Em menos de 30 dias, a implantação se pagou com pedidos que antes escapavam."</p>
+            <p class="lp-testimonial-text">Antes eu perdia conversa toda noite. Em menos de 30 dias, a implantação se pagou com pedidos que antes escapavam — e meu time parou de correr atrás do que faltou.</p>
+
+            <div class="lp-testimonial-metric">
+              <p class="lp-testimonial-metric-label">Volume estabilizado em</p>
+              <p class="lp-testimonial-metric-value">40+ pedidos/semana · 0 perdidos</p>
+            </div>
+
             <footer>
               <strong>Carla M.</strong>
-              <span>Marmitaria · São Paulo</span>
+              <span>Marmitaria · São Paulo — SP</span>
             </footer>
           </article>
 
+          <!-- Depoimento compacto (1fr) -->
           <article class="lp-testimonial-card">
             <p class="lp-testimonial-result">Implantado em 5 dias</p>
-            <p class="lp-testimonial-text">"Eu só aprovei as etapas. Hoje o cliente chega no WhatsApp e já sabe exatamente como pedir."</p>
+            <p class="lp-testimonial-text">"Eu só aprovei as etapas. Hoje o cliente chega no WhatsApp e já sabe exatamente como pedir — atendimento sem improviso."</p>
             <footer>
               <strong>Ricardo T.</strong>
-              <span>Lanchonete · Campinas</span>
+              <span>Lanchonete · Campinas — SP</span>
             </footer>
           </article>
         </div>
@@ -258,20 +415,76 @@
         <h2 class="reveal-target">R$697 uma vez. Operação pronta em até 7 dias.</h2>
         <p class="lp-final-sub reveal-target">Fale com a Lumyn e receba pelo WhatsApp o plano da sua implantação.</p>
 
-        <div class="lp-faq-compact reveal-target" id="faq">
-          <h3>Dúvidas mais comuns</h3>
-          <details class="lp-faq-item">
-            <summary>Existe mensalidade depois?</summary>
-            <p>Não. O investimento é único: R$697, sem renovação e sem taxa de manutenção.</p>
-          </details>
-          <details class="lp-faq-item">
-            <summary>Em quanto tempo fica pronto?</summary>
-            <p>Em até 7 dias úteis após a confirmação do pagamento.</p>
-          </details>
-          <details class="lp-faq-item">
-            <summary>E se não funcionar no prazo?</summary>
-            <p>Se a implantação não estiver pronta e funcionando no prazo, devolvemos 100% do valor.</p>
-          </details>
+        <div class="lp-faq-groups reveal-target" id="faq">
+
+          <!-- Grupo 1: Pagamento -->
+          <div class="lp-faq-group">
+            <p class="lp-faq-group-label">Pagamento</p>
+            <details class="lp-faq-item">
+              <summary>Existe mensalidade depois?</summary>
+              <p><strong>Não.</strong> O investimento é único: R$697, sem renovação e sem taxa de manutenção. Você paga uma vez e o sistema é seu.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Como é feito o pagamento?</summary>
+              <p>PIX, cartão de crédito ou débito. Após o pagamento, a Lumyn entra em contato pelo WhatsApp para iniciar a implantação — geralmente no mesmo dia.</p>
+            </details>
+          </div>
+
+          <!-- Grupo 2: Tecnologia -->
+          <div class="lp-faq-group">
+            <p class="lp-faq-group-label">Tecnologia</p>
+            <details class="lp-faq-item">
+              <summary>Preciso saber mexer com tecnologia?</summary>
+              <p>Não. A Lumyn configura tudo. Você só precisa ter um WhatsApp Business — se ainda não tiver, a gente orienta a criar.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Funciona no meu WhatsApp normal, sem app separado?</summary>
+              <p>Sim. O cardápio digital tem um link próprio que funciona no WhatsApp normalmente. O cliente acessa pelo link, vê o cardápio e manda o pedido — tudo dentro do WhatsApp.</p>
+            </details>
+          </div>
+
+          <!-- Grupo 3: Resultado e adequação -->
+          <div class="lp-faq-group">
+            <p class="lp-faq-group-label">Resultado e adequação</p>
+            <details class="lp-faq-item">
+              <summary>E se eu não gostar do resultado?</summary>
+              <p>Em até <strong>7 dias úteis</strong>, se o sistema não estiver funcionando no seu WhatsApp (cardápio ativo, mensagens automáticas configuradas e fluxo organizado) — <strong>devolvemos 100% do valor</strong>. Sem burocracia.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Não posso só pedir pro meu sobrinho fazer no Wix grátis?</summary>
+              <p>Montar um link de cardápio é a parte fácil. O que faz a diferença é <strong>o fluxo de atendimento</strong>: mensagem automática, cardápio fixado no WhatsApp Business, configuração do que mandar pra quem pergunta preço, prazo, frete. Isso é método. Enquanto seu sobrinho descobre o que precisa, você perde pedido.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Funciona pro meu tipo de restaurante?</summary>
+              <p>Sim. Adaptamos no briefing: <strong>pizzaria</strong> com sabores + tamanhos, <strong>hamburgueria</strong> com combos e adicionais, <strong>marmitaria</strong> com planos semanais, <strong>japonês</strong> com combinados. O fluxo muda conforme seu modelo.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Isso substitui o iFood?</summary>
+              <p>Não substitui obrigatoriamente — mas dá a opção de receber pedidos diretos pelo WhatsApp sem pagar comissão. Muitos clientes acabam preferindo o direto porque a margem é melhor.</p>
+            </details>
+          </div>
+
+          <!-- Grupo 4: Pós-implantação e prova -->
+          <div class="lp-faq-group">
+            <p class="lp-faq-group-label">Pós-implantação e prova</p>
+            <details class="lp-faq-item">
+              <summary>Em quanto tempo fica pronto?</summary>
+              <p>Em até 7 dias úteis após a confirmação do pagamento. A Lumyn cuida de tudo nesse período e entrega tudo funcionando.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>E se eu precisar atualizar o cardápio depois?</summary>
+              <p>A gente orienta como fazer sozinho. É simples — você não vai precisar chamar ninguém nem pagar nada extra para trocar preços ou adicionar itens.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>E se tiver problema depois da implantação?</summary>
+              <p>A Lumyn fica disponível pelo WhatsApp nos 7 dias de implantação e continua acessível depois para dúvidas pontuais. Se algo parar de funcionar, é só chamar.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Posso falar com algum cliente que já fez a implantação?</summary>
+              <p>Sim. Manda mensagem no WhatsApp da Lumyn e a gente passa contato de cliente da sua região ou do seu segmento — desde que o cliente autorize.</p>
+            </details>
+          </div>
+
         </div>
 
         <div class="lp-final-actions reveal-target">
@@ -287,8 +500,22 @@
           </a>
 
           <div class="lp-guarantee-box">
-            <p class="lp-guarantee-title">Implantação expressa com risco reverso</p>
-            <p class="lp-guarantee-copy">Cardápio ativo, fluxo definido e time orientado para operar com previsibilidade.</p>
+            <div class="lp-guarantee-header">
+              <div class="lp-guarantee-icon" aria-hidden="true">✓</div>
+              <p class="lp-guarantee-title">Garantia de resultado em 7 dias</p>
+            </div>
+
+            <div class="lp-guarantee-clauses">
+              <p class="lp-guarantee-clause">
+                <span><strong>Prazo:</strong> em até 7 dias úteis com sistema funcionando — cardápio ativo, mensagens automáticas e fluxo organizado.</span>
+              </p>
+              <p class="lp-guarantee-clause">
+                <span><strong>Escopo:</strong> se algum desses itens não estiver entregue no prazo, devolvemos 100% do valor (R$697 integral).</span>
+              </p>
+              <p class="lp-guarantee-clause">
+                <span><strong>Sem burocracia:</strong> reembolso via PIX em até 48h corridas. Sem formulário, sem comitê, sem perguntas.</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
