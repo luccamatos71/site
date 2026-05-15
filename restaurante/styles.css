@@ -1,22 +1,22 @@
-:root {
-  --lp-bg-0: #060a12;
+﻿:root {
+  --lp-bg-0: #05080f;
   --lp-bg-1: #0b111c;
-  --lp-bg-2: #111a2a;
-  --lp-surface: #141f32;
+  --lp-bg-2: #121b2b;
+  --lp-surface: #121c2d;
   --lp-surface-soft: #0f1726;
-  --lp-border: rgba(183, 198, 224, 0.22);
-  --lp-border-strong: rgba(211, 224, 248, 0.38);
-  --lp-text-0: #f4f8ff;
-  --lp-text-1: #b0bdd4;
-  --lp-text-2: #7f8ca4;
-  --lp-accent: #dce7ff;
-  --lp-accent-soft: rgba(220, 231, 255, 0.16);
-  --lp-danger: #ff8f8f;
-  --lp-shadow-soft: 0 18px 42px rgba(2, 6, 14, 0.38);
-  --lp-shadow-hover: 0 24px 52px rgba(2, 6, 14, 0.48);
+  --lp-border: rgba(187, 203, 227, 0.2);
+  --lp-border-strong: rgba(212, 225, 247, 0.38);
+  --lp-text-0: #f2f7ff;
+  --lp-text-1: #afbad0;
+  --lp-text-2: #7d8aa3;
+  --lp-accent: #dce8ff;
+  --lp-accent-soft: rgba(220, 232, 255, 0.14);
+  --lp-danger: #ff9797;
   --lp-radius: 14px;
   --lp-radius-pill: 9999px;
   --lp-container: 1160px;
+  --lp-shadow-soft: 0 16px 38px rgba(2, 6, 14, 0.34);
+  --lp-shadow-lift: 0 22px 44px rgba(2, 6, 14, 0.42);
 }
 
 * {
@@ -34,10 +34,10 @@ body.lp-restaurant {
   font-family: "Manrope", sans-serif;
   color: var(--lp-text-0);
   background:
-    radial-gradient(1100px 560px at 8% -10%, rgba(76, 103, 158, 0.22), transparent 62%),
-    radial-gradient(860px 500px at 94% 0%, rgba(45, 69, 110, 0.2), transparent 65%),
+    radial-gradient(980px 520px at 12% -12%, rgba(68, 94, 145, 0.2), transparent 62%),
+    radial-gradient(860px 500px at 92% 0%, rgba(35, 60, 102, 0.2), transparent 64%),
     var(--lp-bg-0);
-  line-height: 1.6;
+  line-height: 1.58;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -48,7 +48,8 @@ a {
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+summary:focus-visible {
   outline: 2px solid var(--lp-accent);
   outline-offset: 2px;
 }
@@ -67,9 +68,9 @@ button:focus-visible {
 }
 
 .lp-header.scrolled {
-  background: rgba(6, 10, 18, 0.86);
+  background: rgba(6, 10, 18, 0.85);
   border-color: var(--lp-border);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
 }
 
 .lp-header-inner {
@@ -104,15 +105,15 @@ button:focus-visible {
 }
 
 .lp-btn-primary {
-  color: #060a12;
+  color: #070c14;
   background: var(--lp-accent);
   border-color: var(--lp-accent);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
 }
 
 .lp-btn-primary:hover {
-  background: #f4f8ff;
-  border-color: #f4f8ff;
+  background: #f3f8ff;
+  border-color: #f3f8ff;
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.34);
 }
 
@@ -123,23 +124,24 @@ button:focus-visible {
 }
 
 .lp-btn-large {
-  padding: 1rem 2rem;
-  font-size: 0.98rem;
+  min-height: 50px;
+  padding: 0.95rem 1.9rem;
+  font-size: 0.96rem;
 }
 
 .lp-hero {
-  padding: clamp(4.2rem, 9vw, 7.4rem) 0 clamp(3.6rem, 8vw, 6rem);
+  padding: clamp(4rem, 8.6vw, 7rem) 0 clamp(3.4rem, 7vw, 5.8rem);
 }
 
 .lp-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  gap: clamp(2rem, 4vw, 4.2rem);
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+  gap: clamp(1.8rem, 4vw, 3.8rem);
   align-items: center;
 }
 
 .lp-eyebrow {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.92rem;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -156,79 +158,79 @@ p {
 }
 
 h1 {
-  font-size: clamp(2.35rem, 6vw, 4.35rem);
+  font-size: clamp(2.25rem, 6vw, 4.1rem);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.06;
   letter-spacing: -0.03em;
 }
 
 h2 {
-  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 760;
   letter-spacing: -0.02em;
-  line-height: 1.08;
+  line-height: 1.1;
 }
 
 h3 {
-  font-size: clamp(1.05rem, 2.4vw, 1.28rem);
+  font-size: clamp(1.02rem, 2.2vw, 1.22rem);
   font-weight: 700;
   line-height: 1.22;
 }
 
 .lp-hero-sub {
-  margin-top: 1.2rem;
+  margin-top: 1.1rem;
   color: var(--lp-text-1);
-  font-size: clamp(1.01rem, 2vw, 1.16rem);
-  max-width: 56ch;
+  font-size: clamp(0.98rem, 1.9vw, 1.12rem);
+  max-width: 54ch;
 }
 
 .lp-hero-cta {
-  margin-top: 2rem;
+  margin-top: 1.8rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.85rem;
+  gap: 0.8rem;
 }
 
 .lp-hero-cta .lp-btn {
-  padding: 1rem 1.9rem;
+  padding: 0.98rem 1.85rem;
 }
 
 .lp-hero-trust {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: var(--lp-text-2);
 }
 
 .lp-proof-card {
   border: 1px solid var(--lp-border-strong);
   border-radius: 16px;
-  background: linear-gradient(180deg, rgba(23, 34, 54, 0.9), rgba(15, 24, 39, 0.95));
-  padding: 1.6rem;
+  background: linear-gradient(180deg, rgba(22, 33, 53, 0.9), rgba(14, 23, 38, 0.95));
+  padding: 1.45rem;
   box-shadow: var(--lp-shadow-soft);
 }
 
 .lp-proof-kicker {
-  margin-bottom: 1rem;
-  font-size: 0.67rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.66rem;
   letter-spacing: 0.15em;
   font-weight: 700;
   color: var(--lp-text-2);
 }
 
 .lp-proof-item + .lp-proof-item {
-  margin-top: 1rem;
+  margin-top: 0.88rem;
 }
 
 .lp-proof-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 0.8rem;
+  gap: 0.75rem;
 }
 
 .lp-proof-row strong {
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-size: clamp(1.24rem, 2.4vw, 1.66rem);
   line-height: 1;
   font-weight: 500;
 }
@@ -249,7 +251,7 @@ h3 {
 }
 
 .lp-proof-bar {
-  margin-top: 0.52rem;
+  margin-top: 0.5rem;
   height: 4px;
   border-radius: var(--lp-radius-pill);
   background: rgba(255, 255, 255, 0.08);
@@ -264,7 +266,7 @@ h3 {
 }
 
 .lp-proof-fill.danger {
-  background: linear-gradient(90deg, #c36262, #ff8f8f);
+  background: linear-gradient(90deg, #c36161, #ff8f8f);
 }
 
 .lp-proof-fill.accent {
@@ -289,14 +291,14 @@ h3 {
 .lp-urgency-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.9rem;
-  border: 1px solid rgba(255, 146, 146, 0.42);
+  gap: 0.46rem;
+  margin-bottom: 0.85rem;
+  border: 1px solid rgba(255, 146, 146, 0.4);
   background: rgba(255, 108, 108, 0.1);
-  color: #ffb9b9;
+  color: #ffb7b7;
   border-radius: var(--lp-radius-pill);
-  padding: 0.35rem 0.76rem;
-  font-size: 0.72rem;
+  padding: 0.34rem 0.74rem;
+  font-size: 0.71rem;
   font-weight: 700;
 }
 
@@ -321,66 +323,50 @@ h3 {
   }
 }
 
-.lp-section {
-  padding: clamp(4rem, 8vw, 6.4rem) 0;
+.lp-section,
+.lp-final-cta {
+  padding: clamp(3.8rem, 7.6vw, 6rem) 0;
 }
 
 .lp-section-soft {
-  background: linear-gradient(180deg, rgba(14, 22, 35, 0.72), rgba(10, 16, 28, 0.72));
+  background: linear-gradient(180deg, rgba(13, 21, 34, 0.82), rgba(10, 16, 27, 0.82));
   border-top: 1px solid var(--lp-border);
   border-bottom: 1px solid var(--lp-border);
 }
 
 .lp-section-head {
   display: grid;
-  gap: 0.85rem;
-  max-width: 820px;
+  gap: 0.8rem;
+  max-width: 800px;
 }
 
 .lp-section-head p {
   color: var(--lp-text-1);
-  font-size: 0.98rem;
+  font-size: 0.96rem;
 }
 
 .lp-problem-grid {
-  margin-top: 2rem;
+  margin-top: 1.8rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.95rem;
 }
 
 .lp-problem-card,
 .lp-deliverable-card,
 .lp-testimonial-card,
-.lp-step-card,
-.lp-price-card {
+.lp-price-card,
+.lp-guarantee-box {
   border: 1px solid var(--lp-border);
   border-radius: var(--lp-radius);
-  background: linear-gradient(180deg, rgba(19, 30, 48, 0.78), rgba(14, 23, 38, 0.86));
-  box-shadow: var(--lp-shadow-soft);
+  background: linear-gradient(180deg, rgba(18, 28, 44, 0.74), rgba(13, 21, 35, 0.86));
 }
 
-.lp-problem-card {
-  padding: 1.4rem;
-}
-
-.lp-problem-card h3 {
-  margin-top: 0.72rem;
-}
-
-.lp-problem-card p {
-  margin-top: 0.42rem;
-  color: var(--lp-text-1);
-  font-size: 0.92rem;
-}
-
-.lp-problem-card ul {
-  margin: 0.88rem 0 0;
-  padding-left: 1.1rem;
-  display: grid;
-  gap: 0.3rem;
-  color: var(--lp-text-2);
-  font-size: 0.84rem;
+.lp-problem-card,
+.lp-deliverable-card,
+.lp-testimonial-card,
+.lp-price-card {
+  padding: 1.28rem;
 }
 
 .lp-problem-index,
@@ -394,146 +380,51 @@ h3 {
   font-size: 0.8rem;
 }
 
-.lp-deliverables-grid {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.lp-deliverable-card {
-  padding: 1.55rem;
-}
-
-.lp-deliverable-number {
-  font-size: 1.75rem;
-  font-weight: 700;
-}
-
+.lp-problem-card h3,
 .lp-deliverable-card h3 {
-  margin-top: 0.52rem;
+  margin-top: 0.58rem;
 }
 
-.lp-deliverable-card p {
-  margin-top: 0.5rem;
+.lp-problem-card p,
+.lp-deliverable-card p,
+.lp-testimonial-text,
+.lp-price-copy {
+  margin-top: 0.44rem;
   color: var(--lp-text-1);
-  font-size: 0.92rem;
-}
-
-.lp-offer-strip {
-  margin-top: 2rem;
-  border: 1px solid var(--lp-border-strong);
-  border-radius: var(--lp-radius);
-  background: linear-gradient(180deg, rgba(33, 46, 68, 0.8), rgba(19, 30, 46, 0.9));
-  padding: 1.55rem;
-}
-
-.lp-offer-strip h3 {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  letter-spacing: -0.02em;
-}
-
-.lp-offer-strip h3 span {
-  color: var(--lp-accent);
-}
-
-.lp-offer-strip p {
-  margin-top: 0.42rem;
-  color: var(--lp-text-1);
-}
-
-.lp-identity {
-  margin-top: 1.6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  border-top: 1px solid var(--lp-border);
-  padding-top: 1rem;
-}
-
-.lp-identity p {
-  color: var(--lp-text-2);
-  font-size: 0.88rem;
-}
-
-.lp-identity a {
-  color: var(--lp-accent);
-  text-decoration: none;
-  font-weight: 600;
-  border-bottom: 1px solid rgba(220, 231, 255, 0.52);
-}
-
-.lp-testimonials-grid {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.lp-testimonial-card {
-  padding: 1.45rem;
-  display: grid;
-  gap: 0.8rem;
-}
-
-.lp-testimonial-result {
-  color: var(--lp-accent);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.lp-testimonial-text {
-  color: var(--lp-text-1);
-  font-size: 0.92rem;
-  line-height: 1.62;
-}
-
-.lp-testimonial-card footer {
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--lp-border);
-  display: grid;
-  gap: 0.15rem;
-}
-
-.lp-testimonial-card footer strong {
   font-size: 0.9rem;
+  line-height: 1.56;
 }
 
-.lp-testimonial-card footer span {
-  color: var(--lp-text-2);
-  font-size: 0.8rem;
+.lp-cost-block {
+  margin-top: 1.9rem;
 }
 
-.lp-price-section {
-  background: linear-gradient(180deg, rgba(13, 20, 32, 0.94), rgba(10, 16, 28, 0.94));
+.lp-cost-block h3 {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  letter-spacing: -0.01em;
 }
 
-.lp-price-grid {
-  margin-top: 2rem;
+.lp-cost-grid {
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.95rem;
 }
 
 .lp-price-card {
-  padding: 1.5rem;
   text-align: center;
 }
 
 .lp-price-card.featured {
   border-color: var(--lp-border-strong);
-  background: linear-gradient(180deg, rgba(37, 52, 77, 0.9), rgba(20, 31, 47, 0.95));
-  box-shadow: var(--lp-shadow-hover);
+  background: linear-gradient(180deg, rgba(36, 51, 74, 0.9), rgba(19, 30, 46, 0.94));
+  box-shadow: var(--lp-shadow-lift);
 }
 
 .lp-price-badge {
-  margin-bottom: 0.62rem;
+  margin-bottom: 0.6rem;
   display: inline-flex;
-  padding: 0.24rem 0.64rem;
+  padding: 0.24rem 0.62rem;
   border-radius: var(--lp-radius-pill);
   border: 1px solid var(--lp-border-strong);
   background: var(--lp-accent-soft);
@@ -545,21 +436,21 @@ h3 {
 
 .lp-price-label {
   color: var(--lp-text-2);
-  font-size: 0.7rem;
-  letter-spacing: 0.13em;
+  font-size: 0.69rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
 }
 
 .lp-price-value {
-  margin-top: 0.65rem;
+  margin-top: 0.62rem;
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-size: clamp(1.75rem, 3.6vw, 2.5rem);
   line-height: 1;
 }
 
 .lp-price-value.neutral {
-  color: #c8d3e8;
+  color: #cad5e8;
 }
 
 .lp-price-value.danger {
@@ -570,153 +461,194 @@ h3 {
   color: var(--lp-accent);
 }
 
-.lp-price-copy {
-  margin-top: 0.65rem;
-  color: var(--lp-text-1);
-  font-size: 0.88rem;
-  line-height: 1.55;
-}
-
 .lp-price-copy strong {
   color: var(--lp-accent);
 }
 
-.lp-price-footnote {
-  margin-top: 1.35rem;
-  text-align: center;
-  color: var(--lp-text-2);
-  font-size: 0.84rem;
-}
-
-.lp-steps-grid {
-  margin-top: 2rem;
+.lp-delivery-layout {
+  margin-top: 1.9rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
   gap: 1rem;
+  align-items: start;
 }
 
-.lp-step-card {
-  padding: 1.5rem;
+.lp-deliverables-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.95rem;
 }
 
-.lp-step-number {
-  font-size: 1.25rem;
+.lp-deliverable-number {
+  font-size: 1.45rem;
   font-weight: 700;
 }
 
-.lp-step-card h3 {
-  margin-top: 0.5rem;
+.lp-steps-timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--lp-border);
+  border-radius: var(--lp-radius);
+  background: linear-gradient(180deg, rgba(17, 26, 42, 0.66), rgba(12, 20, 32, 0.82));
+  box-shadow: var(--lp-shadow-soft);
 }
 
-.lp-step-card p {
-  margin-top: 0.4rem;
-  color: var(--lp-text-1);
-  font-size: 0.9rem;
+.lp-steps-timeline li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  padding: 1rem 1.1rem;
 }
 
-.lp-steps-action {
-  margin-top: 1.7rem;
-  text-align: center;
-}
-
-.lp-faq-section {
-  background: linear-gradient(180deg, rgba(11, 17, 27, 0.92), rgba(9, 14, 23, 0.92));
-}
-
-.lp-faq-list {
-  margin-top: 1.8rem;
+.lp-steps-timeline li + li {
   border-top: 1px solid var(--lp-border);
 }
 
-.lp-faq-item {
-  border-bottom: 1px solid var(--lp-border);
+.lp-step-number {
+  margin-top: 0.05rem;
+  font-size: 0.9rem;
 }
 
-.lp-faq-question {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  color: var(--lp-text-0);
-  text-align: left;
-  padding: 1.1rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  font-size: 0.98rem;
-  font-weight: 700;
-  cursor: pointer;
+.lp-steps-timeline h3 {
+  font-size: 1rem;
 }
 
-.lp-faq-toggle {
+.lp-steps-timeline p {
+  margin-top: 0.3rem;
+  color: var(--lp-text-1);
+  font-size: 0.88rem;
+}
+
+.lp-steps-action {
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+.lp-testimonials-grid {
+  margin-top: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.lp-testimonial-result {
   color: var(--lp-accent);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 1.1rem;
-  transition: transform 0.2s ease;
+  font-size: 0.77rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-.lp-faq-item.open .lp-faq-toggle {
-  transform: rotate(45deg);
+.lp-testimonial-card {
+  display: grid;
+  gap: 0.74rem;
 }
 
-.lp-faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.25s ease;
+.lp-testimonial-card footer {
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--lp-border);
+  display: grid;
+  gap: 0.14rem;
 }
 
-.lp-faq-answer-inner {
-  padding: 0 0 1rem;
+.lp-testimonial-card footer strong {
+  font-size: 0.89rem;
 }
 
-.lp-faq-answer-inner p {
+.lp-testimonial-card footer span {
+  color: var(--lp-text-2);
+  font-size: 0.79rem;
+}
+
+.lp-proof-strip {
+  margin-top: 1.2rem;
+  border-top: 1px solid var(--lp-border);
+  padding-top: 1rem;
+}
+
+.lp-proof-strip p {
   color: var(--lp-text-1);
   font-size: 0.9rem;
 }
 
-.lp-faq-item.open .lp-faq-answer {
-  max-height: 220px;
+.lp-proof-strip strong {
+  color: var(--lp-accent);
 }
 
 .lp-final-cta {
-  padding: clamp(4.2rem, 8vw, 6.2rem) 0;
   text-align: center;
   background: var(--lp-bg-1);
   border-top: 1px solid var(--lp-border);
 }
 
 .lp-final-sub {
-  margin-top: 0.9rem;
+  margin-top: 0.82rem;
   color: var(--lp-text-1);
-  font-size: 1.02rem;
+  font-size: 1rem;
+}
+
+.lp-faq-compact {
+  margin: 1.8rem auto 0;
+  max-width: 760px;
+  text-align: left;
+}
+
+.lp-faq-compact h3 {
+  margin-bottom: 0.74rem;
+}
+
+.lp-faq-item {
+  border-top: 1px solid var(--lp-border);
+  padding: 0.86rem 0;
+}
+
+.lp-faq-item:last-child {
+  border-bottom: 1px solid var(--lp-border);
+}
+
+.lp-faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--lp-text-0);
+}
+
+.lp-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.lp-faq-item p {
+  margin-top: 0.44rem;
+  color: var(--lp-text-1);
+  font-size: 0.88rem;
 }
 
 .lp-final-actions {
-  margin-top: 1.7rem;
+  margin-top: 1.65rem;
   display: grid;
   justify-items: center;
-  gap: 1rem;
+  gap: 0.95rem;
 }
 
 .lp-guarantee-box {
   max-width: 620px;
-  border: 1px solid var(--lp-border-strong);
-  border-radius: var(--lp-radius);
-  background: linear-gradient(180deg, rgba(35, 48, 70, 0.76), rgba(22, 33, 50, 0.88));
-  padding: 1rem 1.2rem;
+  padding: 0.95rem 1.1rem;
   text-align: left;
+  background: linear-gradient(180deg, rgba(33, 46, 68, 0.74), rgba(20, 31, 48, 0.86));
 }
 
 .lp-guarantee-title {
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   color: var(--lp-accent);
   font-weight: 700;
 }
 
 .lp-guarantee-copy {
-  margin-top: 0.3rem;
+  margin-top: 0.28rem;
   color: var(--lp-text-1);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
 }
 
 .lp-footer {
@@ -729,12 +661,12 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.74rem;
 }
 
 .lp-footer-inner p,
 .lp-footer-inner a {
-  font-size: 0.8rem;
+  font-size: 0.79rem;
   color: var(--lp-text-2);
   text-decoration: none;
 }
@@ -745,8 +677,8 @@ h3 {
 
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+  transform: translateY(15px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .reveal.is-visible {
@@ -754,26 +686,17 @@ h3 {
   transform: translateY(0);
 }
 
-.lp-problem-card:hover,
-.lp-deliverable-card:hover,
-.lp-testimonial-card:hover,
-.lp-step-card:hover,
-.lp-price-card:hover {
-  border-color: var(--lp-border-strong);
-  box-shadow: var(--lp-shadow-hover);
-}
-
 @media (max-width: 1024px) {
   .lp-hero-grid,
   .lp-problem-grid,
-  .lp-testimonials-grid,
-  .lp-price-grid,
-  .lp-steps-grid {
+  .lp-cost-grid,
+  .lp-delivery-layout,
+  .lp-testimonials-grid {
     grid-template-columns: 1fr;
   }
 
   .lp-hero-grid {
-    gap: 1.6rem;
+    gap: 1.55rem;
   }
 
   .lp-proof-card {
@@ -788,21 +711,13 @@ h3 {
 
   .lp-section,
   .lp-final-cta {
-    padding: 3.6rem 0;
+    padding: 3.4rem 0;
   }
 
-  .lp-deliverables-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .lp-btn-large,
   .lp-hero-cta .lp-btn,
-  .lp-btn-large {
+  .lp-final-actions .lp-btn {
     width: 100%;
-  }
-
-  .lp-identity {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .lp-footer-inner {
@@ -813,11 +728,11 @@ h3 {
 
 @media (max-width: 620px) {
   h1 {
-    font-size: clamp(2rem, 10vw, 2.5rem);
+    font-size: clamp(1.95rem, 10vw, 2.4rem);
   }
 
   h2 {
-    font-size: clamp(1.55rem, 7vw, 2rem);
+    font-size: clamp(1.52rem, 7vw, 1.95rem);
   }
 
   .lp-header-inner {
@@ -826,19 +741,22 @@ h3 {
 
   .lp-btn-header {
     min-height: 38px;
-    padding: 0.54rem 0.95rem;
-    font-size: 0.74rem;
+    padding: 0.52rem 0.9rem;
+    font-size: 0.73rem;
   }
 
   .lp-proof-card,
   .lp-problem-card,
   .lp-deliverable-card,
   .lp-testimonial-card,
-  .lp-step-card,
   .lp-price-card,
-  .lp-guarantee-box,
-  .lp-offer-strip {
-    padding: 1.1rem;
+  .lp-steps-timeline li,
+  .lp-guarantee-box {
+    padding: 1.04rem;
+  }
+
+  .lp-proof-row span {
+    max-width: 16ch;
   }
 }
 
