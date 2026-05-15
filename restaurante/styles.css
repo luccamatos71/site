@@ -432,6 +432,79 @@ h3 {
   line-height: 1.55;
 }
 
+/* Pergunta anafórica como sub-headline das problem cards (padrão BASB) */
+.lp-problem-card p strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--lp-text-0);
+  font-weight: 560;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+/* ── Strip metodológica — prova metodológica enxuta entre hero e problema ── */
+
+.lp-method-strip {
+  padding: 1rem 0;
+  border-top: 1px solid var(--lp-border);
+  border-bottom: 1px solid var(--lp-border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0.008));
+  position: relative;
+}
+
+.lp-method-strip::before,
+.lp-method-strip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: min(60%, 720px);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(200, 160, 85, 0.18), transparent);
+}
+.lp-method-strip::before { top: -1px; }
+.lp-method-strip::after  { bottom: -1px; }
+
+.lp-method-strip .lp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp-method-strip p {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  color: var(--lp-text-2);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lp-method-strip-sep {
+  color: var(--lp-text-3);
+  opacity: 0.6;
+}
+
+.lp-method-strip-accent {
+  color: var(--lp-accent-bright);
+}
+
+@media (max-width: 620px) {
+  .lp-method-strip p {
+    font-size: 0.66rem;
+    gap: 0.55rem;
+    letter-spacing: 0.1em;
+  }
+}
+
 .lp-cost-block {
   margin-top: 1.75rem;
   border: 1px solid var(--lp-border);
