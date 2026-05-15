@@ -443,6 +443,13 @@ h3 {
   letter-spacing: -0.01em;
 }
 
+/* ── Seção Escopo — confiança operacional ── */
+
+.lp-scope-section {
+  border-top: 1px solid var(--lp-border);
+  border-bottom: 1px solid var(--lp-border);
+}
+
 /* ── Strip metodológica — prova metodológica enxuta entre hero e problema ── */
 
 .lp-method-strip {
