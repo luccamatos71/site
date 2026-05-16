@@ -404,6 +404,7 @@ h3 {
 }
 
 .lp-problem-card {
+  position: relative;
   min-height: 138px;
   border-top: 1px solid var(--lp-border-strong);
   padding: 1rem 0 0;
@@ -477,11 +478,153 @@ h3 {
   line-height: 1.45;
 }
 
-/* ── Seção Escopo — confiança operacional ── */
+/* ── Problema — ícone + hover (receita problema-pulse) ── */
 
-.lp-scope-section {
-  border-top: 1px solid var(--lp-border);
-  border-bottom: 1px solid var(--lp-border);
+.lp-pain-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.lp-pain-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--lp-accent-bright);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: filter 0.24s ease, transform 0.24s ease;
+}
+
+.lp-pain-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.lp-pain-card {
+  border-top-color: rgba(200, 160, 85, 0.35);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.lp-pain-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(200, 160, 85, 0.035), transparent 55%);
+  pointer-events: none;
+}
+
+.lp-pain-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px -12px rgba(200, 160, 85, 0.25);
+  border-top-color: rgba(200, 160, 85, 0.6);
+}
+
+.lp-pain-card:hover .lp-pain-icon {
+  filter: drop-shadow(0 0 6px rgba(200, 160, 85, 0.45));
+  transform: scale(1.08);
+}
+
+/* ── Seção Escopo — receita escopo-grid-rico ── */
+
+.lp-trust-section {
+  position: relative;
+  border-top: 1px solid rgba(200, 160, 85, 0.2);
+  border-bottom: 1px solid rgba(200, 160, 85, 0.2);
+  background: linear-gradient(180deg,
+    rgba(200, 160, 85, 0.025),
+    transparent 50%,
+    rgba(200, 160, 85, 0.018));
+}
+
+.lp-trust-head {
+  text-align: center;
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+.lp-trust-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-radius: var(--lp-radius-md);
+  border: 1px solid rgba(200, 160, 85, 0.15);
+  overflow: hidden;
+  background: var(--lp-surface);
+}
+
+.lp-trust-card {
+  position: relative;
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: background 0.22s ease;
+}
+
+.lp-trust-card + .lp-trust-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 1px;
+  background: linear-gradient(180deg,
+    transparent,
+    rgba(200, 160, 85, 0.22),
+    transparent);
+}
+
+.lp-trust-card:hover {
+  background: rgba(200, 160, 85, 0.025);
+}
+
+.lp-trust-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--lp-accent-bright);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.22s ease, transform 0.22s ease;
+}
+
+.lp-trust-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.lp-trust-card:hover .lp-trust-icon {
+  filter: drop-shadow(0 0 7px rgba(200, 160, 85, 0.4));
+  transform: scale(1.06);
+}
+
+.lp-trust-label {
+  color: var(--lp-accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.67rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.lp-trust-card h3 {
+  font-size: 1rem;
+  font-weight: 560;
+  color: var(--lp-text-0);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.lp-trust-card p {
+  color: var(--lp-text-2);
+  font-size: 0.88rem;
+  line-height: 1.52;
+  margin: 0;
 }
 
 /* ── Strip metodológica — prova metodológica enxuta entre hero e problema ── */
@@ -575,22 +718,70 @@ h3 {
 }
 
 .lp-price-card.featured {
-  border-color: rgba(200, 160, 85, 0.34);
+  border-color: rgba(200, 160, 85, 0.38);
   background:
-    linear-gradient(180deg, rgba(200, 160, 85, 0.16), rgba(200, 160, 85, 0.06)),
+    linear-gradient(180deg, rgba(200, 160, 85, 0.1), rgba(200, 160, 85, 0.03)),
     var(--lp-surface-strong);
+  box-shadow:
+    0 12px 36px -12px rgba(200, 160, 85, 0.38),
+    inset 0 0 0 1px rgba(200, 160, 85, 0.14);
+  transform: translateY(-3px);
 }
 
 .lp-price-badge {
   margin-bottom: 0.62rem;
   display: inline-flex;
-  border-radius: 4px;
-  background: var(--lp-accent-soft);
-  color: var(--lp-accent-bright);
-  padding: 0.22rem 0.42rem;
+  border-radius: var(--lp-radius-pill);
+  background: var(--lp-accent);
+  color: #0a0a08;
+  padding: 0.24rem 0.6rem;
   font-family: "IBM Plex Mono", monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  animation: lp-badge-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes lp-badge-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 160, 85, 0.45); }
+  50% { box-shadow: 0 0 0 5px rgba(200, 160, 85, 0); }
+}
+
+.lp-price-strike {
+  font-size: 0.52em;
+  color: var(--lp-text-3);
+  text-decoration: line-through;
+  text-decoration-color: rgba(200, 160, 85, 0.4);
+  font-weight: 400;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.lp-price-value-suffix {
+  font-size: 0.5em;
+  color: var(--lp-text-3);
+  font-weight: 400;
+}
+
+.lp-price-cta {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 0.9rem;
+  padding: 0.65rem 1rem;
+  background: var(--lp-accent);
+  color: #0a0a08;
+  font-weight: 600;
+  font-size: 0.86rem;
+  text-decoration: none;
+  border-radius: var(--lp-radius-pill);
+  letter-spacing: 0.01em;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.lp-price-cta:hover,
+.lp-price-cta:focus-visible {
+  background: var(--lp-accent-bright);
+  transform: translateY(-1px);
 }
 
 .lp-price-label {
@@ -1561,6 +1752,32 @@ h3 {
 
   .lp-guarantee-box {
     max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Trust grid vira stack em mobile com divisor horizontal */
+  .lp-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-trust-card + .lp-trust-card::before {
+    left: 12%;
+    right: 12%;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(200, 160, 85, 0.22),
+      transparent);
+  }
+
+  /* Featured sem elevação em mobile */
+  .lp-price-card.featured {
+    transform: none;
+    order: -1;
   }
 }
 
