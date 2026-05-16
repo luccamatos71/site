@@ -31,8 +31,7 @@
         rel="noopener noreferrer"
         data-whatsapp="Oi! Vi sobre a Implantação Expressa e quero saber mais 👋"
         data-track="click_whatsapp"
-        data-track-location="header_lp"
-        data-cta-location="header">
+        data-track-location="header_lp">
         Falar com a Lumyn
       </a>
     </div>
@@ -56,8 +55,7 @@
               rel="noopener noreferrer"
               data-whatsapp="Oi! Vi sobre a Implantação Expressa e quero saber mais 👋"
               data-track="click_whatsapp"
-              data-track-location="hero_lp"
-              data-cta-location="hero">
+              data-track-location="hero_lp">
               Quero organizar meu atendimento
             </a>
             <p class="lp-hero-trust">R$697 uma vez · sem mensalidade · implantação em até 7 dias úteis</p>
@@ -125,8 +123,7 @@
             rel="noopener noreferrer"
             data-whatsapp="Oi! Vi sobre a Implantação Expressa e quero saber mais 👋"
             data-track="click_whatsapp"
-            data-track-location="promise_lp"
-            data-cta-location="promise">
+            data-track-location="promise_lp">
             Quero falar com a Lumyn →
           </a>
         </div>
@@ -375,8 +372,7 @@
             rel="noopener noreferrer"
             data-whatsapp="Oi! Vi sobre a Implantação Expressa e quero saber mais 👋"
             data-track="click_whatsapp"
-            data-track-location="steps_lp"
-            data-cta-location="steps">
+            data-track-location="steps_lp">
             Quero organizar meu atendimento
           </a>
         </div>
@@ -539,8 +535,7 @@
             rel="noopener noreferrer"
             data-whatsapp="Oi! Vi sobre a Implantação Expressa e quero saber mais 👋"
             data-track="click_whatsapp"
-            data-track-location="cta_final_lp"
-            data-cta-location="final">
+            data-track-location="cta_final_lp">
             Quero organizar meu atendimento
           </a>
 
@@ -599,30 +594,6 @@
       }, { threshold: 0.4 });
       dashboardObserver.observe(dashboard);
     }
-
-    // ── Meta Pixel: dispara evento Lead em todo clique de CTA WhatsApp ──
-    // Seletor por href para cobrir qualquer link wa.me / api.whatsapp.com, mesmo CTAs futuros sem classe.
-    // Não bloqueia o redirect: o evento é assíncrono, o link abre normalmente.
-    (function trackWhatsAppLeads() {
-      const ctas = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
-      ctas.forEach((cta) => {
-        cta.addEventListener("click", function () {
-          try {
-            if (typeof window.fbq === "function") {
-              window.fbq("track", "Lead", {
-                content_name: "Clique WhatsApp - Implantação Expressa",
-                content_category: "Lumyn Restaurante",
-                value: 697,
-                currency: "BRL",
-                cta_location: this.getAttribute("data-cta-location") || "unknown"
-              });
-            }
-          } catch (e) {
-            // Falha silenciosa — link continua funcionando normalmente
-          }
-        }, { passive: true });
-      });
-    })();
 
   </script>
 </body>
