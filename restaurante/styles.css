@@ -443,6 +443,40 @@ h3 {
   letter-spacing: -0.01em;
 }
 
+/* ── CTA discreto na Promessa ── */
+
+.lp-promise-cta {
+  display: inline-block;
+  margin-top: 1.4rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid rgba(200, 160, 85, 0.45);
+  border-radius: var(--lp-radius-pill);
+  color: var(--lp-accent-bright);
+  font-family: "Inter", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 560;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.lp-promise-cta:hover,
+.lp-promise-cta:focus-visible {
+  background: rgba(200, 160, 85, 0.08);
+  border-color: rgba(200, 160, 85, 0.7);
+}
+
+/* ── Compactação cirúrgica dos cards de Problema (não afeta escopo) ── */
+
+#problema .lp-problem-card {
+  min-height: 96px;
+}
+
+#problema .lp-problem-card p {
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
 /* ── Seção Escopo — confiança operacional ── */
 
 .lp-scope-section {
