@@ -3,6 +3,8 @@
   const tracking = site.tracking || {};
   const channels = site.channels || {};
   const seo = site.seo || {};
+  const WHATSAPP_LINK_SELECTOR = 'a[href*="wa.me"], a[href*="api.whatsapp.com"]';
+  const LEAD_TRACK_LOCK_MS = 1500;
   const defaultSiteUrl = typeof site.siteUrl === "string" && site.siteUrl
     ? site.siteUrl.replace(/\/+$/, "")
     : "https://SEUDOMINIO.com";
@@ -224,11 +226,38 @@
       link.setAttribute("href", buildWhatsappUrl(message));
       link.setAttribute("target", "_blank");
       link.setAttribute("rel", "noopener noreferrer");
-      link.addEventListener("click", () => {
-        const location = link.getAttribute("data-track-location") || "";
-        const isLanding = location.includes("_lp");
-        trackMetaEvent(isLanding ? "Lead" : "Contact", { content_name: location });
-      });
+    });
+  }
+
+  function bindWhatsappTracking() {
+    if (window.__lumynWhatsappTrackingBound) return;
+    window.__lumynWhatsappTrackingBound = true;
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const link = target.closest(WHATSAPP_LINK_SELECTOR);
+      if (!link) return;
+
+      if (link.dataset.leadTracked === "true") return;
+      link.dataset.leadTracked = "true";
+      window.setTimeout(() => {
+        link.dataset.leadTracked = "false";
+      }, LEAD_TRACK_LOCK_MS);
+
+      if (getCurrentPageKey() === "restaurante") {
+        trackMetaEvent("Lead", {
+          content_name: "Clique WhatsApp - Implantação Expressa",
+          content_category: "Lumyn Restaurante",
+          value: 697,
+          currency: "BRL",
+        });
+        return;
+      }
+
+      const location = link.getAttribute("data-track-location") || "whatsapp_click";
+      trackMetaEvent("Contact", { content_name: location });
     });
   }
 
@@ -394,6 +423,7 @@
     loadTagManager();
     loadMetaPixel();
     bindWhatsappLinks();
+    bindWhatsappTracking();
     updateBrandText();
     renderLinksButtons();
     bindTrackedElements();
