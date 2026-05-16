@@ -216,9 +216,8 @@ h3 {
 }
 
 .lp-hero-sub {
-  max-width: 52ch;
-  margin: 1.25rem auto 0;
-  text-align: center;
+  max-width: 48ch;
+  margin-top: 1.25rem;
   color: var(--lp-text-1);
   font-size: clamp(0.98rem, 1.8vw, 1.08rem);
   line-height: 1.58;
@@ -245,13 +244,12 @@ h3 {
 .lp-proof-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(200, 160, 85, 0.18);
+  border: 1px solid var(--lp-border-strong);
   border-radius: var(--lp-radius-lg);
   background:
-    radial-gradient(520px 240px at 50% 0%, rgba(200, 160, 85, 0.09), transparent 60%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 24%),
     var(--lp-surface);
-  padding: 1.6rem 1.5rem;
+  padding: 1.35rem;
   box-shadow: var(--lp-shadow-card);
 }
 
@@ -443,61 +441,6 @@ h3 {
   font-size: 0.95rem;
   line-height: 1.35;
   letter-spacing: -0.01em;
-}
-
-/* ── Botão de venda no card R$697 ── */
-
-.lp-price-cta {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.62rem 1.1rem;
-  background: var(--lp-accent);
-  color: #0a0a08;
-  font-family: "Inter", sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  border-radius: var(--lp-radius-pill);
-  letter-spacing: 0.01em;
-  transition: background 0.18s ease, transform 0.18s ease;
-}
-
-.lp-price-cta:hover,
-.lp-price-cta:focus-visible {
-  background: var(--lp-accent-bright);
-  transform: translateY(-1px);
-}
-
-/* ── Sticky CTA mobile — fixo no bottom ── */
-
-.lp-sticky-cta {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .lp-sticky-cta {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0));
-    background: linear-gradient(180deg, rgba(7, 7, 8, 0) 0%, rgba(7, 7, 8, 0.94) 35%);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  .lp-sticky-cta .lp-btn {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    font-size: 0.95rem;
-  }
-
-  body.lp-restaurant {
-    padding-bottom: 4.5rem;
-  }
 }
 
 /* ── CTA discreto na Promessa ── */
