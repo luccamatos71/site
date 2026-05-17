@@ -657,7 +657,11 @@
 
     /* sticky phone */
     .sticky-col { display: flex; justify-content: center; align-items: flex-start; }
-    .sticky-phone-wrap { position: sticky; top: 50%; transform: translateY(-50%); padding: 20px 0; }
+    .sticky-phone-wrap {
+      position: sticky;
+      top: max(20px, calc(50vh - 280px));
+      padding: 20px 0;
+    }
 
     /* phone frame */
     .phone-frame {
@@ -1886,7 +1890,31 @@
                   <div class="screen-brand">Restaurante do Chef</div>
                   <div class="screen-brand-sub">lumyn.menu/restaurante</div>
                 </div>
-                <div class="menu-link-bar" style="margin:10px 14px 0;">
+                <div class="menu-items" style="padding:8px 14px 0;">
+                  <div class="menu-item in">
+                    <span class="menu-item-icon">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                      </svg>
+                    </span>
+                    <div class="menu-item-info">
+                      <span class="menu-item-name">Frango grelhado</span>
+                      <span class="menu-item-price">R$ 28,00</span>
+                    </div>
+                  </div>
+                  <div class="menu-item in">
+                    <span class="menu-item-icon">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                      </svg>
+                    </span>
+                    <div class="menu-item-info">
+                      <span class="menu-item-name">Marmita fit</span>
+                      <span class="menu-item-price">R$ 24,90</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-link-bar in" style="margin:8px 14px 0;">
                   <span class="menu-link-dot"></span>
                   <span class="menu-link-url">lumyn.menu/restaurante-do-chef</span>
                 </div>
@@ -1901,8 +1929,8 @@
               <div class="screen-inner">
                 <div class="chat-header"><div class="chat-avatar">R</div><div class="chat-info"><span class="chat-name">Restaurante do Chef</span><span class="chat-online">online</span></div></div>
                 <div class="chat-body" style="padding:8px 14px;">
-                  <div class="bubble bubble-in" style="font-size:9px;padding:5px 8px;">oi, tem cardápio?</div>
-                  <div class="bubble bubble-out" style="font-size:9px;padding:5px 8px;">lumyn.menu/restaurante</div>
+                  <div class="bubble bubble-in in" style="font-size:9px;padding:5px 8px;">oi, tem cardápio?</div>
+                  <div class="bubble bubble-out in" style="font-size:9px;padding:5px 8px;">lumyn.menu/restaurante</div>
                 </div>
               </div>
             </div>
@@ -1914,11 +1942,11 @@
             <div class="mobile-phone-mini">
               <div class="screen-inner screen-flow" style="padding:12px 14px;">
                 <div class="flow-diagram" style="gap:4px;">
-                  <div class="flow-node done" style="padding:6px 4px;font-size:8px;">Cliente entra</div>
-                  <div class="flow-connector" style="width:14px;"><div class="flow-connector-fill" style="width:100%;"></div></div>
-                  <div class="flow-node done" style="padding:6px 4px;font-size:8px;">Cardápio</div>
-                  <div class="flow-connector" style="width:14px;"><div class="flow-connector-fill" style="width:100%;"></div></div>
-                  <div class="flow-node done" style="padding:6px 4px;font-size:8px;">Pedido feito</div>
+                  <div class="flow-node in done" style="padding:6px 4px;font-size:8px;">Cliente entra</div>
+                  <div class="flow-connector" style="width:14px;"><div class="flow-connector-fill in"></div></div>
+                  <div class="flow-node in done" style="padding:6px 4px;font-size:8px;">Cardápio</div>
+                  <div class="flow-connector" style="width:14px;"><div class="flow-connector-fill in"></div></div>
+                  <div class="flow-node in done" style="padding:6px 4px;font-size:8px;">Pedido feito</div>
                 </div>
               </div>
             </div>
@@ -1931,8 +1959,8 @@
               <div class="screen-inner">
                 <div class="edit-bar"><span class="edit-bar-title">Editar cardápio</span></div>
                 <div class="edit-list" style="padding:6px 14px;">
-                  <div class="edit-row" style="padding:6px 10px;"><div><span class="edit-row-name" style="font-size:10px;">Frango grelhado</span><span class="edit-row-price" style="font-size:9px;">R$ 28,00</span></div><button class="edit-row-btn" style="font-size:8px;padding:2px 7px;">Editar</button></div>
-                  <div class="edit-row editing" style="padding:6px 10px;"><div><span class="edit-row-name gold-name" style="font-size:10px;">Marmita fit</span><span class="edit-row-price" style="font-size:9px;">R$ 24,90</span></div><button class="edit-row-btn active-btn" style="font-size:8px;padding:2px 7px;">Salvar</button></div>
+                  <div class="edit-row in" style="padding:6px 10px;"><div><span class="edit-row-name" style="font-size:10px;">Frango grelhado</span><span class="edit-row-price" style="font-size:9px;">R$ 28,00</span></div><button class="edit-row-btn" style="font-size:8px;padding:2px 7px;">Editar</button></div>
+                  <div class="edit-row editing in" style="padding:6px 10px;"><div><span class="edit-row-name gold-name" style="font-size:10px;">Marmita fit</span><span class="edit-row-price" style="font-size:9px;">R$ 24,90</span></div><button class="edit-row-btn active-btn" style="font-size:8px;padding:2px 7px;">Salvar</button></div>
                 </div>
               </div>
             </div>
@@ -1943,11 +1971,15 @@
           <div class="mobile-entrega">
             <div class="mobile-phone-mini">
               <div class="screen-inner">
+                <div class="dash-header" style="padding:10px 12px 0;">
+                  <span class="dash-greeting" style="font-size:8px;">Bom dia, Chef</span>
+                  <span class="dash-title-text" style="font-size:13px;">Seus resultados</span>
+                </div>
                 <div class="dash-grid" style="gap:5px;padding:10px 12px;">
-                  <div class="dash-card"><span class="dash-label" style="font-size:7px;">PEDIDOS HOJE</span><span class="dash-value ok-val" style="font-size:20px;">14</span></div>
-                  <div class="dash-card"><span class="dash-label" style="font-size:7px;">SEM RESPOSTA</span><span class="dash-value red-val" style="font-size:20px;">0</span></div>
-                  <div class="dash-card"><span class="dash-label" style="font-size:7px;">ESTA SEMANA</span><span class="dash-value gold-val" style="font-size:20px;">43</span></div>
-                  <div class="dash-card"><span class="dash-label" style="font-size:7px;">MENSALIDADE</span><span class="dash-value muted-val" style="font-size:12px;">R$0</span></div>
+                  <div class="dash-card in"><span class="dash-label" style="font-size:7px;">PEDIDOS HOJE</span><span class="dash-value ok-val" style="font-size:20px;">14</span></div>
+                  <div class="dash-card in"><span class="dash-label" style="font-size:7px;">SEM RESPOSTA</span><span class="dash-value red-val" style="font-size:20px;">0</span></div>
+                  <div class="dash-card in"><span class="dash-label" style="font-size:7px;">ESTA SEMANA</span><span class="dash-value gold-val" style="font-size:20px;">43</span></div>
+                  <div class="dash-card in"><span class="dash-label" style="font-size:7px;">MENSALIDADE</span><span class="dash-value muted-val" style="font-size:12px;">R$0</span></div>
                 </div>
               </div>
             </div>
@@ -2616,16 +2648,32 @@
 
       var currentScreen = '1';
       var animating = false;
+      var queuedScreen = null;
+      var syncQueued = false;
 
       function activateScreen(id) {
-        if (id === currentScreen || animating) return;
+        if (id === currentScreen) return;
+        if (animating) {
+          queuedScreen = id;
+          return;
+        }
         animating = true;
         currentScreen = id;
         screens.forEach(function(s) { s.classList.remove('active'); });
         var next = document.getElementById('screen-' + id);
         if (next) {
           next.classList.add('active');
-          setTimeout(function() { runScreenAnimation(id); animating = false; }, 100);
+          setTimeout(function() {
+            runScreenAnimation(id);
+            animating = false;
+            if (queuedScreen && queuedScreen !== currentScreen) {
+              var nextQueued = queuedScreen;
+              queuedScreen = null;
+              activateScreen(nextQueued);
+            } else {
+              queuedScreen = null;
+            }
+          }, 100);
         } else { animating = false; }
       }
 
@@ -2711,18 +2759,44 @@
         }
       }
 
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-            var screenId = entry.target.dataset.screen;
-            items.forEach(function(i) { i.classList.remove('active'); });
-            entry.target.classList.add('active');
-            activateScreen(screenId);
+      function syncActiveItem() {
+        var viewportMid = window.innerHeight / 2;
+        var bestItem = null;
+        var bestDistance = Infinity;
+
+        items.forEach(function(item) {
+          var rect = item.getBoundingClientRect();
+          if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+          var midpoint = rect.top + rect.height / 2;
+          var distance = Math.abs(midpoint - viewportMid);
+          if (distance < bestDistance) {
+            bestDistance = distance;
+            bestItem = item;
           }
         });
-      }, { threshold: 0.5 });
+
+        if (!bestItem) return;
+        items.forEach(function(i) { i.classList.remove('active'); });
+        bestItem.classList.add('active');
+        activateScreen(bestItem.dataset.screen);
+      }
+
+      function requestSync() {
+        if (syncQueued) return;
+        syncQueued = true;
+        requestAnimationFrame(function() {
+          syncQueued = false;
+          syncActiveItem();
+        });
+      }
+
+      var observer = new IntersectionObserver(function() {
+        requestSync();
+      }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
 
       items.forEach(function(item) { observer.observe(item); });
+      window.addEventListener('scroll', requestSync, { passive: true });
+      requestSync();
       setTimeout(function() { runScreenAnimation('1'); }, 400);
     })();
 
