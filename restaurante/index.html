@@ -63,6 +63,7 @@
     }
 
     html { scroll-behavior: smooth; }
+    #contato { scroll-margin-top: 84px; }
 
     body {
       background: var(--canvas);
@@ -1532,6 +1533,8 @@
       animation: btn-sweep 2.5s ease-in-out 0.5s infinite;
     }
     .cta-main-btn:hover { box-shadow: 0 0 70px var(--gold-50); transform: translateY(-2px); }
+    .btn-primary:active,
+    .cta-main-btn:active { transform: translateY(0); filter: brightness(0.96); }
 
     /* pulse rings */
     .cta-ring-1 { position: absolute; inset: -4px; border-radius: 13px; border: 1px solid var(--gold-20); animation: ring-pulse 3s ease-in-out infinite; pointer-events: none; }
@@ -1590,6 +1593,160 @@
       outline: 2px solid var(--gold);
       outline-offset: 3px;
       border-radius: 4px;
+    }
+
+    @media (max-width: 767px) {
+      /* Mobile: preservar a narrativa, reduzir fadiga visual */
+      :root {
+        --space-m: 28px;
+        --space-l: 46px;
+        --space-xl: 64px;
+      }
+
+      .section { padding: 46px 0; }
+
+      .lp-hero {
+        padding-top: calc(60px + 38px);
+        padding-bottom: 42px;
+        background-image:
+          radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in srgb, var(--gold) 7%, transparent) 0%, transparent 70%),
+          radial-gradient(ellipse 60% 40% at 80% 100%, color-mix(in srgb, var(--gold) 3%, transparent) 0%, transparent 60%);
+      }
+      .lp-hero::before {
+        opacity: 0.1;
+      }
+
+      .lp-dores-bg,
+      .lp-preco-bg {
+        opacity: 0.42;
+        animation: none;
+      }
+
+      .lp-dores-head,
+      .preco-head,
+      .como-head {
+        margin-bottom: 24px;
+      }
+
+      .dor-card-inner {
+        padding: 20px 18px;
+      }
+      .dor-card::after {
+        opacity: 0.55;
+      }
+      .dor-number {
+        font-size: 46px;
+      }
+
+      .lp-promise {
+        padding-top: 52px;
+        padding-bottom: 52px;
+      }
+
+      .mobile-entrega {
+        padding: 28px 0;
+      }
+      .mobile-phone-mini {
+        border-width: 4px;
+        box-shadow: 0 0 0 1px #24242a, 0 10px 24px rgba(0,0,0,0.58);
+        margin-bottom: 16px;
+      }
+
+      .depo-featured {
+        padding: 24px 20px;
+      }
+      .depo-featured::after,
+      .depo-card::after {
+        opacity: 0.45;
+      }
+      .quote-mark {
+        display: none;
+      }
+      .depo-card {
+        padding: 22px 18px;
+      }
+      .trust-item {
+        padding: 18px;
+      }
+
+      .preco-cards { gap: 12px; }
+      .card-winner { order: -1; box-shadow: 0 0 28px var(--gold-20); }
+      .card-neutral,
+      .card-bad { opacity: 0.9; }
+      .preco-card {
+        padding: 20px 18px;
+      }
+      .card-bad::before {
+        opacity: 0.45;
+      }
+      .card-winner::after {
+        opacity: 0.6;
+      }
+
+      .como-bg-glow {
+        width: 280px;
+        height: 280px;
+        opacity: 0.55;
+      }
+      .steps-wrap {
+        padding-left: 48px;
+      }
+      .step-item {
+        padding-bottom: 30px;
+      }
+      .timeline-visual::after {
+        opacity: 0.5;
+      }
+
+      .lp-faq-groups {
+        margin-top: 1.8rem;
+        gap: 1.8rem;
+      }
+      .lp-faq-question {
+        padding-block: 1.1rem;
+      }
+
+      .btn-primary,
+      .cta-main-btn {
+        min-height: 54px;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+      }
+
+      .cta-sub { margin-bottom: 18px; max-width: 360px; }
+
+      /* CTA final: mantém movimento, limpa hierarquia visual */
+      .cta-pills {
+        margin-bottom: 18px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        max-width: 360px;
+        gap: 8px;
+      }
+      .cta-pills .chip {
+        justify-content: center;
+        font-size: 10px;
+        color: #5a5a66;
+        border-color: #202028;
+      }
+
+      .cta-guarantee-card {
+        background: color-mix(in srgb, var(--gold) 6%, transparent);
+        border-color: var(--gold-10);
+        box-shadow: none;
+      }
+
+      /* Mantém as animações, mas com menos peso visual */
+      .cta-top-line { opacity: 0.65; }
+      .cta-orb-1,
+      .cta-orb-2,
+      .cta-orb-3 { opacity: 0.52; }
+      .cta-particle { opacity: 0.40; }
+      .cta-ring-1 { opacity: 0.38; }
+      .cta-ring-2 { opacity: 0.24; }
+      .cta-btn-outer::before { animation-duration: 5s; }
+      .card-winner::before { animation-duration: 5.5s; }
     }
 
     @media (max-width: 600px) {
