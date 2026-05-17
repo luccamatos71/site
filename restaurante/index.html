@@ -482,7 +482,14 @@
 
     /* ─── Promessa (intocada — v3) ─── */
     .lp-promise {
-      background: var(--bg-canvas);
+      /* Reidrata os tokens que existiam na v3 via ../styles.css.
+         A v4 é autocontida, então a promessa precisa carregá-los localmente
+         para continuar realmente "intocada". */
+      --text-secondary: #9a9aaa;
+      --text-muted: #78788a;
+      --promise-elevated: #161618;
+      --promise-border-medium: rgba(255, 255, 255, 0.12);
+      background: var(--canvas);
       position: relative;
       overflow: hidden;
     }
@@ -577,7 +584,7 @@
       content: "";
       position: absolute;
       top: 0;
-      left: 0;
+      left: -30%;
       width: 30%;
       height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
@@ -600,8 +607,8 @@
 
     .lp-promise-chip {
       padding: 0.45rem 1rem;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-medium);
+      background: var(--promise-elevated);
+      border: 1px solid var(--promise-border-medium);
       border-radius: 999px;
       font-size: 0.82rem;
       font-weight: 600;
