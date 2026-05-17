@@ -191,9 +191,18 @@
     window.fbq('track', 'PageView');
   }
 
-  function trackMetaEvent(eventName, params) {
+  function getOrCreateSessionId() {
+    let id = sessionStorage.getItem('lumyn_sid');
+    if (!id) {
+      id = Math.random().toString(36).slice(2) + Date.now().toString(36);
+      sessionStorage.setItem('lumyn_sid', id);
+    }
+    return id;
+  }
+
+  function trackMetaEvent(eventName, params, options) {
     if (typeof window.fbq === 'function') {
-      window.fbq('track', eventName, params || {});
+      window.fbq('track', eventName, params || {}, options || {});
     }
   }
 
@@ -247,11 +256,20 @@
       }, LEAD_TRACK_LOCK_MS);
 
       if (getCurrentPageKey() === "restaurante") {
+        // Fix 1: disparar Lead apenas 1x por sessão
+        if (sessionStorage.getItem('lumyn_lead_fired')) return;
+        sessionStorage.setItem('lumyn_lead_fired', '1');
+
+        const cta = link.getAttribute("data-track-location") || "whatsapp_lp";
+        // Fix 2 (complemento): content_name diferencia por posição do CTA
+        // Fix 3: external_id de sessão para matching Meta
         trackMetaEvent("Lead", {
-          content_name: "Clique WhatsApp - Implantação Expressa",
+          content_name: cta,
           content_category: "Lumyn Restaurante",
           value: 697,
           currency: "BRL",
+        }, {
+          external_id: getOrCreateSessionId(),
         });
         return;
       }
