@@ -636,11 +636,33 @@
     @media (max-width: 620px) {
       .lp-promise-track {
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 1rem;
       }
       .lp-promise-track-line {
-        width: 100%;
+        flex: 0 0 auto;
+        width: 2px;
+        height: 72px;
+        max-width: none;
+        background: linear-gradient(
+          180deg,
+          color-mix(in srgb, var(--red) 35%, transparent),
+          var(--gold-10) 45%,
+          var(--gold)
+        );
       }
+      .lp-promise-track-line::after {
+        top: -30%;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        animation-name: lp-promise-shine-vertical;
+      }
+    }
+
+    @keyframes lp-promise-shine-vertical {
+      0% { top: -30%; }
+      100% { top: 100%; }
     }
 
     /* ── ENTREGÁVEIS ── */
