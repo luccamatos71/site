@@ -1575,6 +1575,7 @@
         <a href="#contato"
            class="lp-header-cta btn-outline"
            data-whatsapp="Vim pela LP [header] - Quero saber mais sobre a Implantação Expressa"
+           data-track="click_whatsapp"
            data-track-location="header_lp">
           Falar com a Lumyn
         </a>
@@ -1607,6 +1608,7 @@
         <a href="#contato"
            class="btn-primary btn-hero reveal"
            data-whatsapp="Vim pela LP [hero] - Quero saber mais sobre a Implantação Expressa"
+           data-track="click_whatsapp"
            data-track-location="hero_lp">
           Quero organizar meu restaurante
         </a>
@@ -2113,6 +2115,7 @@
             <a href="#contato"
                class="btn-primary btn-winner"
                data-whatsapp="Vim pela LP [meio] - Quero saber mais sobre a Implantação Expressa"
+               data-track="click_whatsapp"
                data-track-location="steps_lp">
               Quero organizar meu restaurante
             </a>
@@ -2165,6 +2168,7 @@
                class="btn-ghost"
                style="margin-top:14px;"
                data-whatsapp="Vim pela LP [meio] - Quero saber mais sobre a Implantação Expressa"
+               data-track="click_whatsapp"
                data-track-location="steps_lp">
               Falar agora &#8594;
             </a>
@@ -2217,6 +2221,7 @@
             <a href="#contato"
                class="btn-primary"
                data-whatsapp="Vim pela LP [meio] - Quero saber mais sobre a Implantação Expressa"
+               data-track="click_whatsapp"
                data-track-location="steps_lp">
               Quero começar agora
             </a>
@@ -2449,9 +2454,10 @@
         <div class="cta-btn-outer reveal">
           <div class="cta-ring-1"></div>
           <div class="cta-ring-2"></div>
-          <a href="#"
+          <a href="#contato"
              class="cta-main-btn"
              data-whatsapp="Vim pela LP [fim] - Quero saber mais sobre a Implantação Expressa"
+             data-track="click_whatsapp"
              data-track-location="cta_final_lp">
             Quero organizar meu restaurante
           </a>
@@ -2511,6 +2517,36 @@
     (function() {
       var yearEl = document.getElementById('year');
       if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+    })();
+
+    // Reveal on scroll — torna visíveis os elementos declarados no CSS.
+    (function() {
+      var revealEls = document.querySelectorAll('.reveal');
+      if (!revealEls.length) return;
+
+      function show(el) {
+        el.classList.add('is-visible');
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(show);
+        return;
+      }
+
+      var revealObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          show(entry.target);
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px'
+      });
+
+      revealEls.forEach(function(el) {
+        revealObserver.observe(el);
+      });
     })();
 
     // FAQ accordion (com aria-expanded para acessibilidade)
