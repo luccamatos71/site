@@ -1,1885 +1,124 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardápio Digital + WhatsApp Organizado — Lumyn</title>
-  <meta name="description" content="Cardápio digital com link próprio e WhatsApp organizado para receber pedidos. Implantado em até 7 dias. R$697 uma vez, sem mensalidade.">
+  <title>Cardápio Digital + WhatsApp Organizado - Lumyn</title>
+  <meta name="description" content="Implantação expressa de cardápio digital e WhatsApp organizado para restaurantes. Em até 7 dias, por R$697 uma vez, sem mensalidade.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#08090a">
 
-  <!-- Fallback robots: site.js sobrescreve em runtime; este é seguro para bots não-JS -->
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-  <meta name="theme-color" content="#070708">
-
-  <!-- Canonical fallback (site.js também injeta em runtime) -->
-  <link rel="canonical" href="https://lumynassessoria.com/restaurante">
-
-  <!-- Open Graph (fallback completo — site.js também injeta) -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Lumyn">
-  <meta property="og:title" content="Cardápio Digital + WhatsApp Organizado — Lumyn">
-  <meta property="og:description" content="R$697 uma vez. Sem mensalidade. Implantado em até 7 dias úteis.">
-  <meta property="og:url" content="https://lumynassessoria.com/restaurante">
-  <meta property="og:image" content="https://lumynassessoria.com/assets/og/lumyn-og.png">
-  <meta property="og:image:alt" content="Lumyn — Implantação Expressa para restaurantes">
+  <meta property="og:title" content="Cardápio Digital + WhatsApp Organizado - Lumyn">
+  <meta property="og:description" content="Cardápio digital e atendimento organizado em até 7 dias úteis. R$697 uma vez, sem mensalidade.">
   <meta property="og:locale" content="pt_BR">
 
-  <!-- Twitter Cards (fallback) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cardápio Digital + WhatsApp Organizado — Lumyn">
-  <meta name="twitter:description" content="R$697 uma vez. Sem mensalidade. Implantado em até 7 dias úteis.">
-  <meta name="twitter:image" content="https://lumynassessoria.com/assets/og/lumyn-og.png">
-
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-
-  <!-- Microsoft Clarity -->
   <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","wqw9ibx7ou");</script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
-
-  <style>
-    /* ─────────────────────────────────────────────────────
-       VARIÁVEIS LOCAIS DA LP (complementam ../styles.css)
-       Migra hex hardcoded para variáveis (princípio universal #1)
-       ───────────────────────────────────────────────────── */
-    :root {
-      --lp-canvas-base: #070708;
-      --lp-metric-red: #e05252;
-      --lp-metric-red-dark: #c03333;
-      --text-muted: #78788a; /* fix de contraste — era #606070 ratio 3.1:1 */
-    }
-
-    /* ── Header mínimo ── */
-
-    .lp-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      border-bottom: 1px solid transparent;
-      transition: backdrop-filter 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .lp-header.scrolled {
-      backdrop-filter: blur(16px);
-      background: rgba(7, 7, 8, 0.9);
-      border-color: var(--border-subtle);
-    }
-
-    .lp-header-inner {
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    /* ── Hero ── */
-
-    .lp-hero {
-      position: relative;
-      padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
-      background:
-        radial-gradient(ellipse 900px 500px at 0% 0%, rgba(200, 160, 85, 0.11), transparent 65%),
-        radial-gradient(ellipse 600px 400px at 100% 100%, rgba(200, 160, 85, 0.07), transparent 65%),
-        var(--lp-canvas-base);
-      isolation: isolate;
-    }
-
-    .lp-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.6)'/%3E%3C/svg%3E");
-      background-size: 24px 24px;
-      opacity: 0.35;
-      z-index: -1;
-    }
-
-    .lp-hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: clamp(2rem, 4vw, 4rem);
-    }
-
-    .lp-hero h1 {
-      margin-top: 0.75rem;
-      font-size: clamp(3rem, 7vw, 5.2rem);
-    }
-
-    .lp-hero-sub {
-      margin-top: 1.25rem;
-      font-size: clamp(1rem, 2.2vw, 1.15rem);
-      color: var(--text-secondary);
-      max-width: 52ch;
-    }
-
-    .lp-hero-cta {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.85rem;
-    }
-
-    .lp-hero-cta .btn {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-    }
-
-    .lp-zero-tag {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.35rem 0.5rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .lp-zero-tag span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      white-space: nowrap;
-    }
-
-    .lp-zero-tag span::before {
-      content: "✓";
-      color: var(--gold);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .lp-zero-tag .sep {
-      color: var(--text-muted);
-      opacity: 0.5;
-      user-select: none;
-    }
-
-    .lp-zero-tag .sep::before {
-      content: none;
-    }
-
-    @media (max-width: 480px) {
-      .lp-zero-tag {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.3rem;
-      }
-
-      .lp-zero-tag .sep {
-        display: none;
-      }
-    }
-
-    /* ── P1.1 — Zero-tag v2: chips pill com peso visual (escopado em .lp-hero) ── */
-
-    .lp-hero .lp-zero-tag-v2 {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .lp-hero .lp-zero-tag-v2 .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.38rem;
-      padding: 0.38rem 0.85rem;
-      border: 1px solid rgba(200, 160, 85, 0.35);
-      border-radius: 999px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: var(--text-primary);
-      white-space: nowrap;
-      transition: border-color 0.2s ease, background 0.2s ease;
-    }
-
-    .lp-hero .lp-zero-tag-v2 .chip::before {
-      content: "—";
-      color: var(--gold);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.75rem;
-      flex-shrink: 0;
-    }
-
-    .lp-hero .lp-zero-tag-v2 .chip:hover {
-      border-color: rgba(200, 160, 85, 0.6);
-      background: rgba(200, 160, 85, 0.04);
-    }
-
-    @media (max-width: 480px) {
-      .lp-hero .lp-zero-tag-v2 {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.35rem;
-      }
-    }
-
-    /* Dashboard panel hero */
-
-    .lp-dashboard {
-      border: 1px solid var(--border-gold);
-      border-radius: 16px;
-      background: var(--bg-elevated);
-      padding: 1.75rem;
-      box-shadow: 0 0 20px rgba(200, 160, 85, 0.05);
-      transition: box-shadow 0.4s ease;
-    }
-
-    .lp-dashboard.bars-visible {
-      box-shadow: 0 0 40px rgba(200, 160, 85, 0.12);
-    }
-
-    .lp-dashboard-kicker {
-      margin-bottom: 1.5rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .lp-dash-metric + .lp-dash-metric {
-      margin-top: 1.2rem;
-    }
-
-    .lp-dash-metric-text {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.75rem;
-      min-width: 0;
-    }
-
-    .lp-dash-metric-text strong {
-      font-family: "JetBrains Mono", monospace;
-      font-size: clamp(1.4rem, 3vw, 1.8rem);
-      line-height: 1;
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-
-    .lp-dash-metric-text strong.red {
-      color: var(--lp-metric-red);
-    }
-
-    .lp-dash-metric-text strong.gold {
-      color: var(--gold-bright);
-    }
-
-    .lp-dash-metric-text span {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      text-align: right;
-      line-height: 1.4;
-      flex-shrink: 1;
-      min-width: 0;
-      word-break: break-word;
-    }
-
-    .lp-dash-bar {
-      margin-top: 0.5rem;
-      width: 100%;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.07);
-      overflow: hidden;
-    }
-
-    .lp-dash-bar-fill {
-      display: block;
-      width: 0;
-      height: 100%;
-      border-radius: inherit;
-    }
-
-    .lp-dash-bar-fill.red {
-      background: linear-gradient(90deg, var(--lp-metric-red-dark), var(--lp-metric-red));
-    }
-
-    .lp-dash-bar-fill.gold {
-      background: linear-gradient(90deg, var(--gold), var(--gold-bright));
-    }
-
-    .lp-dashboard.bars-visible .lp-dash-bar-fill {
-      animation: grow 0.9s ease forwards;
-      animation-delay: var(--delay, 0s);
-    }
-
-    .lp-dash-footnote {
-      margin-top: 1.4rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border-subtle);
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .lp-dashboard .lp-urgency-badge {
-      display: inline-flex;
-      margin-bottom: 0.9rem;
-      padding: 0.28rem 0.75rem 0.28rem 0.6rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-      border-radius: 999px;
-      border: 1px solid var(--border-gold);
-      background: rgba(200, 160, 85, 0.06);
-      color: var(--gold);
-      gap: 0.45rem;
-    }
-
-    /* ── Dores (editorial list) ── */
-
-    .lp-pain-list {
-      margin-top: 2.5rem;
-    }
-
-    .lp-pain-editorial {
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 2rem 0;
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 1rem;
-      transition: transform 0.25s ease;
-    }
-
-    .lp-pain-number {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.85rem;
-      color: var(--gold-muted);
-      transition: color 0.25s ease;
-      padding-top: 4px; /* era 3px — agora múltiplo de 4 */
-    }
-
-    .lp-pain-editorial-content {
-      transition: transform 0.25s ease;
-    }
-
-    .lp-pain-editorial:hover .lp-pain-number {
-      color: var(--gold);
-    }
-
-    .lp-pain-editorial:hover .lp-pain-editorial-content {
-      transform: translateX(4px);
-    }
-
-    .lp-pain-editorial-content h3 {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      font-weight: 700;
-    }
-
-    .lp-pain-editorial-content p {
-      margin-top: 0.45rem;
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* ── Section modifier: usa surface em vez de canvas ── */
-    .section--surface {
-      background: var(--bg-surface);
-    }
-
-    /* ── Deliverables — zigzag (inspirado em Linear features) ── */
-
-    .lp-deliverables {
-      margin-top: 3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-    }
-
-    .lp-deliverable-item {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-      padding: 2.5rem 2.25rem;
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-card);
-      background: var(--bg-elevated);
-      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    }
-
-    /* Alternância zigzag — itens pares invertem visual ↔ conteúdo */
-    .lp-deliverable-item:nth-child(even) .lp-deliverable-content { order: 2; }
-    .lp-deliverable-item:nth-child(even) .lp-deliverable-visual  { order: 1; }
-
-    .lp-deliverable-item:hover {
-      border-color: var(--border-gold);
-      box-shadow: 0 0 32px rgba(200, 160, 85, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .lp-deliverable-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .lp-deliverable-num {
-      display: inline-block;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--gold);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .lp-deliverable-item h4 {
-      font-family: "Playfair Display", serif;
-      font-weight: 400;
-      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-      color: var(--text-primary);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    .lp-deliverable-item p {
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-
-    .lp-deliverable-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 200px;
-      background: var(--bg-canvas);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 1.75rem 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .lp-deliverable-visual::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(200, 160, 85, 0.06), transparent 60%);
-      pointer-events: none;
-    }
-
-    .lp-deliverable-visual svg {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      display: block;
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (max-width: 860px) {
-      .lp-deliverable-item {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 2rem 1.5rem;
-      }
-      .lp-deliverable-item:nth-child(even) .lp-deliverable-content { order: 1; }
-      .lp-deliverable-item:nth-child(even) .lp-deliverable-visual  { order: 2; }
-      .lp-deliverable-visual { min-height: 160px; padding: 1.25rem; }
-      .lp-deliverable-visual svg { max-width: 240px; }
-    }
-
-    /* ── Zero mensalidade (momento editorial) ── */
-
-    .lp-zero-monthly {
-      margin-top: 3rem;
-      padding: 3rem 0;
-      text-align: center;
-      border-top: 1px solid;
-      border-bottom: 1px solid;
-      border-image: linear-gradient(90deg, transparent, var(--gold), transparent) 1;
-      background: transparent;
-    }
-
-    .lp-zero-monthly h3 {
-      font-family: "Playfair Display", serif;
-      font-weight: 400;
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: var(--text-primary);
-      line-height: 1.15;
-    }
-
-    .lp-zero-monthly h3 strong {
-      color: var(--gold-bright);
-      font-weight: 400;
-    }
-
-    .lp-zero-monthly p {
-      margin-top: 0.75rem;
-      font-size: 0.95rem;
-      color: var(--text-secondary);
-    }
-
-    /* ── Âncora de preço — canvas para destacar do surface anterior ── */
-
-    .lp-anchor-section {
-      background: var(--bg-canvas);
-    }
-
-    .lp-anchor-grid {
-      margin-top: 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1px 1fr 1px 1fr;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .lp-anchor-side.highlight {
-      position: relative;
-      border-color: var(--border-gold);
-      box-shadow: 0 0 28px rgba(200, 160, 85, 0.1);
-    }
-
-    .lp-anchor-badge {
-      display: inline-block;
-      margin-bottom: 0.85rem;
-      padding: 0.25rem 0.7rem;
-      background: rgba(200, 160, 85, 0.1);
-      border: 1px solid var(--border-gold);
-      border-radius: 999px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      text-transform: uppercase;
-    }
-
-    .lp-anchor-value.neutral {
-      color: var(--text-secondary);
-    }
-
-    .lp-anchor-divider {
-      width: 1px;
-      align-self: stretch;
-      background: linear-gradient(180deg, transparent, var(--border-gold), transparent);
-    }
-
-    .lp-anchor-side {
-      text-align: center;
-      padding: 2rem 1.5rem;
-    }
-
-    .lp-anchor-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    .lp-anchor-value {
-      font-family: "JetBrains Mono", monospace;
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 500;
-      line-height: 1;
-    }
-
-    .lp-anchor-value.bad {
-      color: var(--lp-metric-red);
-    }
-
-    .lp-anchor-value.good {
-      color: var(--gold-bright);
-    }
-
-    .lp-anchor-sub {
-      margin-top: 0.6rem;
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-
-    .lp-anchor-sub strong {
-      color: var(--gold-bright);
-    }
-
-    .lp-anchor-roi {
-      margin-top: 2.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-subtle);
-      text-align: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-    }
-
-    /* ── P3.1 — focus-visible complementar: links de âncora fora do .btn (escopado à LP) ── */
-
-    .lp-hero a:focus-visible,
-    .lp-header a:focus-visible,
-    .lp-steps-cta a:focus-visible,
-    .lp-cta-actions a:focus-visible,
-    .lp-lumyn-identity a:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
-
-    /* ── P2.3 — #faq: hover na pergunta + max-height flexível (escopado em #faq) ── */
-
-    #faq .lp-faq-question:hover h3 {
-      color: var(--gold-bright);
-    }
-
-    #faq .lp-faq-question:hover .lp-faq-toggle {
-      color: var(--gold-bright);
-    }
-
-    #faq .lp-faq-item.open .lp-faq-answer {
-      max-height: 900px; /* de 600px — evita corte de resposta longa */
-    }
-
-    /* ── P2.2 — #como-funciona: hover do número mais forte (escopado) ── */
-
-    #como-funciona .lp-step-number {
-      transition: box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    #como-funciona .lp-step:hover .lp-step-number {
-      box-shadow: 0 0 28px rgba(200, 160, 85, 0.22);
-      border-color: var(--gold);
-    }
-
-    /* ── P2.1 — #entrega: shining effect no hover do visual (escopado em #entrega) ── */
-
-    /* overflow: hidden já existe no .lp-deliverable-visual — confirmado na linha ~415 */
-    #entrega .lp-deliverable-visual::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 60%;
-      height: 200%;
-      background: linear-gradient(
-        105deg,
-        transparent 40%,
-        rgba(200, 160, 85, 0.1) 50%,
-        transparent 60%
-      );
-      transform: skewX(-15deg);
-      transition: left 0.55s ease;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    #entrega .lp-deliverable-item:hover .lp-deliverable-visual::after {
-      left: 110%;
-    }
-
-    /* ── P1.3 — #problema: hover mais legível + cleanup de spacing (escopado em #problema) ── */
-
-    #problema .lp-pain-number {
-      padding-top: 0;
-      margin-top: 0.25rem;
-    }
-
-    #problema .lp-pain-editorial:hover .lp-pain-editorial-content {
-      transform: translateX(6px);
-    }
-
-    #problema .lp-pain-editorial:hover {
-      background: rgba(200, 160, 85, 0.02);
-    }
-
-    /* ── P1.2 — #preco âncora: tabular-nums + contraste bad/good (escopado em #preco) ── */
-
-    #preco .lp-anchor-value {
-      font-variant-numeric: tabular-nums;
-      letter-spacing: -0.02em;
-    }
-
-    #preco .lp-anchor-value.bad {
-      opacity: 0.7;
-    }
-
-    #preco .lp-anchor-side.highlight {
-      background: rgba(200, 160, 85, 0.04);
-    }
-
-    /* ── Como funciona (steps com connectors) ── */
-
-    /* ── Steps — cards horizontais empilhados com mini-visual ── */
-
-    .lp-steps {
-      margin-top: 3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      position: relative;
-    }
-
-    /* Linha vertical conectando os 3 steps (à esquerda do número) */
-    .lp-steps::before {
-      content: "";
-      position: absolute;
-      left: 47px;
-      top: 60px;
-      bottom: 60px;
-      width: 1px;
-      background: linear-gradient(180deg, var(--border-gold), rgba(200, 160, 85, 0.12) 60%, transparent);
-      pointer-events: none;
-    }
-
-    .lp-step {
-      position: relative;
-      display: grid;
-      grid-template-columns: 95px 1fr 200px;
-      gap: 2rem;
-      align-items: center;
-      padding: 1.75rem 2rem;
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-card);
-      background: var(--bg-surface);
-      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-    }
-
-    .lp-step:hover {
-      border-color: var(--border-gold);
-      box-shadow: 0 0 24px rgba(200, 160, 85, 0.08);
-      transform: translateY(-1px);
-    }
-
-    .lp-step-number {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      border: 1px solid var(--border-gold);
-      background: var(--bg-canvas);
-      box-shadow: 0 0 18px rgba(200, 160, 85, 0.1);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 1.05rem;
-      color: var(--gold);
-      font-weight: 500;
-      position: relative;
-      z-index: 1;
-    }
-
-    .lp-step-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .lp-step h3 {
-      font-family: "Playfair Display", serif;
-      font-weight: 400;
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      color: var(--text-primary);
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-    }
-
-    .lp-step p {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .lp-step-tag {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.35rem 0.75rem;
-      background: rgba(200, 160, 85, 0.08);
-      border: 1px solid var(--border-gold);
-      border-radius: 999px;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gold);
-      width: max-content;
-    }
-
-    .lp-step-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      background: var(--bg-canvas);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      min-height: 100px;
-    }
-
-    .lp-step-visual svg {
-      width: 100%;
-      max-width: 170px;
-      height: auto;
-      display: block;
-    }
-
-    /* CTA depois dos steps (era style inline) */
-    .lp-steps-cta {
-      margin-top: 2.5rem;
-      text-align: center;
-    }
-
-    /* P3.2 — segunda declaração .lp-steps-cta removida abaixo (era duplicata da primeira acima) */
-
-    @media (max-width: 860px) {
-      .lp-steps::before { display: none; }
-      .lp-step {
-        grid-template-columns: 60px 1fr;
-        gap: 1.25rem;
-        padding: 1.5rem 1.25rem;
-      }
-      .lp-step-visual { display: none; }
-      .lp-step-number {
-        width: 48px;
-        height: 48px;
-        font-size: 0.95rem;
-      }
-    }
-
-    /* P3.2 — .lp-steps-cta duplicata removida: declaração já existe na linha ~826 */
-
-    /* ── FAQ Accordion — agrupado em 4 categorias ── */
-
-    .lp-faq-section {
-      background: var(--bg-surface);
-    }
-
-    .lp-faq-groups {
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 2.5rem;
-    }
-
-    .lp-faq-group {
-      max-width: 820px;
-      margin-inline: auto;
-      width: 100%;
-    }
-
-    .lp-faq-group-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      padding-bottom: 0.85rem;
-      margin-bottom: 0.25rem;
-      border-bottom: 1px solid var(--border-gold);
-    }
-
-    .lp-faq-group-label::before {
-      content: "";
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
-
-    .lp-faq-group .lp-faq-list {
-      margin-top: 0;
-      border-top: none;
-      background: transparent;
-    }
-
-    .lp-faq-item {
-      background: transparent;
-      border-bottom: 1px solid var(--border-subtle);
-      cursor: pointer;
-      transition: background-color 0.25s ease;
-    }
-
-    .lp-faq-item.open {
-      background: rgba(200, 160, 85, 0.025);
-    }
-
-    .lp-faq-question {
-      padding: 1.4rem 1rem 1.4rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-      background: transparent;
-      border: 0;
-      cursor: pointer;
-      text-align: left;
-    }
-
-    .lp-faq-question:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 4px;
-    }
-
-    .lp-faq-question h3 {
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      transition: color 0.25s ease;
-    }
-
-    .lp-faq-item.open .lp-faq-question h3 {
-      color: var(--gold-bright);
-    }
-
-    .lp-faq-toggle {
-      flex-shrink: 0;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 1.2rem;
-      color: var(--gold);
-      line-height: 1;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      user-select: none;
-    }
-
-    .lp-faq-item.open .lp-faq-toggle {
-      transform: rotate(45deg);
-    }
-
-    .lp-faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
-    .lp-faq-answer-inner {
-      padding: 0 0 1.4rem;
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-
-    .lp-faq-answer-inner strong {
-      color: var(--gold-bright);
-    }
-
-    .lp-faq-item.open .lp-faq-answer {
-      max-height: 600px; /* aumentado para acomodar respostas mais longas das objeções novas */
-    }
-
-    /* ── CTA Final ── */
-
-    .lp-cta-final {
-      text-align: center;
-      padding: clamp(5rem, 9vw, 8rem) 0;
-      background: var(--bg-elevated);
-      position: relative;
-    }
-
-    .lp-cta-final::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    .lp-cta-sub {
-      margin-top: 1rem;
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-    }
-
-    .lp-cta-actions {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .lp-cta-actions .btn {
-      padding: 1.1rem 2.5rem;
-      font-size: 1rem;
-    }
-
-    .lp-cta-guarantee {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-
-    .lp-guarantee-item {
-      padding: 0.35rem 0.85rem;
-      border: 1px solid var(--border-subtle);
-      border-radius: 999px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .lp-guarantee-item::before {
-      content: "✓";
-      color: var(--gold);
-      font-weight: 700;
-    }
-
-    /* ── Badge de urgência ── */
-
-    .lp-urgency-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      margin-bottom: 1.25rem;
-      padding: 0.38rem 0.9rem 0.38rem 0.7rem;
-      border: 1px solid var(--border-gold);
-      border-radius: 999px;
-      background: rgba(200, 160, 85, 0.06);
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 0.03em;
-    }
-
-    .lp-urgency-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      animation: lp-pulse 2.2s ease-in-out infinite;
-    }
-
-    @keyframes lp-pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.45; transform: scale(0.75); }
-    }
-
-    /* ── Depoimentos — 1 destaque + 2 secundários (assimétrico) ── */
-
-    .lp-testimonials {
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 1.25rem;
-      align-items: stretch;
-    }
-
-    /* Depoimento principal (grande, à esquerda) */
-    .lp-testimonial-card--featured {
-      grid-row: span 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 2.5rem 2.25rem;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-gold);
-      border-radius: var(--radius-card);
-      box-shadow: 0 0 28px rgba(200, 160, 85, 0.08);
-      transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-      position: relative;
-    }
-
-    .lp-testimonial-card--featured::before {
-      content: "“";
-      position: absolute;
-      top: 1.25rem;
-      left: 1.5rem;
-      font-family: "Playfair Display", serif;
-      font-size: 5rem;
-      line-height: 1;
-      color: var(--gold);
-      opacity: 0.18;
-      pointer-events: none;
-    }
-
-    .lp-testimonial-card--featured:hover {
-      box-shadow: 0 0 40px rgba(200, 160, 85, 0.16);
-      transform: translateY(-2px);
-    }
-
-    .lp-testimonial-card--featured .lp-testimonial-body p {
-      font-family: "Playfair Display", serif;
-      font-weight: 400;
-      font-style: italic;
-      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-      color: var(--text-primary);
-      line-height: 1.55;
-      letter-spacing: -0.01em;
-    }
-
-    .lp-testimonial-metric {
-      margin-top: 1.5rem;
-      padding: 1rem 1.25rem;
-      background: var(--bg-canvas);
-      border: 1px solid var(--border-subtle);
-      border-left: 2px solid var(--gold);
-      border-radius: 8px;
-    }
-
-    .lp-testimonial-metric-label {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .lp-testimonial-metric-value {
-      margin-top: 0.25rem;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--gold);
-      letter-spacing: -0.02em;
-    }
-
-    /* Depoimentos secundários (compactos, à direita, empilhados) */
-    .lp-testimonial-card--compact {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1.5rem 1.5rem;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-medium);
-      border-radius: var(--radius-card);
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .lp-testimonial-card--compact:hover {
-      border-color: var(--border-gold);
-      box-shadow: 0 0 24px rgba(200, 160, 85, 0.08);
-    }
-
-    .lp-testimonial-card--compact .lp-testimonial-body p {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      font-style: italic;
-    }
-
-    .lp-testimonial-body {
-      flex: 1;
-    }
-
-    .lp-testimonial-meta {
-      margin-top: 1.25rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .lp-testimonial-card--featured .lp-testimonial-meta {
-      margin-top: 1.75rem;
-      padding-top: 1.25rem;
-    }
-
-    .lp-testimonial-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-
-    .lp-testimonial-info strong {
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .lp-testimonial-info span {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.7rem;
-      color: var(--gold-muted);
-      letter-spacing: 0.03em;
-    }
-
-    @media (max-width: 860px) {
-      .lp-testimonials {
-        grid-template-columns: 1fr;
-      }
-      .lp-testimonial-card--featured {
-        grid-row: auto;
-        padding: 2rem 1.75rem;
-      }
-      .lp-testimonial-card--featured .lp-testimonial-body p {
-        font-size: 1.05rem;
-      }
-    }
-
-    /* ── Bloco de garantia (CTA final) — ampliado com 3 sub-cláusulas ── */
-
-    .lp-guarantee-block {
-      margin-top: 2.75rem;
-      max-width: 720px;
-      margin-inline: auto;
-      padding: 2rem 2.25rem;
-      border-radius: var(--radius-card);
-      background: rgba(200, 160, 85, 0.04);
-      border: 1px solid transparent;
-      background-clip: padding-box;
-      position: relative;
-      text-align: left;
-    }
-
-    /* Border gradient gold em todos os 4 lados */
-    .lp-guarantee-block::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      padding: 1px;
-      border-radius: var(--radius-card);
-      background: linear-gradient(135deg, var(--gold) 0%, rgba(200, 160, 85, 0.25) 50%, var(--gold) 100%);
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      mask-composite: exclude;
-      -webkit-mask-composite: xor;
-      pointer-events: none;
-    }
-
-    .lp-guarantee-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .lp-guarantee-icon {
-      flex-shrink: 0;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--border-gold);
-      background: rgba(200, 160, 85, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 1.4rem;
-      color: var(--gold);
-      line-height: 1;
-      box-shadow: 0 0 18px rgba(200, 160, 85, 0.12);
-    }
-
-    .lp-guarantee-title {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-      font-weight: 400;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    .lp-guarantee-clauses {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .lp-guarantee-clause {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-    }
-
-    .lp-guarantee-clause::before {
-      content: "✓";
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      margin-top: 0.05rem;
-      border-radius: 50%;
-      background: rgba(200, 160, 85, 0.15);
-      border: 1px solid var(--border-gold);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .lp-guarantee-clause strong {
-      color: var(--text-primary);
-      font-weight: 700;
-    }
-
-    @media (max-width: 620px) {
-      .lp-guarantee-block {
-        padding: 1.5rem 1.25rem;
-      }
-      .lp-guarantee-header {
-        gap: 0.75rem;
-      }
-      .lp-guarantee-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-      }
-      .lp-guarantee-title {
-        font-size: 1.1rem;
-      }
-    }
-
-    /* ── Melhorias de contraste e CTA — sem !important (refatorado) ── */
-
-    /* Eyebrow com linha decorativa gold */
-    .section-head .eyebrow::after,
-    .split-head .eyebrow::after {
-      content: "";
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-      margin-top: 0.5rem;
-      opacity: 0.6;
-    }
-
-    /* Botão CTA — glow mais presente e hover intensificado (seletores mais específicos para sobrescrever styles.css sem !important) */
-    .lp-hero .btn-primary,
-    .lp-steps-cta .btn-primary,
-    .lp-cta-actions .btn-primary,
-    .lp-header .btn-primary {
-      box-shadow: 0 0 28px rgba(200, 160, 85, 0.18);
-    }
-
-    .lp-hero .btn-primary:hover,
-    .lp-steps-cta .btn-primary:hover,
-    .lp-cta-actions .btn-primary:hover,
-    .lp-header .btn-primary:hover {
-      box-shadow: 0 0 44px rgba(200, 160, 85, 0.35);
-      transform: translateY(-2px);
-    }
-
-    /* Botão header — altura mínima para touch */
-    .btn-header {
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-    }
-
-    /* Depoimentos em bg-surface para alternar */
-    #depoimentos {
-      background: var(--bg-surface);
-    }
-
-    /* ROI line — mais contraste */
-    .lp-anchor-roi {
-      color: var(--text-secondary);
-      font-size: 0.88rem;
-    }
-
-    /* Testimonial avatar */
-    .lp-testimonial-avatar {
-      width: 40px;
-      height: 40px;
-      min-width: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(200,160,85,0.25), rgba(200,160,85,0.08));
-      border: 1px solid var(--border-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    .lp-testimonial-stars {
-      font-size: 0.7rem;
-      color: var(--gold);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-      opacity: 0.85;
-    }
-
-    /* Deliverable ícones */
-    .lp-deliverable-icon {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      opacity: 0.8;
-    }
-
-    /* Identify block */
-    .lp-lumyn-identity {
-      margin-top: 3rem;
-      padding: 1.5rem 0;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .lp-lumyn-identity p {
-      font-size: 0.88rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .lp-lumyn-identity a {
-      color: var(--gold);
-      text-decoration: none;
-      font-size: 0.82rem;
-      white-space: nowrap;
-      border-bottom: 1px solid var(--border-gold);
-      padding-bottom: 1px;
-    }
-
-    .lp-lumyn-identity a:hover {
-      color: var(--gold-bright);
-    }
-
-    /* ── Acessibilidade — focus-visible em todos os elementos interativos ── */
-    .btn:focus-visible,
-    .lp-faq-question:focus-visible,
-    .lp-faq-item:focus-visible,
-    .lp-lumyn-identity a:focus-visible,
-    .lp-footer a:focus-visible,
-    .brand:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-    /* ── Footer mínimo ── */
-
-    .lp-footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 1.5rem 0;
-      background: var(--bg-canvas);
-    }
-
-    .lp-footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .lp-footer p,
-    .lp-footer a {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    .lp-footer a:hover {
-      color: var(--text-secondary);
-    }
-
-    /* ── Responsivo ── */
-
-    @media (max-width: 980px) {
-      .lp-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .lp-dashboard {
-        max-width: 480px;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .lp-pain-editorial {
-        grid-template-columns: 48px 1fr;
-      }
-
-      .lp-deliverables {
-        grid-template-columns: 1fr;
-      }
-
-      .lp-anchor-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-
-      .lp-anchor-divider {
-        display: none;
-      }
-
-      .lp-anchor-side {
-        padding: 1.5rem 0;
-        border-bottom: 1px solid var(--border-subtle);
-      }
-
-      .lp-anchor-side:last-child {
-        border-bottom: none;
-      }
-
-      .lp-anchor-side.highlight {
-        border: 1px solid var(--border-gold);
-        border-radius: var(--radius-card);
-        padding: 1.5rem;
-        margin: 0.5rem 0;
-        box-shadow: 0 0 20px rgba(200,160,85,0.08);
-      }
-
-      .lp-steps {
-        grid-template-columns: 1fr;
-      }
-
-      .lp-step:not(:last-child)::after {
-        display: none;
-      }
-
-      .lp-cta-guarantee {
-        gap: 0.4rem;
-      }
-
-      .lp-footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .lp-hero-cta .btn,
-      .lp-cta-actions .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .lp-hero {
-        padding-top: clamp(3rem, 8vw, 5rem);
-      }
-
-      .lp-hero h1 {
-        font-size: clamp(2.2rem, 9vw, 2.8rem);
-      }
-    }
-
-    /* ── Bloco Promessa (entre Dor e Entregáveis) ── */
-
-    .lp-promise {
-      background: var(--bg-canvas);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .lp-promise::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 50%, rgba(200, 160, 85, 0.05), transparent 50%),
-        radial-gradient(circle at 80% 50%, rgba(200, 160, 85, 0.04), transparent 55%);
-      pointer-events: none;
-    }
-
-    .lp-promise-inner {
-      max-width: 760px;
-      margin-inline: auto;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .lp-promise-eyebrow {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--gold);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      display: inline-block;
-    }
-
-    .lp-promise h2 {
-      font-family: "Playfair Display", serif;
-      font-weight: 400;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      color: var(--text-primary);
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-    }
-
-    .lp-promise h2 strong {
-      color: var(--gold-bright);
-      font-weight: 400;
-      font-style: italic;
-    }
-
-    .lp-promise-sub {
-      margin-top: 1.5rem;
-      font-size: 1rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      max-width: 560px;
-      margin-inline: auto;
-    }
-
-    /* Linha gold animada — caos → organizado */
-    .lp-promise-track {
-      position: relative;
-      margin-top: 2.5rem;
-      padding: 0 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .lp-promise-track-label {
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      flex-shrink: 0;
-    }
-
-    .lp-promise-track-label.is-end {
-      color: var(--gold);
-    }
-
-    .lp-promise-track-line {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, rgba(224, 82, 82, 0.4), rgba(200, 160, 85, 0.15), var(--gold));
-      border-radius: 2px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .lp-promise-track-line::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 30%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-      animation: lp-promise-shine 3.2s ease-in-out infinite;
-    }
-
-    @keyframes lp-promise-shine {
-      0% { left: -30%; }
-      100% { left: 100%; }
-    }
-
-    /* Chips de garantia (Sem mensalidade · Sem contrato · Sem reaprender) */
-    .lp-promise-chips {
-      margin-top: 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.6rem;
-    }
-
-    .lp-promise-chip {
-      padding: 0.45rem 1rem;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-medium);
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .lp-promise-chip::before {
-      content: "✗";
-      color: var(--gold);
-      font-weight: 700;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 0.9rem;
-      line-height: 1;
-    }
-
-    .lp-promise-chip:hover {
-      border-color: var(--border-gold);
-      color: var(--text-primary);
-    }
-
-    @media (max-width: 620px) {
-      .lp-promise-track {
-        flex-direction: column;
-        gap: 0.6rem;
-      }
-      .lp-promise-track-line {
-        width: 100%;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/restaurante/styles.css">
 </head>
-<body>
-
-  <!-- Header mínimo -->
+<body class="lp-restaurant">
   <header class="lp-header" id="lp-header">
-    <div class="container lp-header-inner">
-      <a class="brand" href="https://lumynassessoria.com" aria-label="Lumyn">LUMYN</a>
+    <div class="lp-container lp-header-inner">
+      <a class="lp-brand" href="https://lumynassessoria.com" aria-label="Lumyn">LUMYN</a>
       <a
-        class="btn btn-primary btn-header"
-        data-whatsapp="Olá, Lumyn! Vim pela LP [header] - Quero saber sobre a Implantação Expressa para meu restaurante."
+        class="lp-btn lp-btn-primary lp-btn-header"
+        href="https://wa.me/5571993752189?text=Oi%2C%20vi%20a%20Implanta%C3%A7%C3%A3o%20Expressa%20da%20Lumyn%20por%20R%24697%20e%20quero%20come%C3%A7ar.%20Meu%20restaurante%20se%20chama%20___."
+        target="_blank"
+        rel="noopener noreferrer"
+        data-whatsapp="Oi, vi a Implantação Expressa da Lumyn por R$697 e quero começar. Meu restaurante se chama ___."
         data-track="click_whatsapp"
-        data-track-location="header_lp">
-        Falar com a Lumyn
+        data-track-location="header_lp"
+        data-cta-location="header">
+        Começar agora
       </a>
     </div>
   </header>
 
   <main>
-
-    <!-- Hero -->
-    <section class="lp-hero">
-      <div class="container">
-        <div class="lp-hero-grid">
-
-          <div class="lp-hero-copy">
-            <p class="eyebrow">IMPLANTAÇÃO EXPRESSA</p>
-            <h1>Em 7 dias, seu restaurante para de perder pedido. A Lumyn organiza o <span>WhatsApp</span>.</h1>
-            <p class="lp-hero-sub">
-              Cardápio digital com link próprio e WhatsApp configurado para receber pedidos sem caos. Sem você precisar aprender, instalar ou assinar nada.
-            </p>
-
-            <div class="lp-hero-cta">
-              <a
-                class="btn btn-primary"
-                data-whatsapp="Olá, Lumyn! Vim pela LP [hero] - Quero organizar o WhatsApp e o cardápio do meu restaurante."
-                data-track="click_whatsapp"
-                data-track-location="hero_lp">
-                Quero organizar meu restaurante →
-              </a>
-              <div class="lp-zero-tag-v2" aria-label="Condições da oferta">
-                <span class="chip">R$697 uma vez</span>
-                <span class="chip">Sem mensalidade</span>
-                <span class="chip">Sem contrato</span>
-              </div>
-            </div>
-          </div>
-
-          <aside class="lp-dashboard" aria-label="Dados da operação" id="lp-dashboard">
-            <div class="lp-urgency-badge">
-              <span class="lp-urgency-dot" aria-hidden="true"></span>
-              <span>6 vagas restantes — maio/26</span>
-            </div>
-            <p class="lp-dashboard-kicker">CUSTO DA DESORGANIZAÇÃO</p>
-
-            <div class="lp-dash-metric">
-              <div class="lp-dash-metric-text">
-                <strong class="red">3 em 10</strong>
-                <span>mensagens no WhatsApp<br>ficam sem resposta a tempo</span>
-              </div>
-              <div class="lp-dash-bar">
-                <span class="lp-dash-bar-fill red" style="--target: 30%; --delay: 0.06s;"></span>
-              </div>
-            </div>
-
-            <div class="lp-dash-metric">
-              <div class="lp-dash-metric-text">
-                <strong class="red">27%</strong>
-                <span>de comissão iFood<br>por pedido</span>
-              </div>
-              <div class="lp-dash-bar">
-                <span class="lp-dash-bar-fill red" style="--target: 27%; --delay: 0.06s;"></span>
-              </div>
-            </div>
-
-            <div class="lp-dash-metric">
-              <div class="lp-dash-metric-text">
-                <strong class="red">R$810</strong>
-                <span>perdido por mês<br>(quem faz R$3k/mês)</span>
-              </div>
-              <div class="lp-dash-bar">
-                <span class="lp-dash-bar-fill red" style="--target: 82%; --delay: 0.2s;"></span>
-              </div>
-            </div>
-
-            <div class="lp-dash-metric">
-              <div class="lp-dash-metric-text">
-                <strong class="gold">7 dias</strong>
-                <span>para organizar<br>tudo com a Lumyn</span>
-              </div>
-              <div class="lp-dash-bar">
-                <span class="lp-dash-bar-fill gold" style="--target: 100%; --delay: 0.34s;"></span>
-              </div>
-            </div>
-
-            <p class="lp-dash-footnote">R$697 uma vez. Zero mensalidade. Zero manutenção.</p>
-          </aside>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Dores -->
-    <section class="section" id="problema">
-      <div class="container">
-        <div class="section-head split-head">
-          <div>
-            <p class="eyebrow">O PROBLEMA REAL</p>
-            <h2>Você reconhece algum desses?</h2>
-          </div>
-          <p class="section-lead">
-            Não é falta de cliente. É falta de estrutura para receber e organizar os pedidos que já chegam.
+    <section class="lp-hero" id="inicio">
+      <div class="lp-container lp-hero-grid">
+        <div class="lp-hero-copy reveal-target">
+          <p class="lp-eyebrow">IMPLANTAÇÃO EXPRESSA</p>
+          <h1>Em 7 dias, seu WhatsApp para de perder pedido.</h1>
+          <p class="lp-hero-sub">
+            Cardápio digital, atendimento sem improviso e menos dependência da taxa do iFood. Implantação completa pela Lumyn — sem mensalidade, sem reaprender.
           </p>
-        </div>
 
-        <div class="lp-pain-list">
-          <div class="lp-pain-editorial">
-            <span class="lp-pain-number">01</span>
-            <div class="lp-pain-editorial-content">
-              <h3>WhatsApp bombardeado</h3>
-              <p>20 mensagens ao mesmo tempo. "Tem cardápio?", "Aceita pix?", "Quanto custa?" — e o cliente fica sem resposta porque é impossível dar conta de tudo. Cada mensagem ignorada é um pedido perdido.</p>
-            </div>
-          </div>
-
-          <div class="lp-pain-editorial">
-            <span class="lp-pain-number">02</span>
-            <div class="lp-pain-editorial-content">
-              <h3>Pedido perdido ou entregue errado</h3>
-              <p>Sem fluxo definido, o pedido some no meio da conversa. O cliente fica insatisfeito, você perde a venda e ainda mancha a reputação do restaurante — tudo por falta de organização no atendimento.</p>
-            </div>
-          </div>
-
-          <div class="lp-pain-editorial">
-            <span class="lp-pain-number">03</span>
-            <div class="lp-pain-editorial-content">
-              <h3>iFood levando 27% de cada pedido</h3>
-              <p>Quem faz R$3.000/mês em delivery paga R$810 por mês de comissão — todo mês, para sempre. Seu cliente já usa WhatsApp. O problema é que o seu não está preparado para receber direto.</p>
-            </div>
+          <div class="lp-hero-cta">
+            <a
+              class="lp-btn lp-btn-primary"
+              href="https://wa.me/5571993752189?text=Oi%2C%20vi%20a%20Implanta%C3%A7%C3%A3o%20Expressa%20da%20Lumyn%20por%20R%24697%20e%20quero%20come%C3%A7ar.%20Meu%20restaurante%20se%20chama%20___."
+              target="_blank"
+              rel="noopener noreferrer"
+              data-whatsapp="Oi, vi a Implantação Expressa da Lumyn por R$697 e quero começar. Meu restaurante se chama ___."
+              data-track="click_whatsapp"
+              data-track-location="hero_lp"
+              data-cta-location="hero">
+              Quero começar minha implantação
+            </a>
+            <p class="lp-hero-trust">R$697 uma vez · sem mensalidade · implantação em até 7 dias úteis</p>
           </div>
         </div>
+
+        <aside class="lp-proof-card reveal-target" aria-label="Diagnóstico operacional" id="lp-dashboard">
+          <div class="lp-urgency-badge">
+            <span class="lp-urgency-dot" aria-hidden="true"></span>
+            <span>6 vagas restantes neste ciclo</span>
+          </div>
+          <div class="lp-proof-head">
+            <p class="lp-proof-kicker">CUSTO DO IMPROVISO</p>
+            <p class="lp-proof-note">Diagnóstico operacional</p>
+          </div>
+
+          <div class="lp-proof-item">
+            <div class="lp-proof-row">
+              <strong class="danger">3 em 10</strong>
+              <span>conversas ficam sem resposta no horário de pico</span>
+            </div>
+            <div class="lp-proof-bar"><span class="lp-proof-fill danger" style="--target:30%; --delay:0.06s;"></span></div>
+          </div>
+
+          <div class="lp-proof-item">
+            <div class="lp-proof-row">
+              <strong class="danger">R$810</strong>
+              <span>em taxas mensais para faturar R$3 mil</span>
+            </div>
+            <div class="lp-proof-bar"><span class="lp-proof-fill danger" style="--target:82%; --delay:0.16s;"></span></div>
+          </div>
+
+          <div class="lp-proof-item">
+            <div class="lp-proof-row">
+              <strong class="accent">7 dias</strong>
+              <span>para entrar em operação</span>
+            </div>
+            <div class="lp-proof-bar"><span class="lp-proof-fill accent" style="--target:100%; --delay:0.24s;"></span></div>
+          </div>
+
+          <div class="lp-proof-summary">
+            <span>CONTRASTE</span>
+            <strong>R$697 uma vez</strong>
+            <p>para substituir improviso recorrente por operação pronta.</p>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <!-- Bloco Promessa: ponte editorial entre Dor e Mecanismo -->
-    <section class="section lp-promise" id="promessa">
-      <div class="container">
+    <!-- Bloco Promessa: entrega valor logo após o hero, antes de aprofundar dor -->
+    <section class="lp-promise" id="promessa">
+      <div class="lp-container">
         <div class="lp-promise-inner">
           <span class="lp-promise-eyebrow">A Promessa</span>
-          <h2>Em <strong>7 dias úteis</strong>, a Lumyn organiza tudo — sem você aprender nada.</h2>
-          <p class="lp-promise-sub">Cardápio digital com link próprio. WhatsApp configurado. Fluxo de atendimento desenhado pra você. Feito pela Lumyn nos bastidores.</p>
+          <h2>Em <strong>7 dias úteis</strong>, sua operação entra em ordem — sem você precisar aprender nada.</h2>
+          <p class="lp-promise-sub">Cardápio digital com link próprio, mensagens padronizadas e fluxo de atendimento desenhado para reduzir fila. A Lumyn configura nos bastidores; seu time apenas aprova.</p>
 
           <div class="lp-promise-track" aria-hidden="true">
-            <span class="lp-promise-track-label">Caos no WhatsApp</span>
+            <span class="lp-promise-track-label">Improviso no WhatsApp</span>
             <div class="lp-promise-track-line"></div>
-            <span class="lp-promise-track-label is-end">Pedido organizado</span>
+            <span class="lp-promise-track-label is-end">Pedidos organizados</span>
           </div>
 
           <div class="lp-promise-chips">
@@ -1887,590 +126,487 @@
             <span class="lp-promise-chip">Sem contrato</span>
             <span class="lp-promise-chip">Sem reaprender</span>
           </div>
+
+          <a
+            class="lp-promise-cta"
+            href="https://wa.me/5571993752189?text=Oi%2C%20vi%20a%20Implanta%C3%A7%C3%A3o%20Expressa%20da%20Lumyn%20por%20R%24697%20e%20quero%20come%C3%A7ar.%20Meu%20restaurante%20se%20chama%20___."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-whatsapp="Oi, vi a Implantação Expressa da Lumyn por R$697 e quero começar. Meu restaurante se chama ___."
+            data-track="click_whatsapp"
+            data-track-location="promise_lp"
+            data-cta-location="promise">
+            Quero começar minha implantação →
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- O que você recebe -->
-    <section class="section section--surface" id="entrega">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">O QUE VOCÊ RECEBE</p>
-          <h2>Tudo configurado. Feito pela Lumyn.</h2>
-        </div>
+    <section class="lp-section lp-section-soft" id="problema">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">ONDE A MARGEM ESCAPA</p>
+          <h2>O problema não é vender pouco. É operar no improviso.</h2>
+          <p>Quando a resposta atrasa, o pedido esfria. Quando o fluxo falha, a margem vai junto.</p>
+        </header>
 
-        <div class="lp-deliverables">
-
-          <!-- Entrega 01: Cardápio digital — texto à esquerda, mockup à direita -->
-          <article class="lp-deliverable-item">
-            <div class="lp-deliverable-content">
-              <span class="lp-deliverable-num">Entrega 01</span>
-              <h4>Cardápio digital com link próprio</h4>
-              <p>Sem app. Funciona direto no WhatsApp. O cliente acessa, vê os produtos e preços, e já manda o pedido organizado.</p>
-            </div>
-            <div class="lp-deliverable-visual" aria-hidden="true">
-              <!-- SVG: mockup de cardápio digital com itens listados -->
-              <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
-                <!-- frame do "celular/cardápio" -->
-                <rect x="60" y="10" width="160" height="180" rx="10" fill="#0e0e10" stroke="#c8a055" stroke-opacity="0.35" stroke-width="1"/>
-                <!-- header do cardápio -->
-                <rect x="70" y="20" width="140" height="22" rx="4" fill="rgba(200,160,85,0.08)"/>
-                <text x="78" y="35" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.1em">CARDÁPIO · LUMYN</text>
-                <!-- itens com preço -->
-                <line x1="70" y1="55" x2="210" y2="55" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                <text x="78" y="68" fill="#e8e8ed" font-family="Manrope, sans-serif" font-size="9" font-weight="600">Marmita executiva</text>
-                <text x="195" y="68" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="end">R$ 22</text>
-                <line x1="70" y1="80" x2="210" y2="80" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                <text x="78" y="93" fill="#e8e8ed" font-family="Manrope, sans-serif" font-size="9" font-weight="600">Frango grelhado</text>
-                <text x="195" y="93" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="end">R$ 25</text>
-                <line x1="70" y1="105" x2="210" y2="105" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                <text x="78" y="118" fill="#e8e8ed" font-family="Manrope, sans-serif" font-size="9" font-weight="600">Vegano completo</text>
-                <text x="195" y="118" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="end">R$ 28</text>
-                <line x1="70" y1="130" x2="210" y2="130" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-                <text x="78" y="143" fill="#e8e8ed" font-family="Manrope, sans-serif" font-size="9" font-weight="600">Combo família</text>
-                <text x="195" y="143" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="end">R$ 65</text>
-                <!-- botão "pedir" -->
-                <rect x="70" y="160" width="140" height="22" rx="6" fill="#c8a055"/>
-                <text x="140" y="174" fill="#070708" font-family="Manrope, sans-serif" font-size="9" font-weight="700" text-anchor="middle">PEDIR NO WHATSAPP →</text>
-              </svg>
-            </div>
-          </article>
-
-          <!-- Entrega 02: Mensagem automática — visual à esquerda, texto à direita -->
-          <article class="lp-deliverable-item">
-            <div class="lp-deliverable-content">
-              <span class="lp-deliverable-num">Entrega 02</span>
-              <h4>Mensagem automática de boas-vindas</h4>
-              <p>Quando o cliente mandar mensagem, já recebe uma resposta com o cardápio e as instruções — sem você precisar fazer nada.</p>
-            </div>
-            <div class="lp-deliverable-visual" aria-hidden="true">
-              <!-- SVG: balão de chat com mensagem automática -->
-              <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
-                <!-- bolha do cliente (entrada) -->
-                <rect x="20" y="20" width="120" height="30" rx="14" fill="rgba(255,255,255,0.06)"/>
-                <text x="32" y="40" fill="#bdbdc8" font-family="Manrope, sans-serif" font-size="10">Tem cardápio?</text>
-                <text x="148" y="42" fill="rgba(255,255,255,0.35)" font-family="JetBrains Mono, monospace" font-size="7">11:47</text>
-                <!-- timestamp "auto-resposta" -->
-                <text x="140" y="68" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle" letter-spacing="0.1em">RESPOSTA AUTOMÁTICA · 3s</text>
-                <!-- bolha da Lumyn (resposta automática, destacada) -->
-                <rect x="70" y="78" width="190" height="100" rx="14" fill="rgba(200,160,85,0.08)" stroke="#c8a055" stroke-opacity="0.5" stroke-width="1"/>
-                <text x="82" y="98" fill="#e8e8ed" font-family="Manrope, sans-serif" font-size="10" font-weight="700">Oi! 👋 Aqui é o restaurante.</text>
-                <text x="82" y="115" fill="#bdbdc8" font-family="Manrope, sans-serif" font-size="9">Cardápio completo aqui:</text>
-                <rect x="82" y="123" width="170" height="20" rx="4" fill="rgba(200,160,85,0.15)"/>
-                <text x="92" y="137" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9">lumyn.menu/seurestaurante →</text>
-                <text x="82" y="160" fill="#bdbdc8" font-family="Manrope, sans-serif" font-size="9">Pedido organizado, sem caos.</text>
-                <text x="250" y="170" fill="rgba(255,255,255,0.35)" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="end">11:47</text>
-              </svg>
-            </div>
-          </article>
-
-          <!-- Entrega 03: Fluxo de atendimento — texto à esquerda, diagrama à direita -->
-          <article class="lp-deliverable-item">
-            <div class="lp-deliverable-content">
-              <span class="lp-deliverable-num">Entrega 03</span>
-              <h4>Fluxo de atendimento definido</h4>
-              <p>Como responder, o que fixar, onde colocar o cardápio. Tudo organizado para que nenhum pedido se perca mais.</p>
-            </div>
-            <div class="lp-deliverable-visual" aria-hidden="true">
-              <!-- SVG: 3 nós conectados por setas -->
-              <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
-                <!-- nó 1: Cliente -->
-                <circle cx="50" cy="100" r="30" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                <text x="50" y="96" fill="#e8e8ed" font-family="Manrope, sans-serif" font-size="9" font-weight="700" text-anchor="middle">Cliente</text>
-                <text x="50" y="108" fill="rgba(255,255,255,0.45)" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">manda msg</text>
-                <!-- seta 1 -->
-                <line x1="82" y1="100" x2="108" y2="100" stroke="#c8a055" stroke-width="1.2" stroke-dasharray="3 3"/>
-                <polygon points="108,100 102,96 102,104" fill="#c8a055"/>
-                <!-- nó 2: Cardápio -->
-                <circle cx="140" cy="100" r="32" fill="rgba(200,160,85,0.1)" stroke="#c8a055" stroke-opacity="0.6" stroke-width="1.2"/>
-                <text x="140" y="96" fill="#c8a055" font-family="Manrope, sans-serif" font-size="9" font-weight="700" text-anchor="middle">Cardápio</text>
-                <text x="140" y="108" fill="#c8a055" font-opacity="0.7" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">auto + link</text>
-                <!-- seta 2 -->
-                <line x1="174" y1="100" x2="200" y2="100" stroke="#c8a055" stroke-width="1.2" stroke-dasharray="3 3"/>
-                <polygon points="200,100 194,96 194,104" fill="#c8a055"/>
-                <!-- nó 3: Pedido -->
-                <circle cx="230" cy="100" r="30" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                <text x="230" y="96" fill="#e8e8ed" font-family="Manrope, sans-serif" font-size="9" font-weight="700" text-anchor="middle">Pedido</text>
-                <text x="230" y="108" fill="rgba(255,255,255,0.45)" font-family="JetBrains Mono, monospace" font-size="7" text-anchor="middle">organizado</text>
-                <!-- legenda inferior -->
-                <text x="140" y="170" fill="rgba(255,255,255,0.4)" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle" letter-spacing="0.1em">SEM VOCÊ APARECER NO MEIO</text>
-              </svg>
-            </div>
-          </article>
-
-          <!-- Entrega 04: Orientação — visual à esquerda, texto à direita -->
-          <article class="lp-deliverable-item">
-            <div class="lp-deliverable-content">
-              <span class="lp-deliverable-num">Entrega 04</span>
-              <h4>Orientação para usar e atualizar</h4>
-              <p>Você aprende a atualizar preços e produtos quando precisar. Simples, sem depender de ninguém — nem pagar nada extra.</p>
-            </div>
-            <div class="lp-deliverable-visual" aria-hidden="true">
-              <!-- SVG: timeline D1 → D7 com marcos -->
-              <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg">
-                <!-- linha base -->
-                <line x1="40" y1="100" x2="240" y2="100" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
-                <line x1="40" y1="100" x2="240" y2="100" stroke="#c8a055" stroke-width="1.5" stroke-dasharray="0 200" stroke-linecap="round">
-                  <animate attributeName="stroke-dasharray" from="0 200" to="200 0" dur="2.5s" fill="freeze" begin="0.4s"/>
-                </line>
-                <!-- marcos D1, D3, D5, D7 -->
-                <circle cx="40" cy="100" r="6" fill="#c8a055"/>
-                <text x="40" y="80" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">D1</text>
-                <text x="40" y="125" fill="rgba(255,255,255,0.6)" font-family="Manrope, sans-serif" font-size="8" text-anchor="middle">Briefing</text>
-
-                <circle cx="107" cy="100" r="5" fill="#c8a055" fill-opacity="0.8"/>
-                <text x="107" y="80" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">D3</text>
-                <text x="107" y="125" fill="rgba(255,255,255,0.6)" font-family="Manrope, sans-serif" font-size="8" text-anchor="middle">Cardápio</text>
-
-                <circle cx="173" cy="100" r="5" fill="#c8a055" fill-opacity="0.8"/>
-                <text x="173" y="80" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">D5</text>
-                <text x="173" y="125" fill="rgba(255,255,255,0.6)" font-family="Manrope, sans-serif" font-size="8" text-anchor="middle">Automação</text>
-
-                <circle cx="240" cy="100" r="7" fill="#c8a055"/>
-                <circle cx="240" cy="100" r="11" fill="none" stroke="#c8a055" stroke-opacity="0.4" stroke-width="1">
-                  <animate attributeName="r" from="7" to="14" dur="1.4s" begin="3s" repeatCount="indefinite"/>
-                  <animate attributeName="stroke-opacity" from="0.6" to="0" dur="1.4s" begin="3s" repeatCount="indefinite"/>
-                </circle>
-                <text x="240" y="80" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" text-anchor="middle">D7</text>
-                <text x="240" y="125" fill="#c8a055" font-family="Manrope, sans-serif" font-size="8" font-weight="700" text-anchor="middle">Live</text>
-                <!-- legenda -->
-                <text x="140" y="160" fill="rgba(255,255,255,0.4)" font-family="JetBrains Mono, monospace" font-size="8" text-anchor="middle" letter-spacing="0.1em">DA CONTRATAÇÃO À OPERAÇÃO</text>
-              </svg>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="lp-zero-monthly">
-          <h3><strong>R$&thinsp;697</strong> uma vez.<br><em>Nada mais. Nunca mais.</em></h3>
-          <p>Sem mensalidade. Sem taxa de manutenção. Sem contrato de fidelidade.<br>Você paga uma vez e o sistema é seu para sempre.</p>
-        </div>
-
-        <div class="lp-lumyn-identity">
-          <p>A Lumyn é uma assessoria brasileira especializada em digitalização de restaurantes e delivery. Já organizamos dezenas de operações em todo o país.</p>
-          <a href="https://instagram.com/lumynassessoria" target="_blank" rel="noopener">@lumynassessoria no Instagram ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Depoimentos -->
-    <section class="section" id="depoimentos">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">QUEM JÁ ORGANIZOU</p>
-          <h2>Restaurantes que pararam de perder pedido.</h2>
-        </div>
-
-        <div class="lp-testimonials">
-
-          <!-- Depoimento destacado (grande, à esquerda, ocupa 2 linhas) -->
-          <article class="lp-testimonial-card--featured reveal">
-            <div class="lp-testimonial-body">
-              <p class="lp-testimonial-stars">★★★★★</p>
-              <p>Antes ficava perdida com 40 pedidos por semana no WhatsApp. Agora o cliente manda o pedido organizado e eu só confirmo — zero confusão. Em menos de um mês o investimento já se pagou.</p>
-
-              <div class="lp-testimonial-metric">
-                <p class="lp-testimonial-metric-label">Volume após Lumyn</p>
-                <p class="lp-testimonial-metric-value">40+ pedidos/semana · 0 perdidos</p>
-              </div>
-            </div>
-            <footer class="lp-testimonial-meta">
-              <div class="lp-testimonial-avatar" aria-hidden="true">CM</div>
-              <div class="lp-testimonial-info">
-                <strong>Carla M.</strong>
-                <span>Marmitaria · São Paulo — SP</span>
-              </div>
-            </footer>
-          </article>
-
-          <!-- Depoimento secundário 1 (compacto, à direita, topo) -->
-          <article class="lp-testimonial-card--compact reveal">
-            <div class="lp-testimonial-body">
-              <p class="lp-testimonial-stars">★★★★★</p>
-              <p>"Achei que ia ser complicado, mas a Lumyn fez tudo. Em 5 dias estava funcionando. Nem precisei instalar nem aprender nada técnico."</p>
-            </div>
-            <footer class="lp-testimonial-meta">
-              <div class="lp-testimonial-avatar" aria-hidden="true">RT</div>
-              <div class="lp-testimonial-info">
-                <strong>Ricardo T.</strong>
-                <span>Lanchonete · Campinas — SP</span>
-              </div>
-            </footer>
-          </article>
-
-          <!-- Depoimento secundário 2 (compacto, à direita, base) -->
-          <article class="lp-testimonial-card--compact reveal">
-            <div class="lp-testimonial-body">
-              <p class="lp-testimonial-stars">★★★★★</p>
-              <p>"O cardápio com link próprio fez diferença na hora. Cliente já entra, escolhe e manda o pedido certinho. Caos no WhatsApp acabou."</p>
-            </div>
-            <footer class="lp-testimonial-meta">
-              <div class="lp-testimonial-avatar" aria-hidden="true">AP</div>
-              <div class="lp-testimonial-info">
-                <strong>Ana P.</strong>
-                <span>Restaurante · Belo Horizonte — MG</span>
-              </div>
-            </footer>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Âncora de preço -->
-    <section class="section lp-anchor-section" id="preco">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">COMPARE</p>
-          <h2>Quanto custa continuar como está?</h2>
-        </div>
-
-        <div class="lp-anchor-grid">
-          <div class="lp-anchor-side card">
-            <p class="lp-anchor-label">Continuar como está</p>
-            <p class="lp-anchor-value neutral">∞</p>
-            <p class="lp-anchor-sub">Pedidos perdidos. Reputação em risco.<br>Caos todo dia. Sem previsão de melhora.</p>
+        <div class="lp-loss-flow reveal-target" aria-label="Fluxo de pedido com pontos de vazamento">
+          <div class="lp-loss-node">
+            <span>01</span>
+            <strong>Fila sem critério</strong>
+            <small>resposta atrasa</small>
           </div>
-
-          <div class="lp-anchor-divider"></div>
-
-          <div class="lp-anchor-side card">
-            <p class="lp-anchor-label">iFood — por mês</p>
-            <p class="lp-anchor-value bad">R$&thinsp;810</p>
-            <p class="lp-anchor-sub">de comissão pra quem faz R$3k em delivery.<br>Todo mês. Para sempre.</p>
+          <div class="lp-loss-break" aria-hidden="true"><span></span></div>
+          <div class="lp-loss-node">
+            <span>02</span>
+            <strong>Erro no pedido</strong>
+            <small>retrabalho cresce</small>
           </div>
-
-          <div class="lp-anchor-divider"></div>
-
-          <div class="lp-anchor-side card highlight">
-            <p class="lp-anchor-badge">Melhor escolha</p>
-            <p class="lp-anchor-label">Implantação Expressa — uma vez</p>
-            <p class="lp-anchor-value good">R$&thinsp;697</p>
-            <p class="lp-anchor-sub"><strong>Zero mensalidade. Sem iFood. Sem caos.</strong><br>Pago uma vez. Seu para sempre.</p>
+          <div class="lp-loss-break" aria-hidden="true"><span></span></div>
+          <div class="lp-loss-node">
+            <span>03</span>
+            <strong>Dependência de app</strong>
+            <small>margem escapa</small>
           </div>
         </div>
 
-        <p class="lp-anchor-roi">
-          R$810 × 12 meses = R$9.720/ano no iFood &nbsp;→&nbsp; R$697 uma vez pela Lumyn
-        </p>
+        <div class="lp-problem-grid reveal-target">
+          <article class="lp-problem-card">
+            <span class="lp-problem-index">01</span>
+            <h3>Fila sem critério</h3>
+            <p><strong>Quantas vezes a fila te custou um pedido?</strong> Conversas misturadas atrasam a resposta e o cliente desiste.</p>
+          </article>
+
+          <article class="lp-problem-card">
+            <span class="lp-problem-index">02</span>
+            <h3>Erro no pedido</h3>
+            <p><strong>Quantas vezes o erro virou desconto?</strong> Sem padrão, o time corrige na pressa e paga o custo depois.</p>
+          </article>
+
+          <article class="lp-problem-card">
+            <span class="lp-problem-index">03</span>
+            <h3>Dependência de app</h3>
+            <p><strong>Quantos R$810 vão embora esse mês em taxa?</strong> Você vende hoje, mas continua entregando margem todo mês.</p>
+          </article>
+        </div>
+
+        <div class="lp-cost-block reveal-target" id="preco">
+          <h3>Quanto custa continuar assim?</h3>
+          <div class="lp-cost-grid">
+            <article class="lp-price-card">
+              <p class="lp-price-label">CONTINUAR ASSIM</p>
+              <p class="lp-price-value neutral">perdas</p>
+              <p class="lp-price-copy">Pedidos escapando, retrabalho e reputação pressionada.</p>
+            </article>
+
+            <article class="lp-price-card">
+              <p class="lp-price-label">TAXAS DE APP</p>
+              <p class="lp-price-value danger">R$9.720/ano</p>
+              <p class="lp-price-copy">Média de R$810/mês para quem fatura R$3.000 no delivery.</p>
+            </article>
+
+            <article class="lp-price-card featured">
+              <p class="lp-price-badge">DECISÃO MAIS LEVE</p>
+              <p class="lp-price-label">IMPLANTAÇÃO LUMYN</p>
+              <p class="lp-price-value accent">R$697</p>
+              <p class="lp-price-copy"><strong>Uma vez só.</strong> Sem mensalidade e sem taxa de manutenção.</p>
+            </article>
+          </div>
+
+          <div class="lp-cost-action">
+            <a
+              class="lp-btn lp-btn-primary"
+              href="https://wa.me/5571993752189?text=Oi%2C%20vi%20a%20Implanta%C3%A7%C3%A3o%20Expressa%20da%20Lumyn%20por%20R%24697%20e%20quero%20come%C3%A7ar.%20Meu%20restaurante%20se%20chama%20___."
+              target="_blank"
+              rel="noopener noreferrer"
+              data-whatsapp="Oi, vi a Implantação Expressa da Lumyn por R$697 e quero começar. Meu restaurante se chama ___."
+              data-track="click_whatsapp"
+              data-track-location="middle_lp"
+              data-cta-location="middle">
+              Quero meu WhatsApp organizado em 7 dias
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Como funciona -->
-    <section class="section" id="como-funciona">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">COMO FUNCIONA</p>
-          <h2>3 passos. Feito em até 7 dias úteis.</h2>
+    <section class="lp-section" id="entrega">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">SOLUÇÃO + IMPLANTAÇÃO</p>
+          <h2>Tudo que seu time precisa para atender sem improviso.</h2>
+          <p>Você não compra ferramenta solta. Recebe uma operação simples para receber pedidos com mais clareza.</p>
+        </header>
+
+        <!-- Entregáveis em zigzag: cada entrega com mini-mockup SVG específico -->
+        <div class="lp-deliverables-grid reveal-target">
+
+          <!-- Entrega 01 — Cardápio digital | texto à esquerda, mockup à direita -->
+          <article class="lp-deliverable-card">
+            <div class="lp-deliverable-body">
+              <span class="lp-deliverable-number">Entrega 01</span>
+              <h3>Cardápio digital com link próprio</h3>
+              <p>O cliente abre o link, vê os produtos com preço e envia o pedido já estruturado no WhatsApp. Sem app pra instalar.</p>
+            </div>
+            <div class="lp-deliverable-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+                <rect x="50" y="8" width="160" height="164" rx="8" fill="#0e0e10" stroke="rgba(200,160,85,0.34)" stroke-width="1"/>
+                <rect x="60" y="18" width="140" height="20" rx="3" fill="rgba(200,160,85,0.08)"/>
+                <text x="68" y="32" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="8" letter-spacing="0.1em">CARDÁPIO · LUMYN</text>
+                <line x1="60" y1="48" x2="200" y2="48" stroke="rgba(255,255,255,0.07)"/>
+                <text x="68" y="62" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="560">Marmita executiva</text>
+                <text x="190" y="62" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="9" text-anchor="end">R$ 22</text>
+                <line x1="60" y1="72" x2="200" y2="72" stroke="rgba(255,255,255,0.07)"/>
+                <text x="68" y="86" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="560">Frango grelhado</text>
+                <text x="190" y="86" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="9" text-anchor="end">R$ 25</text>
+                <line x1="60" y1="96" x2="200" y2="96" stroke="rgba(255,255,255,0.07)"/>
+                <text x="68" y="110" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="560">Vegano completo</text>
+                <text x="190" y="110" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="9" text-anchor="end">R$ 28</text>
+                <line x1="60" y1="120" x2="200" y2="120" stroke="rgba(255,255,255,0.07)"/>
+                <text x="68" y="134" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="560">Combo família</text>
+                <text x="190" y="134" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="9" text-anchor="end">R$ 65</text>
+                <rect x="60" y="146" width="140" height="20" rx="4" fill="#c8a055"/>
+                <text x="130" y="160" fill="#0a0a08" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" text-anchor="middle">PEDIR NO WHATSAPP →</text>
+              </svg>
+            </div>
+          </article>
+
+          <!-- Entrega 02 — Mensagens padronizadas | visual à esquerda, texto à direita (zigzag) -->
+          <article class="lp-deliverable-card">
+            <div class="lp-deliverable-body">
+              <span class="lp-deliverable-number">Entrega 02</span>
+              <h3>Mensagens padronizadas</h3>
+              <p>Boas-vindas automáticas, confirmação e fechamento com o texto certo para reduzir fila e responder antes do cliente desistir.</p>
+            </div>
+            <div class="lp-deliverable-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+                <rect x="14" y="18" width="120" height="26" rx="13" fill="rgba(255,255,255,0.06)"/>
+                <text x="26" y="35" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="9.5">Tem cardápio?</text>
+                <text x="140" y="38" fill="rgba(255,255,255,0.35)" font-family="'IBM Plex Mono', monospace" font-size="7">11:47</text>
+                <text x="130" y="62" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="7.5" text-anchor="middle" letter-spacing="0.1em">RESPOSTA AUTOMÁTICA · 3s</text>
+                <rect x="62" y="70" width="180" height="92" rx="13" fill="rgba(200,160,85,0.08)" stroke="rgba(200,160,85,0.5)" stroke-width="0.8"/>
+                <text x="74" y="88" fill="#ededf0" font-family="Inter, sans-serif" font-size="10" font-weight="600">Oi! 👋 Aqui é o restaurante.</text>
+                <text x="74" y="104" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="9">Cardápio completo aqui:</text>
+                <rect x="74" y="112" width="160" height="18" rx="4" fill="rgba(200,160,85,0.16)"/>
+                <text x="84" y="125" fill="#e2c47a" font-family="'IBM Plex Mono', monospace" font-size="8.5">lumyn.menu/seurestaurante →</text>
+                <text x="74" y="148" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="9">Pedido organizado, sem caos.</text>
+                <text x="234" y="156" fill="rgba(255,255,255,0.35)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="end">11:47</text>
+              </svg>
+            </div>
+          </article>
+
+          <!-- Entrega 03 — Autonomia | texto à esquerda, fluxo à direita -->
+          <article class="lp-deliverable-card">
+            <div class="lp-deliverable-body">
+              <span class="lp-deliverable-number">Entrega 03</span>
+              <h3>Autonomia para atualizar</h3>
+              <p>Seu time aprende a ajustar itens, preços e horários quando precisar — sem depender de suporte pago nem chamar técnico.</p>
+            </div>
+            <div class="lp-deliverable-visual" aria-hidden="true">
+              <svg viewBox="0 0 260 180" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="90" r="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <text x="40" y="88" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Você</text>
+                <text x="40" y="98" fill="rgba(255,255,255,0.45)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="middle">edita</text>
+                <line x1="70" y1="90" x2="98" y2="90" stroke="#c8a055" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <polygon points="98,90 92,86 92,94" fill="#c8a055"/>
+                <circle cx="130" cy="90" r="30" fill="rgba(200,160,85,0.1)" stroke="rgba(200,160,85,0.6)" stroke-width="1.2"/>
+                <text x="130" y="88" fill="#e2c47a" font-family="Inter, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Cardápio</text>
+                <text x="130" y="100" fill="rgba(226,196,122,0.75)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="middle">atualiza</text>
+                <line x1="162" y1="90" x2="190" y2="90" stroke="#c8a055" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <polygon points="190,90 184,86 184,94" fill="#c8a055"/>
+                <circle cx="220" cy="90" r="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                <text x="220" y="88" fill="#ededf0" font-family="Inter, sans-serif" font-size="9" font-weight="600" text-anchor="middle">Cliente</text>
+                <text x="220" y="98" fill="rgba(255,255,255,0.45)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="middle">vê novo</text>
+                <text x="130" y="156" fill="rgba(255,255,255,0.4)" font-family="'IBM Plex Mono', monospace" font-size="7" text-anchor="middle" letter-spacing="0.1em">SEM CHAMAR TÉCNICO</text>
+              </svg>
+            </div>
+          </article>
+
         </div>
+      </div>
+    </section>
 
-        <div class="lp-steps">
+    <!-- Como funciona — seção separada com steps horizontais -->
+    <section class="lp-section lp-section-soft" id="como-funciona">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">COMO FUNCIONA</p>
+          <h2>Três passos. Em até 7 dias úteis.</h2>
+          <p>Você aprova as etapas. A Lumyn configura nos bastidores.</p>
+        </header>
 
-          <!-- Step 01: Você fala com a Lumyn -->
-          <article class="lp-step">
-            <div class="lp-step-number">01</div>
-            <div class="lp-step-content">
-              <h3>Você fala com a Lumyn</h3>
-              <p>Pelo WhatsApp mesmo. Uma chamada de ~20 min: a gente entende o seu restaurante, o cardápio atual e como você recebe pedidos hoje.</p>
+        <ol class="lp-steps-timeline reveal-target" aria-label="Etapas da implantação">
+
+          <li>
+            <div class="lp-step-bubble"><span>01</span></div>
+            <div>
+              <h3>Diagnóstico da operação</h3>
+              <p>Você chama no WhatsApp e a gente entende volume, gargalos e rotina atual.</p>
             </div>
             <div class="lp-step-visual" aria-hidden="true">
-              <!-- Mini-mockup: balão de WhatsApp -->
-              <svg viewBox="0 0 170 100" xmlns="http://www.w3.org/2000/svg">
-                <rect x="10" y="20" width="100" height="20" rx="10" fill="rgba(255,255,255,0.06)"/>
-                <text x="20" y="34" fill="#bdbdc8" font-family="Manrope, sans-serif" font-size="8">Oi Lumyn, tenho um delivery…</text>
-                <rect x="60" y="50" width="100" height="20" rx="10" fill="rgba(200,160,85,0.12)" stroke="#c8a055" stroke-opacity="0.4" stroke-width="0.8"/>
-                <text x="70" y="64" fill="#c8a055" font-family="Manrope, sans-serif" font-size="8">Bora! Me conta…</text>
-                <circle cx="155" cy="60" r="3" fill="#c8a055">
+              <svg viewBox="0 0 150 88" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="14" width="92" height="18" rx="9" fill="rgba(255,255,255,0.06)"/>
+                <text x="18" y="26" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="8">Oi Lumyn, tenho…</text>
+                <rect x="54" y="40" width="88" height="18" rx="9" fill="rgba(200,160,85,0.12)" stroke="rgba(200,160,85,0.4)" stroke-width="0.7"/>
+                <text x="64" y="52" fill="#e2c47a" font-family="Inter, sans-serif" font-size="8">Bora! Me conta…</text>
+                <circle cx="138" cy="49" r="2.5" fill="#c8a055">
                   <animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/>
                 </circle>
               </svg>
             </div>
-          </article>
+          </li>
 
-          <!-- Step 02: A gente configura tudo -->
-          <article class="lp-step">
-            <div class="lp-step-number">02</div>
-            <div class="lp-step-content">
-              <h3>A gente configura tudo</h3>
-              <p>Cardápio digital, mensagem automática, fluxo de atendimento, WhatsApp Business otimizado. Feito pela Lumyn nos bastidores — você não mexe em nada.</p>
+          <li>
+            <div class="lp-step-bubble"><span>02</span></div>
+            <div>
+              <h3>Configuração completa</h3>
+              <p>A Lumyn monta cardápio, mensagens e fluxo de atendimento.</p>
             </div>
             <div class="lp-step-visual" aria-hidden="true">
-              <!-- Mini-visual: barras de configuração em progresso -->
-              <svg viewBox="0 0 170 100" xmlns="http://www.w3.org/2000/svg">
-                <text x="10" y="18" fill="rgba(255,255,255,0.5)" font-family="JetBrains Mono, monospace" font-size="7" letter-spacing="0.1em">CONFIGURANDO</text>
-                <!-- bar 1 -->
-                <text x="10" y="36" fill="#bdbdc8" font-family="Manrope, sans-serif" font-size="7">Cardápio</text>
-                <rect x="58" y="30" width="100" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
-                <rect x="58" y="30" width="100" height="6" rx="3" fill="#c8a055"/>
-                <!-- bar 2 -->
-                <text x="10" y="56" fill="#bdbdc8" font-family="Manrope, sans-serif" font-size="7">Mensagem</text>
-                <rect x="58" y="50" width="100" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
-                <rect x="58" y="50" width="100" height="6" rx="3" fill="#c8a055" fill-opacity="0.85">
-                  <animate attributeName="width" from="0" to="78" dur="1.4s" begin="0.4s" fill="freeze"/>
+              <svg viewBox="0 0 150 88" xmlns="http://www.w3.org/2000/svg">
+                <text x="10" y="14" fill="rgba(255,255,255,0.5)" font-family="'IBM Plex Mono', monospace" font-size="6" letter-spacing="0.1em">CONFIGURANDO</text>
+                <text x="10" y="30" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="6.5">Cardápio</text>
+                <rect x="52" y="24.5" width="88" height="5" rx="2" fill="rgba(255,255,255,0.06)"/>
+                <rect x="52" y="24.5" width="88" height="5" rx="2" fill="#c8a055"/>
+                <text x="10" y="48" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="6.5">Mensagens</text>
+                <rect x="52" y="42.5" width="88" height="5" rx="2" fill="rgba(255,255,255,0.06)"/>
+                <rect x="52" y="42.5" width="68" height="5" rx="2" fill="rgba(200,160,85,0.85)">
+                  <animate attributeName="width" from="0" to="68" dur="1.4s" begin="0.4s" fill="freeze"/>
                 </rect>
-                <!-- bar 3 -->
-                <text x="10" y="76" fill="#bdbdc8" font-family="Manrope, sans-serif" font-size="7">Fluxo WA</text>
-                <rect x="58" y="70" width="100" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
-                <rect x="58" y="70" width="55" height="6" rx="3" fill="#c8a055" fill-opacity="0.7">
-                  <animate attributeName="width" from="0" to="55" dur="1.4s" begin="0.8s" fill="freeze"/>
+                <text x="10" y="66" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="6.5">Fluxo WA</text>
+                <rect x="52" y="60.5" width="88" height="5" rx="2" fill="rgba(255,255,255,0.06)"/>
+                <rect x="52" y="60.5" width="46" height="5" rx="2" fill="rgba(200,160,85,0.7)">
+                  <animate attributeName="width" from="0" to="46" dur="1.4s" begin="0.8s" fill="freeze"/>
                 </rect>
-                <text x="10" y="94" fill="rgba(255,255,255,0.35)" font-family="JetBrains Mono, monospace" font-size="6">você ✕ não precisa fazer nada</text>
+                <text x="10" y="82" fill="rgba(255,255,255,0.35)" font-family="'IBM Plex Mono', monospace" font-size="5.5">você ✕ não mexe em nada</text>
               </svg>
             </div>
-          </article>
+          </li>
 
-          <!-- Step 03: Seu WhatsApp começa a funcionar -->
-          <article class="lp-step">
-            <div class="lp-step-number">03</div>
-            <div class="lp-step-content">
-              <h3>Seu WhatsApp começa a funcionar</h3>
-              <p>Pedidos chegam organizados automaticamente. Nenhum se perde. Nenhum fica sem resposta. Você atende mais com menos esforço.</p>
-              <span class="lp-step-tag">Em até 7 dias úteis</span>
+          <li>
+            <div class="lp-step-bubble"><span>03</span></div>
+            <div>
+              <h3>Entrada em operação</h3>
+              <p>Seu time começa com processo claro e orientação inicial.</p>
+              <span class="lp-step-tag">em até 7 dias úteis</span>
             </div>
             <div class="lp-step-visual" aria-hidden="true">
-              <!-- Mini-visual: dashboard com check + métrica -->
-              <svg viewBox="0 0 170 100" xmlns="http://www.w3.org/2000/svg">
-                <!-- Status running -->
-                <circle cx="20" cy="20" r="5" fill="#c8a055">
+              <svg viewBox="0 0 150 88" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="4" fill="#e4f222">
                   <animate attributeName="opacity" values="1;0.4;1" dur="1.6s" repeatCount="indefinite"/>
                 </circle>
-                <circle cx="20" cy="20" r="9" fill="none" stroke="#c8a055" stroke-opacity="0.3" stroke-width="1">
-                  <animate attributeName="r" from="5" to="13" dur="1.6s" repeatCount="indefinite"/>
+                <circle cx="16" cy="16" r="7" fill="none" stroke="#e4f222" stroke-opacity="0.3" stroke-width="0.8">
+                  <animate attributeName="r" from="4" to="10" dur="1.6s" repeatCount="indefinite"/>
                   <animate attributeName="stroke-opacity" from="0.5" to="0" dur="1.6s" repeatCount="indefinite"/>
                 </circle>
-                <text x="34" y="24" fill="#c8a055" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="0.1em">ONLINE</text>
-                <!-- Métrica grande -->
-                <text x="10" y="58" fill="#e8e8ed" font-family="JetBrains Mono, monospace" font-size="22" font-weight="500">0</text>
-                <text x="40" y="58" fill="#bdbdc8" font-family="Manrope, sans-serif" font-size="9">pedidos perdidos</text>
-                <!-- linha verde -->
-                <line x1="10" y1="72" x2="160" y2="72" stroke="rgba(200,160,85,0.2)" stroke-width="1"/>
-                <text x="10" y="90" fill="rgba(255,255,255,0.55)" font-family="Manrope, sans-serif" font-size="7">cardápio · auto · fluxo · live</text>
+                <text x="28" y="19" fill="#e4f222" font-family="'IBM Plex Mono', monospace" font-size="7" letter-spacing="0.1em">ONLINE</text>
+                <text x="8" y="48" fill="#ededf0" font-family="'IBM Plex Mono', monospace" font-size="18" font-weight="500">0</text>
+                <text x="32" y="48" fill="#c8c8d0" font-family="Inter, sans-serif" font-size="8">pedidos perdidos</text>
+                <line x1="8" y1="58" x2="142" y2="58" stroke="rgba(200,160,85,0.2)" stroke-width="0.8"/>
+                <text x="8" y="76" fill="rgba(255,255,255,0.55)" font-family="Inter, sans-serif" font-size="6.5">cardápio · auto · fluxo · live</text>
               </svg>
             </div>
+          </li>
+
+        </ol>
+
+        <div class="lp-steps-action reveal-target">
+          <a
+            class="lp-btn lp-btn-primary lp-btn-large"
+            href="https://wa.me/5571993752189?text=Oi%2C%20vi%20a%20Implanta%C3%A7%C3%A3o%20Expressa%20da%20Lumyn%20por%20R%24697%20e%20quero%20come%C3%A7ar.%20Meu%20restaurante%20se%20chama%20___."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-whatsapp="Oi, vi a Implantação Expressa da Lumyn por R$697 e quero começar. Meu restaurante se chama ___."
+            data-track="click_whatsapp"
+            data-track-location="steps_lp"
+            data-cta-location="steps">
+            Começar minha implantação
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-section lp-section-soft" id="depoimentos">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <p class="lp-eyebrow">PROVA OPERACIONAL</p>
+          <h2>Quando o fluxo melhora, o resultado aparece rápido.</h2>
+          <p>Mais previsibilidade para o time, menos erro para o cliente e mais pedidos capturados.</p>
+        </header>
+
+        <div class="lp-testimonials-grid reveal-target">
+          <!-- Depoimento destacado (1.4fr — assimétrico) -->
+          <article class="lp-testimonial-card lp-testimonial-card--featured">
+            <p class="lp-testimonial-result">+40 pedidos/semana organizados</p>
+            <p class="lp-testimonial-text">Antes eu perdia conversa toda noite. Em menos de 30 dias, a implantação se pagou com pedidos que antes escapavam — e meu time parou de correr atrás do que faltou.</p>
+
+            <div class="lp-testimonial-metric">
+              <p class="lp-testimonial-metric-label">Volume estabilizado em</p>
+              <p class="lp-testimonial-metric-value">40+ pedidos/semana · menos pedidos perdidos</p>
+            </div>
+
+            <footer>
+              <strong>Carla M.</strong>
+              <span>Marmitaria · São Paulo — SP</span>
+            </footer>
           </article>
 
+          <!-- Depoimento compacto (1fr) -->
+          <article class="lp-testimonial-card">
+            <p class="lp-testimonial-result">Implantado em 5 dias</p>
+            <p class="lp-testimonial-text">"Eu só aprovei as etapas. Hoje o cliente chega no WhatsApp e já sabe exatamente como pedir — atendimento sem improviso."</p>
+            <footer>
+              <strong>Ricardo T.</strong>
+              <span>Lanchonete · Campinas — SP</span>
+            </footer>
+          </article>
         </div>
 
-        <div class="lp-steps-cta">
-          <a
-            class="btn btn-primary btn-large"
-            data-whatsapp="Olá, Lumyn! Vim pela LP [meio] - Quero saber mais sobre a Implantação Expressa para meu restaurante."
-            data-track="click_whatsapp"
-            data-track-location="steps_lp">
-            Quero começar agora →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Accordion -->
-    <section class="section lp-faq-section" id="faq">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">PERGUNTAS FREQUENTES</p>
-          <h2>Tire as dúvidas antes de falar com a gente.</h2>
-        </div>
-
-        <div class="lp-faq-groups">
-
-          <!-- Grupo 1: Pagamento -->
-          <div class="lp-faq-group">
-            <p class="lp-faq-group-label">Pagamento</p>
-            <div class="lp-faq-list">
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>Realmente não pago nada todo mês?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p><strong>Zero.</strong> Sem mensalidade, sem taxa de manutenção, sem renovação anual, sem contrato de fidelidade. Você paga R$697 uma única vez e o sistema é seu. Ponto final.</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>Como é feito o pagamento?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>PIX, cartão de crédito ou débito. Após o pagamento, a Lumyn entra em contato pelo WhatsApp para iniciar a implantação — geralmente no mesmo dia.</p>
-                  </div>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
-          <!-- Grupo 2: Tecnologia -->
-          <div class="lp-faq-group">
-            <p class="lp-faq-group-label">Tecnologia</p>
-            <div class="lp-faq-list">
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>Preciso saber mexer com tecnologia?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>Não. A Lumyn configura tudo. Você só precisa ter um WhatsApp Business — se ainda não tiver, a gente orienta a criar. Não precisa aprender nada técnico.</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>Funciona no meu WhatsApp normal, sem app separado?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>Sim. O cardápio digital tem um link próprio que funciona no WhatsApp normalmente. O cliente acessa pelo link, vê o cardápio e manda o pedido — tudo dentro do WhatsApp mesmo.</p>
-                  </div>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
-          <!-- Grupo 3: Resultado e adequação -->
-          <div class="lp-faq-group">
-            <p class="lp-faq-group-label">Resultado e adequação</p>
-            <div class="lp-faq-list">
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>E se eu não gostar do resultado? Como funciona a garantia?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>Em até <strong>7 dias úteis</strong>, se o sistema não estiver funcionando no seu WhatsApp (cardápio ativo, mensagem automática configurada e fluxo organizado) — <strong>devolvemos 100% do valor</strong>. Sem burocracia, sem perguntas. Você decide na prática, com o sistema rodando.</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>Não posso só pedir pro meu filho/sobrinho fazer no Wix grátis?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>Montar um link de cardápio é a parte fácil. O que faz a diferença é <strong>o fluxo de atendimento</strong>: mensagem automática que responde na hora, cardápio fixado no WhatsApp Business, configuração do que mandar pra quem pergunta preço, prazo, frete. Isso é método — não é "construir um site". Enquanto o seu sobrinho leva 2 fins de semana descobrindo o que precisa, você perde pedido. A Lumyn entrega em 7 dias úteis, com método, e te deixa pronto pra atender.</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>Funciona pro meu tipo de restaurante (pizzaria, marmitaria, japonês, hamburgueria)?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>Sim. A gente adapta no briefing: <strong>pizzaria</strong> tem cardápio com sabores + tamanhos + bordas, <strong>hamburgueria</strong> com combos e adicionais, <strong>marmitaria</strong> com planos semanais e refeições do dia, <strong>japonês</strong> com combinados e à la carte. O fluxo de atendimento muda conforme o seu modelo — é desenhado caso a caso, não é template engessado.</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>Isso substitui o iFood?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>Não substitui obrigatoriamente — mas dá a opção de receber pedidos diretos pelo WhatsApp sem pagar comissão. Muitos clientes acabam preferindo o direto porque a margem é muito melhor.</p>
-                  </div>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
-          <!-- Grupo 4: Pós-implantação e prova -->
-          <div class="lp-faq-group">
-            <p class="lp-faq-group-label">Pós-implantação e prova</p>
-            <div class="lp-faq-list">
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>Em quanto tempo fica pronto?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>Em até 7 dias úteis após a confirmação do pagamento. A Lumyn cuida de tudo nesse período e te entrega tudo funcionando.</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>E se eu precisar atualizar o cardápio depois?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>A gente te orienta como fazer sozinho. É simples — você não vai precisar chamar ninguém nem pagar nada extra para trocar preços ou adicionar itens.</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>E se tiver algum problema depois da implantação?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>A Lumyn fica disponível pelo WhatsApp nos 7 dias de implantação e continua acessível depois para dúvidas pontuais. Se algo parar de funcionar, é só chamar — respondemos em poucas horas.</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="lp-faq-item">
-                <button class="lp-faq-question" type="button" aria-expanded="false">
-                  <h3>Posso falar com algum cliente que já fez a implantação?</h3>
-                  <span class="lp-faq-toggle" aria-hidden="true">+</span>
-                </button>
-                <div class="lp-faq-answer">
-                  <div class="lp-faq-answer-inner">
-                    <p>Sim. Manda mensagem no WhatsApp da Lumyn e a gente passa contato de cliente da sua região ou do seu segmento — desde que o cliente autorize. A maioria autoriza porque o resultado é mostrável: cardápio rodando, atendimento organizado, pedido sem perda.</p>
-                  </div>
-                </div>
-              </article>
-
-            </div>
-          </div>
-
+        <div class="lp-proof-strip reveal-target">
+          <p><strong>Garantia de prazo:</strong> se a implantação não estiver funcionando em até 7 dias úteis, você recebe devolução integral.</p>
         </div>
       </div>
     </section>
 
-    <!-- CTA Final -->
-    <section class="lp-cta-final" id="contato">
-      <div class="container">
-        <h2>R$&thinsp;697 uma vez.<br>Sem mensalidade. Entregue em 7 dias.</h2>
-        <p class="lp-cta-sub">
-          Feito pela Lumyn. Você não precisa aprender nada, instalar nada, nem assinar nada.
-        </p>
+    <section class="lp-section lp-scope-section" id="escopo">
+      <div class="lp-container">
+        <header class="lp-section-head reveal-target">
+          <h2>Você sabe exatamente o que será entregue.</h2>
+          <p>Nada escondido, nada improvisado. Antes de começar, a Lumyn define escopo, prazo e operação da implantação.</p>
+        </header>
 
-        <div class="lp-cta-actions">
+        <div class="lp-problem-grid reveal-target">
+          <article class="lp-problem-card">
+            <span class="lp-problem-index">ESCOPO</span>
+            <h3>Escopo fechado</h3>
+            <p>Cardápio digital, mensagens padronizadas, fluxo de atendimento e orientação inicial definidos antes da implantação.</p>
+          </article>
+
+          <article class="lp-problem-card">
+            <span class="lp-problem-index">PRAZO</span>
+            <h3>Prazo garantido</h3>
+            <p>Se o sistema não estiver funcionando dentro do escopo combinado em até 7 dias úteis, devolvemos 100% do valor.</p>
+          </article>
+
+          <article class="lp-problem-card">
+            <span class="lp-problem-index">AUTONOMIA</span>
+            <h3>Sem dependência</h3>
+            <p>Seu time consegue atualizar cardápio, itens e horários sem depender de suporte técnico pago.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-final-cta" id="contato">
+      <div class="lp-container">
+        <div class="lp-final-copy reveal-target">
+          <p class="lp-eyebrow">DECISÃO FINAL</p>
+          <h2>Implantação Expressa Lumyn</h2>
+          <p class="lp-final-sub">Comece sua implantação pelo WhatsApp. A Lumyn confirma o escopo, envia as instruções de pagamento e inicia a configuração.</p>
+
+          <div class="lp-decision-panel">
+            <div class="lp-decision-price">
+              <span>INVESTIMENTO ÚNICO</span>
+              <strong>R$697</strong>
+              <small>uma vez</small>
+            </div>
+
+            <ul class="lp-decision-list">
+              <li>Cardápio digital + WhatsApp organizado</li>
+              <li>Entrega em até 7 dias úteis</li>
+              <li>Sem mensalidade</li>
+              <li>Sem contrato</li>
+              <li>Garantia integral</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lp-faq-groups reveal-target" id="faq">
+
+          <!-- Grupo 1: Decisão -->
+          <div class="lp-faq-group">
+            <p class="lp-faq-group-label">Decisão</p>
+            <details class="lp-faq-item">
+              <summary>Existe mensalidade depois?</summary>
+              <p><strong>Não.</strong> O investimento é único: R$697, sem renovação e sem taxa de manutenção. Você paga uma vez e o sistema é seu.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Como é feito o pagamento?</summary>
+              <p>PIX, cartão de crédito ou débito. Após o pagamento, a Lumyn entra em contato pelo WhatsApp para iniciar a implantação — geralmente no mesmo dia.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Em quanto tempo fica pronto?</summary>
+              <p>Em até 7 dias úteis após a confirmação do pagamento.</p>
+            </details>
+          </div>
+
+          <!-- Grupo 2: Uso -->
+          <div class="lp-faq-group">
+            <p class="lp-faq-group-label">Uso</p>
+            <details class="lp-faq-item">
+              <summary>Preciso saber mexer com tecnologia?</summary>
+              <p>Não. A Lumyn configura tudo. Você só precisa ter um WhatsApp Business — se ainda não tiver, a gente orienta a criar.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Funciona no meu WhatsApp normal, sem app separado?</summary>
+              <p>Sim. O cardápio digital tem um link próprio que funciona no WhatsApp normalmente. O cliente acessa pelo link, vê o cardápio e manda o pedido — tudo dentro do WhatsApp.</p>
+            </details>
+          </div>
+
+          <!-- Grupo 3: Resultado -->
+          <div class="lp-faq-group">
+            <p class="lp-faq-group-label">Resultado</p>
+            <details class="lp-faq-item">
+              <summary>E se eu não gostar do resultado?</summary>
+              <p>Após a entrega da implantação, você tem até <strong>7 dias</strong> para solicitar o reembolso do pedido caso o resultado não faça sentido para a sua operação. Se isso acontecer, devolvemos <strong>100% do valor</strong>, sem burocracia.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Isso substitui o iFood?</summary>
+              <p>Não substitui obrigatoriamente — mas dá a opção de receber pedidos diretos pelo WhatsApp sem pagar comissão. Muitos clientes acabam preferindo o direto porque a margem é melhor.</p>
+            </details>
+          </div>
+
+          <!-- Grupo 4: Depois -->
+          <div class="lp-faq-group">
+            <p class="lp-faq-group-label">Depois</p>
+            <details class="lp-faq-item">
+              <summary>E se eu precisar atualizar o cardápio depois?</summary>
+              <p>A gente orienta como fazer sozinho. Você não precisa chamar ninguém nem pagar extra para trocar preços ou itens.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>E se tiver problema depois da implantação?</summary>
+              <p>A Lumyn fica disponível pelo WhatsApp nos 7 dias de implantação e continua acessível depois para dúvidas pontuais. Se algo parar de funcionar, é só chamar.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Não posso só pedir pro meu sobrinho fazer no Wix grátis?</summary>
+              <p>Um link sozinho não organiza atendimento. A implantação entrega cardápio, mensagens e fluxo funcionando juntos.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Funciona pro meu tipo de restaurante?</summary>
+              <p>Sim. A Lumyn adapta o fluxo ao modelo do seu restaurante no briefing inicial.</p>
+            </details>
+            <details class="lp-faq-item">
+              <summary>Posso falar com algum cliente que já fez a implantação?</summary>
+              <p>Sim. Manda mensagem no WhatsApp da Lumyn e a gente passa contato de cliente da sua região ou do seu segmento — desde que o cliente autorize.</p>
+            </details>
+          </div>
+
+        </div>
+
+        <div class="lp-final-actions reveal-target">
           <a
-            class="btn btn-primary"
-            data-whatsapp="Olá, Lumyn! Vim pela LP [fim] - Quero começar a Implantação Expressa do meu restaurante."
+            class="lp-btn lp-btn-primary lp-btn-large"
+            href="https://wa.me/5571993752189?text=Oi%2C%20vi%20a%20Implanta%C3%A7%C3%A3o%20Expressa%20da%20Lumyn%20por%20R%24697%20e%20quero%20come%C3%A7ar.%20Meu%20restaurante%20se%20chama%20___."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-whatsapp="Oi, vi a Implantação Expressa da Lumyn por R$697 e quero começar. Meu restaurante se chama ___."
             data-track="click_whatsapp"
-            data-track-location="cta_final_lp">
-            Quero começar agora →
+            data-track-location="cta_final_lp"
+            data-cta-location="final">
+            Garantir minha implantação por R$697
           </a>
 
-          <div class="lp-guarantee-block">
+          <div class="lp-guarantee-box">
             <div class="lp-guarantee-header">
               <div class="lp-guarantee-icon" aria-hidden="true">✓</div>
               <p class="lp-guarantee-title">Garantia de resultado em 7 dias</p>
@@ -2478,10 +614,10 @@
 
             <div class="lp-guarantee-clauses">
               <p class="lp-guarantee-clause">
-                <span><strong>Prazo:</strong> em até 7 dias úteis, com sistema funcionando no seu WhatsApp — cardápio ativo, mensagem automática configurada, fluxo de atendimento organizado.</span>
+                <span><strong>Prazo:</strong> em até 7 dias úteis com sistema funcionando — cardápio ativo, mensagens automáticas e fluxo organizado.</span>
               </p>
               <p class="lp-guarantee-clause">
-                <span><strong>Escopo:</strong> se algum desses 3 itens não estiver entregue no prazo, devolvemos 100% do valor (R$697 integral).</span>
+                <span><strong>Escopo:</strong> se algum desses itens não estiver entregue no prazo, devolvemos 100% do valor (R$697 integral).</span>
               </p>
               <p class="lp-guarantee-clause">
                 <span><strong>Sem burocracia:</strong> reembolso via PIX em até 48h corridas. Sem formulário, sem comitê, sem perguntas.</span>
@@ -2491,13 +627,11 @@
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- Footer mínimo -->
   <footer class="lp-footer">
-    <div class="container lp-footer-inner">
-      <p>© <span id="year"></span> Lumyn. Todos os direitos reservados.</p>
+    <div class="lp-container lp-footer-inner">
+      <p>&copy; <span id="year"></span> Lumyn. Todos os direitos reservados.</p>
       <a href="https://lumynassessoria.com">lumynassessoria.com</a>
     </div>
   </footer>
@@ -2505,181 +639,29 @@
   <script src="../config.js"></script>
   <script src="../site.js"></script>
   <script>
-    // Deduplication wrapper — bloqueia o mesmo evento fbq disparando 2x em 800ms.
-    // Necessário enquanto o Event Setup Tool do Meta estiver conectado ao pixel,
-    // pois ele adiciona um segundo listener além do site.js.
-    (function () {
-      var DEDUP_MS = 800;
-      var _last = {};
-      var _installed = false;
-
-      function install() {
-        if (_installed || !window.fbq || window.fbq.__lumynDeduped) return false;
-        var orig = window.fbq;
-        var deduped = function () {
-          var method = arguments[0], name = arguments[1];
-          if (
-            (method === 'track' || method === 'trackCustom') &&
-            name && name !== 'PageView' && name !== 'ViewContent'
-          ) {
-            var now = Date.now();
-            if (_last[name] && now - _last[name] < DEDUP_MS) return;
-            _last[name] = now;
-          }
-          return orig.apply(this, arguments);
-        };
-        deduped.__lumynDeduped = true;
-        deduped.callMethod = orig.callMethod;
-        deduped.queue     = orig.queue;
-        deduped.push      = orig.push;
-        deduped.loaded    = orig.loaded;
-        deduped.version   = orig.version;
-        window.fbq = window._fbq = deduped;
-        _installed = true;
-        return true;
-      }
-
-      if (!install()) {
-        var _ticks = 0;
-        var _poll = setInterval(function () {
-          if (install() || ++_ticks > 60) clearInterval(_poll);
-        }, 100);
-      }
-    })();
-  </script>
-  <script>
-    // ───────────────────────────────────────────────
-    // Header scroll
-    // ───────────────────────────────────────────────
     const header = document.getElementById("lp-header");
-    window.addEventListener("scroll", () => {
-      header.classList.toggle("scrolled", window.scrollY > 50);
-    }, { passive: true });
+    const toggleHeader = () => {
+      if (!header) return;
+      header.classList.toggle("scrolled", window.scrollY > 24);
+    };
+    window.addEventListener("scroll", toggleHeader, { passive: true });
+    toggleHeader();
 
-    // ───────────────────────────────────────────────
-    // Footer year dinâmico
-    // ───────────────────────────────────────────────
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-    // ───────────────────────────────────────────────
-    // Dashboard bars animation
-    // ───────────────────────────────────────────────
     const dashboard = document.getElementById("lp-dashboard");
     if (dashboard) {
-      new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
+      const dashboardObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           dashboard.classList.add("bars-visible");
           obs.unobserve(entry.target);
         });
-      }, { threshold: 0.4 }).observe(dashboard);
+      }, { threshold: 0.4 });
+      dashboardObserver.observe(dashboard);
     }
 
-    // ───────────────────────────────────────────────
-    // FAQ accordion (com aria-expanded para acessibilidade)
-    // ───────────────────────────────────────────────
-    document.querySelectorAll(".lp-faq-item").forEach(item => {
-      const trigger = item.querySelector(".lp-faq-question");
-      if (!trigger) return;
-      trigger.addEventListener("click", () => {
-        const isOpen = item.classList.contains("open");
-        // Fecha todos antes de abrir
-        document.querySelectorAll(".lp-faq-item.open").forEach(o => {
-          o.classList.remove("open");
-          o.querySelector(".lp-faq-question")?.setAttribute("aria-expanded", "false");
-        });
-        if (!isOpen) {
-          item.classList.add("open");
-          trigger.setAttribute("aria-expanded", "true");
-        }
-      });
-    });
-
-    // ───────────────────────────────────────────────
-    // Reveal on scroll
-    // ───────────────────────────────────────────────
-    const revealEls = document.querySelectorAll(
-      ".card, .section-head, .lp-hero-copy, .lp-dashboard, .lp-pain-editorial, .lp-zero-monthly, .lp-anchor-grid, .lp-anchor-roi, .lp-cta-final h2, .lp-cta-sub, .lp-cta-actions"
-    );
-    revealEls.forEach(el => {
-      el.classList.add("reveal");
-      new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          obs.unobserve(entry.target);
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" }).observe(el);
-    });
-
-    // ───────────────────────────────────────────────
-    // UTM persistence (v2) — captura, persiste na URL e propaga para wa.me
-    //
-    // Decisão: implementado inline na LP (não no site.js global) por enquanto.
-    // Quando estabilizar, subir para site.js para todo o site herdar.
-    // ───────────────────────────────────────────────
-    (function () {
-      const UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
-      const STORAGE_KEY = 'lumyn_utm';
-
-      // 1. Captura UTMs da URL atual ou do sessionStorage
-      const incoming = new URLSearchParams(window.location.search);
-      const fromUrl = {};
-      UTM_KEYS.forEach(k => { const v = incoming.get(k); if (v) fromUrl[k] = v; });
-
-      let stored = {};
-      try {
-        const raw = sessionStorage.getItem(STORAGE_KEY);
-        if (raw) stored = JSON.parse(raw) || {};
-      } catch (_) {}
-
-      // URL atual sobrescreve storage; storage é fallback
-      const utms = Object.keys(fromUrl).length ? fromUrl : stored;
-
-      // 2. Persiste no sessionStorage se vieram da URL
-      if (Object.keys(fromUrl).length) {
-        try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(fromUrl)); } catch (_) {}
-      }
-
-      // 3. Garante que UTMs permanecem na URL durante navegação (anchors internos)
-      if (Object.keys(utms).length) {
-        const params = new URLSearchParams(window.location.search);
-        UTM_KEYS.forEach(k => { if (utms[k]) params.set(k, utms[k]); });
-        const newSearch = params.toString();
-        const newUrl = window.location.pathname + (newSearch ? '?' + newSearch : '') + window.location.hash;
-        if (newUrl !== window.location.pathname + window.location.search + window.location.hash) {
-          window.history.replaceState({}, '', newUrl);
-        }
-      }
-
-      // 4. Propaga UTMs para todos os links wa.me (anexa à mensagem antes do clique)
-      //    Roda depois do site.js construir o href (estamos no script inline DEPOIS do site.js).
-      function appendUtmsToWa() {
-        if (!Object.keys(utms).length) return;
-        const utmStr = UTM_KEYS
-          .filter(k => utms[k])
-          .map(k => `${k}=${utms[k]}`)
-          .join('&');
-        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-          const href = link.getAttribute('href');
-          if (!href || href.includes('utm_')) return; // já tem UTM, não duplica
-          const hasText = href.includes('?text=');
-          if (hasText) {
-            const [base, query] = href.split('?text=');
-            const decoded = decodeURIComponent(query || '');
-            const newText = decoded + ' | ' + utmStr;
-            link.setAttribute('href', `${base}?text=${encodeURIComponent(newText)}`);
-          } else {
-            link.setAttribute('href', `${href}?text=${encodeURIComponent('Vim pela LP | ' + utmStr)}`);
-          }
-        });
-      }
-
-      // Esperar 1 tick para garantir que site.js já vinculou os links
-      requestAnimationFrame(() => requestAnimationFrame(appendUtmsToWa));
-    })();
   </script>
-
 </body>
 </html>
