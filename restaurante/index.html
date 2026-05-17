@@ -558,7 +558,7 @@
             <p class="lp-faq-group-label">Resultado</p>
             <details class="lp-faq-item">
               <summary>E se eu não gostar do resultado?</summary>
-              <p>Em até <strong>7 dias úteis</strong>, se o sistema não estiver funcionando no seu WhatsApp (cardápio ativo, mensagens automáticas configuradas e fluxo organizado) — <strong>devolvemos 100% do valor</strong>. Sem burocracia.</p>
+              <p>Após a entrega da implantação, você tem até <strong>7 dias</strong> para solicitar o reembolso do pedido caso o resultado não faça sentido para a sua operação. Se isso acontecer, devolvemos <strong>100% do valor</strong>, sem burocracia.</p>
             </details>
             <details class="lp-faq-item">
               <summary>Isso substitui o iFood?</summary>
@@ -661,30 +661,6 @@
       }, { threshold: 0.4 });
       dashboardObserver.observe(dashboard);
     }
-
-    // ── Meta Pixel: dispara evento Lead em todo clique de CTA WhatsApp ──
-    // Seletor por href para cobrir qualquer link wa.me / api.whatsapp.com, mesmo CTAs futuros sem classe.
-    // Não bloqueia o redirect: o evento é assíncrono, o link abre normalmente.
-    (function trackWhatsAppLeads() {
-      const ctas = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
-      ctas.forEach((cta) => {
-        cta.addEventListener("click", function () {
-          try {
-            if (typeof window.fbq === "function") {
-              window.fbq("track", "Lead", {
-                content_name: "Clique WhatsApp - Implantação Expressa",
-                content_category: "Lumyn Restaurante",
-                value: 697,
-                currency: "BRL",
-                cta_location: this.getAttribute("data-cta-location") || "unknown"
-              });
-            }
-          } catch (e) {
-            // Falha silenciosa — link continua funcionando normalmente
-          }
-        }, { passive: true });
-      });
-    })();
 
   </script>
 </body>
