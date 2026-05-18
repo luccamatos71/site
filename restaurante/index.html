@@ -185,7 +185,7 @@
       background: var(--gold); color: #000;
       font-family: var(--font-mono); font-size: 7px; letter-spacing: 1.5px;
       padding: 4px 10px; border-radius: var(--radius-pill); text-transform: uppercase;
-      animation: badge-pulse 3s ease-in-out infinite;
+      /* badge-pulse removido no mobile — reduz ruído visual */
     }
 
     /* Verified badge */
@@ -206,7 +206,7 @@
     }
 
     /* Pulse dot (reusable) */
-    .tl-dot-anim { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; flex-shrink: 0; }
+    .tl-dot-anim { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
     /* Guarantee chips */
     .guarantee-chips { display: flex; flex-wrap: wrap; gap: 5px; }
@@ -782,7 +782,7 @@
       transition: opacity 0.4s ease 0.6s, transform 0.4s ease 0.6s;
     }
     .menu-link-bar.in { opacity: 1; transform: translateY(0); }
-    .menu-link-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; flex-shrink: 0; }
+    .menu-link-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
     .menu-link-url { font-family: var(--font-mono); font-size: 9px; color: var(--gold); }
 
     /* screen 2: chat */
@@ -1787,9 +1787,115 @@
         text-align: center;
       }
     }
+
+    /* ── MOBILE STICKY CTA BAR ── */
+    .mobile-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 12px 16px;
+      padding-bottom: calc(12px + env(safe-area-inset-bottom));
+      background: rgba(7,7,8,0.97);
+      border-top: 1px solid var(--gold-20);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .mobile-cta-bar.visible { transform: translateY(0); }
+    .mobile-cta-bar.hidden { transform: translateY(100%); }
+
+    .mobile-cta-bar-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mobile-cta-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .mobile-cta-price {
+      font-family: var(--font-mono);
+      font-size: 12px; font-weight: 500;
+      color: var(--gold); display: block;
+      letter-spacing: 0.5px;
+    }
+
+    .mobile-cta-label {
+      font-size: 10px; color: var(--text-muted);
+      display: block; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+
+    .mobile-cta-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold); color: #0a0a08;
+      font-family: var(--font-body); font-size: 13px; font-weight: 800;
+      padding: 12px 20px; border-radius: var(--radius-sm);
+      text-decoration: none; letter-spacing: 0.02em;
+      white-space: nowrap; flex-shrink: 0;
+      box-shadow: 0 0 24px var(--gold-30);
+      position: relative; overflow: hidden;
+    }
+
+    .mobile-cta-btn::before {
+      content: '';
+      position: absolute; top:0; left:-75%; width:50%; height:100%;
+      background: linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+      animation: btn-sweep 3s ease-in-out 2s infinite;
+    }
+
+    /* só mobile */
+    @media (max-width: 767px) {
+      .mobile-cta-bar { display: block; }
+      /* espaço para não tapar o último CTA */
+      .lp-cta-final { padding-bottom: calc(var(--space-l) + 80px); }
+    }
+
+    /* FAQ mobile: mostrar só 2 categorias por padrão */
+    @media (max-width: 767px) {
+      .lp-faq-group:nth-child(n+3) { display: none; }
+      .faq-show-more-btn {
+        display: flex; align-items: center; justify-content: center; gap: 6px;
+        width: 100%; margin-top: 16px;
+        background: transparent; border: 1px solid var(--border);
+        border-radius: var(--radius-md); padding: 12px;
+        font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px;
+        color: var(--text-muted); text-transform: uppercase; cursor: pointer;
+        transition: border-color 0.3s, color 0.3s;
+      }
+      .faq-show-more-btn:hover { border-color: var(--gold-30); color: var(--gold); }
+      .faq-show-more-btn.expanded .btn-more-text { display: none; }
+      .faq-show-more-btn.expanded .btn-less-text { display: inline; }
+      .faq-show-more-btn .btn-less-text { display: none; }
+    }
+
+    @media (min-width: 768px) {
+      .faq-show-more-btn { display: none; }
+    }
   </style>
 </head>
 <body>
+
+<!-- Barra sticky mobile — WhatsApp sempre acessível -->
+<div class="mobile-cta-bar" id="mobile-cta-bar">
+  <div class="mobile-cta-bar-inner">
+    <div class="mobile-cta-info">
+      <span class="mobile-cta-price">R$697 uma vez</span>
+      <span class="mobile-cta-label">Sem mensalidade · 7 dias úteis</span>
+    </div>
+    <a href="#contato"
+       class="mobile-cta-btn"
+       data-whatsapp="Vim pela LP [meio] - Quero saber mais sobre a Implantação Expressa"
+       data-track-location="steps_lp">
+      Falar agora
+    </a>
+  </div>
+</div>
   <main id="lp-main">
     <header class="lp-header" id="lp-header">
       <div class="container lp-header-inner">
@@ -2668,6 +2774,13 @@
           </div>
 
         </div>
+
+        <!-- Botão ver mais perguntas — só mobile -->
+        <button class="faq-show-more-btn" id="faq-toggle" aria-expanded="false">
+          <span class="btn-more-text">Ver mais perguntas</span>
+          <span class="btn-less-text">Ver menos</span>
+        </button>
+
       </div>
     </section>
 
@@ -3137,6 +3250,47 @@
           } catch(e) {}
         });
       }, 1200);
+    })();
+
+    // Mobile sticky CTA bar — aparece após scroll, some quando chega no #contato
+    (function() {
+      var bar = document.getElementById('mobile-cta-bar');
+      var contato = document.getElementById('contato');
+      if (!bar) return;
+
+      var shown = false;
+
+      function update() {
+        var scrollY = window.scrollY;
+        var inContato = contato && scrollY + window.innerHeight >= contato.getBoundingClientRect().top + scrollY - 80;
+
+        if (scrollY > 120 && !inContato) {
+          bar.classList.add('visible');
+          bar.classList.remove('hidden');
+          shown = true;
+        } else if (shown) {
+          bar.classList.remove('visible');
+          bar.classList.add('hidden');
+        }
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+    })();
+
+    // FAQ show more — mobile only
+    (function() {
+      var btn = document.getElementById('faq-toggle');
+      if (!btn) return;
+      var groups = document.querySelectorAll('.lp-faq-group');
+
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.classList.toggle('expanded', !expanded);
+        groups.forEach(function(g, i) {
+          if (i >= 2) g.style.display = expanded ? '' : 'block';
+        });
+      });
     })();
   </script>
 </body>
