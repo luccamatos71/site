@@ -893,16 +893,98 @@
     .entrega-item.active .item-num-line { width: 24px; }
     .item-title { font-family: var(--font-display); font-size: 24px; font-weight: 400; color: var(--text-primary); line-height: 1.2; margin-bottom: 10px; text-wrap: balance; }
     .item-title em { font-style: italic; color: var(--gold); }
-    .item-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; max-width: 320px; }
+    .item-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.75; max-width: 320px; }
 
-    /* mobile entrega stack */
-    .mobile-entrega { padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
-    .mobile-entrega:last-child { border-bottom: none; }
-    .mobile-phone-mini { background: #0d0d10; border-radius: 20px; border: 5px solid #1c1c20; overflow: hidden; box-shadow: 0 0 0 1px #2a2a30, 0 16px 48px rgba(0,0,0,0.8); margin-bottom: 20px; min-height: 130px; }
-    .mobile-num { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--gold); display: block; margin-bottom: 10px; }
-    .mobile-title { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--text-primary); line-height: 1.2; margin-bottom: 8px; text-wrap: balance; }
-    .mobile-title em { color: var(--gold); font-style: italic; }
-    .mobile-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+    /* ── MOBILE FEATURE CARDS (rebuscado) ── */
+    .mobile-feature-card {
+      position: relative;
+      padding: 28px 24px 24px;
+      border-radius: var(--radius-lg);
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.4s ease;
+    }
+    .mobile-feature-card:hover { border-color: var(--border-gold); }
+
+    /* linha gold animada no reveal */
+    .mfc-top-line {
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-50) 30%, var(--gold) 50%, var(--gold-50) 70%, transparent);
+      box-shadow: 0 0 10px var(--gold-20);
+      transform: scaleX(0); transform-origin: center;
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.35s;
+    }
+    .mobile-feature-card.is-visible .mfc-top-line { transform: scaleX(1); }
+
+    /* número decorativo de fundo */
+    .mfc-bg-num {
+      position: absolute; right: -6px; bottom: -22px;
+      font-family: var(--font-mono); font-size: 120px; font-weight: 500;
+      line-height: 1; color: var(--gold); opacity: 0.04;
+      pointer-events: none; letter-spacing: -6px; user-select: none;
+    }
+
+    /* glow no canto superior esquerdo */
+    .mfc-corner-glow {
+      position: absolute; top: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, var(--gold-10), transparent 65%);
+      pointer-events: none;
+    }
+
+    /* ícone com pulse ring */
+    .mfc-icon-wrap {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--gold-10); border: 1px solid var(--gold-20);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); position: relative; flex-shrink: 0;
+    }
+    .mfc-icon-wrap::after {
+      content: ''; position: absolute; inset: -5px; border-radius: 50%;
+      border: 1px solid var(--gold-10);
+      animation: ring-pulse 3s ease-in-out infinite;
+    }
+
+    .mfc-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+
+    .mfc-num {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px;
+      color: color-mix(in srgb, var(--gold) 40%, transparent);
+      text-transform: uppercase; display: block; margin-top: 4px;
+    }
+
+    .mfc-title {
+      font-family: var(--font-display); font-size: 22px; font-weight: 400;
+      color: var(--text-primary); line-height: 1.2; margin-bottom: 10px; text-wrap: balance;
+    }
+    .mfc-title em { font-style: italic; color: var(--gold); }
+
+    .mfc-desc {
+      font-size: 13px; color: var(--text-secondary); line-height: 1.65;
+      margin-bottom: 18px; max-width: 280px;
+    }
+
+    /* métrica highlight */
+    .mfc-metric {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 13px;
+      border: 1px solid var(--gold-20); border-radius: var(--radius-pill);
+      font-family: var(--font-mono); font-size: 9px;
+      color: color-mix(in srgb, var(--gold) 60%, transparent); letter-spacing: 0.5px;
+    }
+    .mfc-metric-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: var(--gold);
+      box-shadow: 0 0 6px var(--gold-30); flex-shrink: 0;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    /* conector vertical entre cards */
+    .mfc-connector {
+      display: flex; flex-direction: column; align-items: center; padding: 3px 0; gap: 3px;
+    }
+    .mfc-connector-line { width: 1px; height: 18px; background: linear-gradient(180deg, var(--gold-20), var(--gold-10)); }
+    .mfc-connector-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold-30); box-shadow: 0 0 6px var(--gold-20); }
 
     /* ── DEPOIMENTOS ── */
     .lp-depoimentos { background: var(--canvas); }
@@ -2206,79 +2288,75 @@
 
         </div><!-- sticky-layout -->
 
-        <!-- MOBILE: stack (hidden on desktop) -->
+        <!-- MOBILE: feature cards (hidden on desktop) -->
         <div class="mobile-entrega-stack">
-          <div class="mobile-entrega">
-            <div class="mobile-phone-mini">
-              <div class="screen-inner">
-                <div class="screen-menu-header">
-                  <div class="screen-brand">Restaurante do Chef</div>
-                  <div class="screen-brand-sub">lumyn.menu/restaurante</div>
-                </div>
-                <div class="menu-items" style="padding:8px 14px 0;">
-                  <div class="menu-item in">
-                    <span class="menu-item-icon">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <path d="M4 6h16M4 12h16M4 18h16"></path>
-                      </svg>
-                    </span>
-                    <div class="menu-item-info">
-                      <span class="menu-item-name">Frango grelhado</span>
-                      <span class="menu-item-price">R$ 28,00</span>
-                    </div>
-                  </div>
-                  <div class="menu-item in">
-                    <span class="menu-item-icon">
-                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <path d="M4 6h16M4 12h16M4 18h16"></path>
-                      </svg>
-                    </span>
-                    <div class="menu-item-info">
-                      <span class="menu-item-name">Marmita fit</span>
-                      <span class="menu-item-price">R$ 24,90</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="menu-link-bar in" style="margin:8px 14px 0;">
-                  <span class="menu-link-dot"></span>
-                  <span class="menu-link-url">lumyn.menu/restaurante-do-chef</span>
-                </div>
+
+          <div class="mobile-feature-card reveal">
+            <div class="mfc-corner-glow"></div>
+            <div class="mfc-top-line"></div>
+            <span class="mfc-bg-num">01</span>
+            <div class="mfc-header">
+              <div class="mfc-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
               </div>
+              <span class="mfc-num">01 / 03</span>
             </div>
-            <span class="mobile-num">01 / 05</span>
-            <h3 class="mobile-title">Cardápio digital<br><em>com link próprio</em></h3>
-            <p class="mobile-desc">Sem app, sem cadastro. O cliente acessa direto do WhatsApp.</p>
+            <h3 class="mfc-title">Cardápio digital<br><em>com link próprio</em></h3>
+            <p class="mfc-desc">Sem app, sem cadastro. O cliente acessa direto do WhatsApp, vê os produtos com preços e manda o pedido organizado.</p>
+            <div class="mfc-metric">
+              <span class="mfc-metric-dot"></span>
+              Funciona 24h · zero configuração
+            </div>
           </div>
-          <div class="mobile-entrega">
-            <div class="mobile-phone-mini">
-              <div class="screen-inner">
-                <div class="chat-header"><div class="chat-avatar">R</div><div class="chat-info"><span class="chat-name">Restaurante do Chef</span><span class="chat-online">online</span></div></div>
-                <div class="chat-body" style="padding:8px 14px;">
-                  <div class="bubble bubble-in in" style="font-size:9px;padding:5px 8px;">oi, tem cardápio?</div>
-                  <div class="bubble bubble-out in" style="font-size:9px;padding:5px 8px;">lumyn.menu/restaurante</div>
-                </div>
+
+          <div class="mfc-connector">
+            <div class="mfc-connector-line"></div>
+            <div class="mfc-connector-dot"></div>
+            <div class="mfc-connector-line"></div>
+          </div>
+
+          <div class="mobile-feature-card reveal">
+            <div class="mfc-corner-glow"></div>
+            <div class="mfc-top-line"></div>
+            <span class="mfc-bg-num">02</span>
+            <div class="mfc-header">
+              <div class="mfc-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               </div>
+              <span class="mfc-num">02 / 03</span>
             </div>
-            <span class="mobile-num">02 / 05</span>
-            <h3 class="mobile-title">Resposta automática<br><em>de boas-vindas</em></h3>
-            <p class="mobile-desc">Funciona 24h. Sem você fazer nada.</p>
+            <h3 class="mfc-title">Resposta automática<br><em>de boas-vindas</em></h3>
+            <p class="mfc-desc">Quando o cliente manda mensagem, já recebe o cardápio automaticamente. Funciona 24h por dia, sem você fazer nada.</p>
+            <div class="mfc-metric">
+              <span class="mfc-metric-dot"></span>
+              0 mensagens sem resposta
+            </div>
           </div>
-          <div class="mobile-entrega">
-            <div class="mobile-phone-mini">
-              <div class="screen-inner screen-flow" style="padding:12px 14px;">
-                <div class="flow-diagram" style="gap:4px;">
-                  <div class="flow-node in done" style="padding:6px 4px;font-size:8px;">Cliente entra</div>
-                  <div class="flow-connector" style="width:14px;"><div class="flow-connector-fill in"></div></div>
-                  <div class="flow-node in done" style="padding:6px 4px;font-size:8px;">Cardápio</div>
-                  <div class="flow-connector" style="width:14px;"><div class="flow-connector-fill in"></div></div>
-                  <div class="flow-node in done" style="padding:6px 4px;font-size:8px;">Pedido feito</div>
-                </div>
+
+          <div class="mfc-connector">
+            <div class="mfc-connector-line"></div>
+            <div class="mfc-connector-dot"></div>
+            <div class="mfc-connector-line"></div>
+          </div>
+
+          <div class="mobile-feature-card reveal">
+            <div class="mfc-corner-glow"></div>
+            <div class="mfc-top-line"></div>
+            <span class="mfc-bg-num">03</span>
+            <div class="mfc-header">
+              <div class="mfc-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </div>
+              <span class="mfc-num">03 / 03</span>
             </div>
-            <span class="mobile-num">03 / 05</span>
-            <h3 class="mobile-title">Fluxo de atendimento<br><em>definido</em></h3>
-            <p class="mobile-desc">Do primeiro "oi" ao pedido confirmado.</p>
+            <h3 class="mfc-title">Fluxo de atendimento<br><em>definido</em></h3>
+            <p class="mfc-desc">Do primeiro "oi" ao pedido confirmado, cada etapa mapeada. Nenhuma mensagem se perde no meio da conversa.</p>
+            <div class="mfc-metric">
+              <span class="mfc-metric-dot"></span>
+              Do oi ao pedido · sem perda
+            </div>
           </div>
+
         </div><!-- mobile-entrega-stack -->
 
       </div><!-- container -->
